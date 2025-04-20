@@ -149,7 +149,7 @@ const AboutMe = () => {
                     and a desire to build useful applications.
                   </p>
                   <p className="text-muted-foreground">
-                    This interactive portfolio is designed to showcase my skills, projects,
+                    This interactive resume is designed to showcase my skills, projects,
                     and approach to problem-solving. Feel free to explore the different sections to get a
                     comprehensive view of what I can bring to your team or project.
                   </p>
@@ -417,7 +417,7 @@ const AboutMe = () => {
               <div>
                 <h2 className="text-2xl font-bold mb-2">Want to learn more?</h2>
                 <p className="text-muted-foreground max-w-xl">
-                  Explore my skills, projects, and experience through the interactive sections of this portfolio.
+                  Explore my skills, projects, and experience through the interactive sections of this resume.
                 </p>
               </div>
               <div className="flex gap-4">

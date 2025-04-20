@@ -345,7 +345,7 @@ const Dashboard = () => {
               <div>
                 <h3 className="text-2xl font-bold mb-2">Ready to learn more?</h3>
                 <p className="text-muted-foreground max-w-xl">
-                  Start exploring my interactive portfolio or reach out to discuss how I can contribute to your team.
+                  Start exploring my interactive resume or reach out to discuss how I can contribute to your team.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
