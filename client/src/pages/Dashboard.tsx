@@ -137,12 +137,13 @@ const Dashboard = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-                Real-World Problem Solver
+                Smart Skills Matchmaker
               </h2>
               <p className="text-lg text-muted-foreground">
-                See how my actual skills could solve <span className="font-semibold text-foreground">your specific workplace challenges</span>. 
-                Describe a technical scenario, and the AI will analyze my documented skills to show how I would realistically 
-                approach your problem. This tool is grounded in my actual capabilities and experience.
+                Discover how my <span className="font-semibold text-foreground">unique skills match your workplace needs</span>. 
+                Describe your technical challenge, and this tool will intelligently match it with my relevant capabilities, 
+                revealing connections you might not have considered. It's designed to identify the perfect fit between 
+                your situation and my specialized expertise.
               </p>
             </div>
           </div>
@@ -164,7 +165,7 @@ const Dashboard = () => {
                 <div className="flex justify-end">
                   <Link href="/skills">
                     <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Generate Response
+                      Find Skill Matches
                       <Sparkles className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -179,8 +180,8 @@ const Dashboard = () => {
                 <span className="font-semibold">1</span>
               </div>
               <div>
-                <h4 className="font-medium">Describe Your Challenge</h4>
-                <p className="text-sm text-muted-foreground">Outline a technical challenge, project, or workplace scenario</p>
+                <h4 className="font-medium">Share Your Scenario</h4>
+                <p className="text-sm text-muted-foreground">Describe a workplace challenge or technical need you're facing</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -188,8 +189,8 @@ const Dashboard = () => {
                 <span className="font-semibold">2</span>
               </div>
               <div>
-                <h4 className="font-medium">Skills Analysis</h4>
-                <p className="text-sm text-muted-foreground">AI identifies the relevant skills and experience from my profile</p>
+                <h4 className="font-medium">Intelligent Matching</h4>
+                <p className="text-sm text-muted-foreground">System identifies which of my skills are most relevant to your specific needs</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -197,8 +198,8 @@ const Dashboard = () => {
                 <span className="font-semibold">3</span>
               </div>
               <div>
-                <h4 className="font-medium">Customized Response</h4>
-                <p className="text-sm text-muted-foreground">Receive a personalized synthesis showing how my skills could address your needs</p>
+                <h4 className="font-medium">Tailored Skill Match</h4>
+                <p className="text-sm text-muted-foreground">See how my specific skills align with your challenge and create a perfect match</p>
               </div>
             </div>
           </div>
