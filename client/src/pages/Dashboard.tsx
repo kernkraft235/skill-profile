@@ -140,10 +140,10 @@ const Dashboard = () => {
                 Skill Translator
               </h2>
               <p className="text-lg text-muted-foreground">
-                This tool <span className="font-semibold text-foreground">translates your workplace challenges into my skill language</span>. 
-                Describe a technical situation you're facing, and it will identify which of my specific capabilities 
-                would be most valuable to you. It reveals connections between your needs and my expertise that 
-                might not be immediately obvious from my background.
+                This tool <span className="font-semibold text-foreground">shows how my actual skills can adapt to your unique challenges</span>. 
+                Share a workplace scenario, and see how my existing capabilities could solve it in ways you 
+                might not expect. Unlike generic matching, this is firmly grounded in my documented skills and experience,
+                revealing non-obvious applications of my background to your specific situation.
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ const Dashboard = () => {
                   <textarea 
                     id="scenario" 
                     rows={3} 
-                    placeholder="Example: Our team needs to improve workflow efficiency by connecting several systems together and automating repetitive tasks..."
+                    placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
                     className="w-full rounded-md border border-input bg-background p-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   />
                 </div>
