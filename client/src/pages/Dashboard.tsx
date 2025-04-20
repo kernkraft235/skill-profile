@@ -158,9 +158,8 @@ const Dashboard = () => {
               </div>
               <div className="md:flex-shrink-0 w-full md:w-auto flex items-stretch">
                 <Link href="/skills" className="w-full md:w-auto flex">
-                  <Button className="bg-gradient-to-r from-primary to-purple-600 w-full h-full text-sm py-6 flex items-center justify-center">
-                    Match Skills to Your Need
-                    <Sparkles className="ml-2 h-4 w-4" />
+                  <Button className="bg-gradient-to-r from-primary to-purple-600 h-full aspect-square flex items-center justify-center" title="Match Skills to Your Need">
+                    <Sparkles className="h-6 w-6" />
                   </Button>
                 </Link>
               </div>
