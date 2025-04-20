@@ -154,7 +154,7 @@ const Dashboard = () => {
               />
               <Link href="/skills" className="h-[68px] flex items-center">
                 <Button className="bg-primary h-[68px] w-[68px] rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
-                  <Sparkles className="h-5 w-5 text-white" />
+                  <Sparkles className="h-8 w-8 text-white" />
                 </Button>
               </Link>
             </div>
