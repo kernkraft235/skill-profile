@@ -138,7 +138,7 @@ const Dashboard = () => {
             </p>
           </div>
 
-          <div className="mb-6">
+          <div className="mt-8 mb-8">
             <div className="flex gap-2 w-full">
               <textarea 
                 id="scenario" 
