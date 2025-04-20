@@ -144,21 +144,21 @@ const Dashboard = () => {
           </div>
 
           <div className="mb-6">
-            <div className="flex flex-col md:flex-row gap-4 items-end">
-              <div className="flex-grow space-y-2">
-                <label htmlFor="scenario" className="text-sm font-medium">
-                  Describe your technical challenge or project:
-                </label>
+            <label htmlFor="scenario" className="text-sm font-medium block mb-2">
+              Describe your technical challenge or project:
+            </label>
+            <div className="flex flex-col md:flex-row gap-3">
+              <div className="flex-grow">
                 <textarea 
                   id="scenario" 
-                  rows={2} 
+                  rows={3} 
                   placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
-                  className="w-full rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="w-full h-full min-h-[72px] rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 />
               </div>
-              <div className="md:flex-shrink-0 mt-2 md:mt-0 w-full md:w-auto">
-                <Link href="/skills" className="w-full md:w-auto block">
-                  <Button className="bg-gradient-to-r from-primary to-purple-600 w-full md:w-auto">
+              <div className="md:flex-shrink-0 w-full md:w-auto flex items-stretch">
+                <Link href="/skills" className="w-full md:w-auto flex">
+                  <Button className="bg-gradient-to-r from-primary to-purple-600 w-full h-full text-sm py-6 flex items-center justify-center">
                     Match Skills to Your Need
                     <Sparkles className="ml-2 h-4 w-4" />
                   </Button>
