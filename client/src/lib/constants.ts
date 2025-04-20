@@ -7,7 +7,7 @@ export const PORTFOLIO_OWNER = {
   github: "https://github.com/grahamcolehour",
   linkedin: "https://linkedin.com/in/grahamcolehour",
   description: "I build innovative web applications with cutting-edge technologies. Explore my work and learn more about my journey in tech.",
-  photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  photo: "https://placehold.co/400x400/grey/white?text=GC&font=playfair",
   yearsExperience: 7,
 };
 
@@ -118,38 +118,38 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCES: Experience[] = [
   {
     id: 1,
-    role: "Senior Full Stack Developer",
-    company: "TechInnovate Solutions",
-    period: "Jan 2020 - Present",
-    description: "Led the development of a cloud-based SaaS platform, resulting in a 40% increase in user engagement and 25% revenue growth. Mentored junior developers and implemented modern CI/CD practices.",
+    role: "Technology Enthusiast",
+    company: "Personal Projects",
+    period: "2021 - Present",
+    description: "Developed various personal projects to enhance skills in full-stack development. Focused on learning modern frameworks and technologies through practical application.",
     achievements: [
-      "Architected and deployed microservices infrastructure reducing server costs by 35%",
-      "Implemented automated testing reducing bug reports by 60%",
-      "Led migration from monolith to microservices architecture"
+      "Created a portfolio website showcasing technical abilities and projects",
+      "Implemented responsive design and modern UI patterns",
+      "Built applications using React, Node.js, and modern JavaScript"
     ]
   },
   {
     id: 2,
-    role: "Full Stack Developer",
-    company: "WebFront Technologies",
-    period: "Mar 2017 - Dec 2019",
-    description: "Developed responsive web applications for clients in finance and healthcare sectors. Collaborated with design and product teams to deliver high-quality software solutions.",
+    role: "Open Source Contributor",
+    company: "Various Projects",
+    period: "2019 - Present",
+    description: "Contributed to open source projects to improve coding skills and collaborate with the developer community. Participated in code reviews and implementation discussions.",
     achievements: [
-      "Delivered 15+ client projects with 100% on-time completion rate",
-      "Optimized front-end performance increasing page load speeds by 45%",
-      "Implemented secure authentication systems for healthcare applications"
+      "Submitted pull requests to improve documentation and features",
+      "Fixed bugs in community projects",
+      "Learned best practices through peer code reviews"
     ]
   },
   {
     id: 3,
-    role: "Junior Web Developer",
-    company: "Digital Creations Agency",
-    period: "Jun 2015 - Feb 2017",
-    description: "Worked on front-end development for various client websites. Collaborated with designers to implement responsive layouts and interactive features.",
+    role: "Self-taught Developer",
+    company: "Online Learning Platforms",
+    period: "2018 - Present",
+    description: "Completed numerous courses on web development, programming fundamentals, and software architecture. Built projects to apply learned concepts.",
     achievements: [
-      "Built custom WordPress themes for 10+ client websites",
-      "Implemented responsive design principles across all projects",
-      "Developed custom JavaScript animations and interactive elements"
+      "Mastered core web technologies including HTML, CSS, and JavaScript",
+      "Completed advanced courses in React, Node.js, and databases",
+      "Developed problem-solving skills through coding challenges"
     ]
   }
 ];
