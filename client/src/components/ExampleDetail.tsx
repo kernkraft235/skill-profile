@@ -97,7 +97,7 @@ const ExampleDetail = ({ exampleId, onBack }: ExampleDetailProps) => {
               <Button 
                 variant="outline" 
                 className="ml-auto"
-                onClick={() => window.open(example.link, '_blank')}
+                onClick={() => example.link && window.open(example.link, '_blank')}
               >
                 View Project
                 <ExternalLink className="ml-2 h-4 w-4" />

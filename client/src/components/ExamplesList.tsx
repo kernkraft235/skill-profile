@@ -114,7 +114,7 @@ const ExamplesList = ({ skillId, onExampleSelect, onBack }: ExamplesListProps) =
                   <Button 
                     variant="outline" 
                     size="sm"
-                    onClick={() => window.open(example.link, '_blank')}
+                    onClick={() => example.link && window.open(example.link, '_blank')}
                   >
                     Link
                     <ExternalLink className="ml-1 h-3 w-3" />

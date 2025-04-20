@@ -75,7 +75,7 @@ const Home = () => {
   };
 
   // Generate synthetic example
-  const handleGenerateSynthetic = (prompt: string) => {
+  const handleGenerateSynthetic = async (prompt: string) => {
     if (selectedSkillIds.length === 0) {
       toast({
         title: "No skills selected",
@@ -85,11 +85,45 @@ const Home = () => {
       return;
     }
 
-    // To be implemented
-    toast({
-      title: "Generating example",
-      description: "Your custom example is being generated with AI...",
-    });
+    try {
+      toast({
+        title: "Generating example",
+        description: "Your custom example is being generated with AI...",
+      });
+
+      // Call the API to generate a synthetic example
+      const res = await apiRequest('POST', '/api/skill-examples/synthetic', {
+        prompt,
+        relatedSkillIds: selectedSkillIds
+      });
+      
+      if (!res.ok) {
+        const error = await res.json();
+        throw new Error(error.message || 'Failed to generate synthetic example');
+      }
+      
+      const data = await res.json();
+      
+      // Navigate to the generated example detail view
+      if (data.example && data.example.id) {
+        setSelectedExampleId(data.example.id);
+        setViewState('example-detail');
+        
+        toast({
+          title: "Example generated!",
+          description: "Your custom example has been created successfully.",
+          variant: "default",
+        });
+      }
+    } catch (err) {
+      const error = err as Error;
+      console.error('Error generating synthetic example:', error);
+      toast({
+        title: "Generation failed",
+        description: error.message || "There was a problem generating your example. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   if (isLoading) {

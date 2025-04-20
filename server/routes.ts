@@ -256,7 +256,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           max_tokens: 1000,
         });
         
-        const generatedContent = JSON.parse(response.choices[0].message.content);
+        const generatedContent = JSON.parse(response.choices[0].message.content || '{}');
         
         // Create a new skill example
         const exampleData = insertSkillExampleSchema.parse({
