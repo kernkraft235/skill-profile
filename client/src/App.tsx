@@ -10,6 +10,7 @@ import NavBar from "@/components/NavBar";
 // Pages
 import Dashboard from "@/pages/Dashboard";
 import Home from "@/pages/Home";
+import AboutMe from "@/pages/AboutMe";
 import ExperienceExplorer from "@/pages/ExperienceExplorer";
 import InterestsExplorer from "@/pages/InterestsExplorer";
 import NotFound from "@/pages/not-found";
@@ -21,6 +22,7 @@ function Router() {
       <div className="flex-1">
         <Switch>
           <Route path="/" component={Dashboard} />
+          <Route path="/about" component={AboutMe} />
           <Route path="/skills" component={Home} />
           <Route path="/experience" component={ExperienceExplorer} />
           <Route path="/interests" component={InterestsExplorer} />

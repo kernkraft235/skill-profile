@@ -12,14 +12,24 @@ import {
   Sparkles, 
   Search,
   Bot,
-  GraduationCap,
+  User,
   Globe,
-  Code
+  Code,
+  BookOpen
 } from 'lucide-react';
 import { PORTFOLIO_OWNER } from '@/lib/constants';
 
 const Dashboard = () => {
   const sections = [
+    {
+      title: "About Me",
+      description: "Learn more about me, my background, and my approach to work.",
+      longDescription: "Get to know me better through my professional journey, personal interests, and work philosophy. Find out what drives me and how I approach challenges.",
+      icon: <User className="h-10 w-10 text-emerald-500" />,
+      color: "from-emerald-500 to-teal-600",
+      link: "/about",
+      features: ["Professional background", "Personal interests", "Values & approach"]
+    },
     {
       title: "Skill Explorer",
       description: "Dive into my skills and see detailed examples of my work.",
@@ -99,7 +109,7 @@ const Dashboard = () => {
                   <Heart className="h-8 w-8 text-rose-500" />
                 </div>
                 <div className="absolute top-10 right-8 w-14 h-14 bg-green-500/10 rounded-xl backdrop-blur-md border border-white/10 flex items-center justify-center">
-                  <GraduationCap className="h-7 w-7 text-green-500" />
+                  <User className="h-7 w-7 text-green-500" />
                 </div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-primary/10 rounded-full backdrop-blur-md border border-white/10 flex items-center justify-center">
                   <Globe className="h-14 w-14 text-primary" />
