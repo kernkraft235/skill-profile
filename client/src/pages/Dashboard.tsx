@@ -144,20 +144,18 @@ const Dashboard = () => {
           </div>
 
           <div className="mb-6">
-            <div className="grid grid-cols-[1fr,auto] gap-2 w-full">
+            <div className="flex gap-2 w-full">
               <textarea 
                 id="scenario" 
                 rows={2}
                 placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
-                className="w-full rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary resize-none"
+                className="flex-1 rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary resize-none"
               />
-              <div className="flex items-center h-full">
-                <Link href="/skills">
-                  <Button className="bg-primary h-full w-12 rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
-                    <Sparkles className="h-5 w-5 text-white" />
-                  </Button>
-                </Link>
-              </div>
+              <Link href="/skills">
+                <Button className="bg-primary h-[60px] w-[60px] min-w-[60px] rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
+                  <Sparkles className="h-5 w-5 text-white" />
+                </Button>
+              </Link>
             </div>
           </div>
 
