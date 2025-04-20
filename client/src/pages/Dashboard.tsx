@@ -70,12 +70,12 @@ const Dashboard = () => {
             <Badge 
               className="mb-4 bg-gradient-to-r from-primary to-purple-500 text-white hover:from-primary hover:to-purple-600"
             >
-              Interactive Resume
+              Professional Profile
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
               Welcome to {PORTFOLIO_OWNER.name}'s
               <span className="block bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
-                Digital Experience
+                Professional Portfolio
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-3">
