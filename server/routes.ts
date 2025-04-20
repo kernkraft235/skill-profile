@@ -1,0 +1,430 @@
+import { Request, Response } from "express";
+import type { Express } from "express";
+import { createServer, type Server } from "http";
+import { storage } from "./storage";
+import { 
+  insertChatMessageSchema, 
+  insertContactSubmissionSchema,
+  insertSkillExampleSchema,
+  insertSkillToExampleSchema
+} from "@shared/schema";
+import OpenAI from "openai";
+
+// Initialize OpenAI client
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY || "dummy-key-for-development" });
+
+export async function registerRoutes(app: Express): Promise<Server> {
+  // prefix all routes with /api
+  
+  // === SKILL CATEGORY ROUTES ===
+  
+  // Get root skill categories (level 0)
+  app.get("/api/skill-categories/root", async (_req: Request, res: Response) => {
+    try {
+      const categories = await storage.getSkillCategoriesByParentId(null);
+      return res.status(200).json(categories);
+    } catch (error) {
+      console.error("Get root skill categories error:", error);
+      return res.status(500).json({ message: "Failed to retrieve root skill categories" });
+    }
+  });
+  
+  // Get skill categories by parent id
+  app.get("/api/skill-categories/parent/:parentId", async (req: Request, res: Response) => {
+    try {
+      const parentId = parseInt(req.params.parentId);
+      if (isNaN(parentId)) {
+        return res.status(400).json({ message: "Invalid parent ID" });
+      }
+      
+      const categories = await storage.getSkillCategoriesByParentId(parentId);
+      return res.status(200).json(categories);
+    } catch (error) {
+      console.error("Get skill categories by parent error:", error);
+      return res.status(500).json({ message: "Failed to retrieve skill categories" });
+    }
+  });
+  
+  // Get all skill categories
+  app.get("/api/skill-categories", async (_req: Request, res: Response) => {
+    try {
+      const categories = await storage.getAllSkillCategories();
+      return res.status(200).json(categories);
+    } catch (error) {
+      console.error("Get all skill categories error:", error);
+      return res.status(500).json({ message: "Failed to retrieve all skill categories" });
+    }
+  });
+  
+  // Get single skill category by id
+  app.get("/api/skill-categories/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid category ID" });
+      }
+      
+      const category = await storage.getSkillCategory(id);
+      if (!category) {
+        return res.status(404).json({ message: "Skill category not found" });
+      }
+      
+      return res.status(200).json(category);
+    } catch (error) {
+      console.error("Get skill category error:", error);
+      return res.status(500).json({ message: "Failed to retrieve skill category" });
+    }
+  });
+  
+  // === SKILL ROUTES ===
+  
+  // Get skills by category id
+  app.get("/api/skills/category/:categoryId", async (req: Request, res: Response) => {
+    try {
+      const categoryId = parseInt(req.params.categoryId);
+      if (isNaN(categoryId)) {
+        return res.status(400).json({ message: "Invalid category ID" });
+      }
+      
+      const skills = await storage.getSkillsByCategoryId(categoryId);
+      return res.status(200).json(skills);
+    } catch (error) {
+      console.error("Get skills by category error:", error);
+      return res.status(500).json({ message: "Failed to retrieve skills" });
+    }
+  });
+  
+  // Get all skills
+  app.get("/api/skills", async (_req: Request, res: Response) => {
+    try {
+      const skills = await storage.getAllSkills();
+      return res.status(200).json(skills);
+    } catch (error) {
+      console.error("Get all skills error:", error);
+      return res.status(500).json({ message: "Failed to retrieve all skills" });
+    }
+  });
+  
+  // Get single skill by id
+  app.get("/api/skills/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid skill ID" });
+      }
+      
+      const skill = await storage.getSkill(id);
+      if (!skill) {
+        return res.status(404).json({ message: "Skill not found" });
+      }
+      
+      return res.status(200).json(skill);
+    } catch (error) {
+      console.error("Get skill error:", error);
+      return res.status(500).json({ message: "Failed to retrieve skill" });
+    }
+  });
+  
+  // === SKILL EXAMPLES ROUTES ===
+  
+  // Get examples by skill id
+  app.get("/api/skill-examples/skill/:skillId", async (req: Request, res: Response) => {
+    try {
+      const skillId = parseInt(req.params.skillId);
+      if (isNaN(skillId)) {
+        return res.status(400).json({ message: "Invalid skill ID" });
+      }
+      
+      const examples = await storage.getExamplesBySkillId(skillId);
+      return res.status(200).json(examples);
+    } catch (error) {
+      console.error("Get examples by skill error:", error);
+      return res.status(500).json({ message: "Failed to retrieve examples" });
+    }
+  });
+  
+  // Get examples by multiple skill ids (for filtering)
+  app.post("/api/skill-examples/filter", async (req: Request, res: Response) => {
+    try {
+      const { skillIds } = req.body;
+      
+      if (!Array.isArray(skillIds) || skillIds.some(id => typeof id !== 'number')) {
+        return res.status(400).json({ message: "Invalid skill IDs" });
+      }
+      
+      const examples = await storage.getExamplesBySkillIds(skillIds);
+      return res.status(200).json(examples);
+    } catch (error) {
+      console.error("Filter examples error:", error);
+      return res.status(500).json({ message: "Failed to filter examples" });
+    }
+  });
+  
+  // Get all skill examples
+  app.get("/api/skill-examples", async (_req: Request, res: Response) => {
+    try {
+      const examples = await storage.getAllSkillExamples();
+      return res.status(200).json(examples);
+    } catch (error) {
+      console.error("Get all examples error:", error);
+      return res.status(500).json({ message: "Failed to retrieve all examples" });
+    }
+  });
+  
+  // Get single example by id
+  app.get("/api/skill-examples/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid example ID" });
+      }
+      
+      const example = await storage.getSkillExample(id);
+      if (!example) {
+        return res.status(404).json({ message: "Example not found" });
+      }
+      
+      // Get the skills associated with this example
+      const skills = await storage.getSkillsByExampleId(id);
+      
+      return res.status(200).json({
+        ...example,
+        skills
+      });
+    } catch (error) {
+      console.error("Get example error:", error);
+      return res.status(500).json({ message: "Failed to retrieve example" });
+    }
+  });
+  
+  // Create synthetic example
+  app.post("/api/skill-examples/synthetic", async (req: Request, res: Response) => {
+    try {
+      const { prompt, relatedSkillIds } = req.body;
+      
+      if (!prompt || typeof prompt !== "string") {
+        return res.status(400).json({ message: "Prompt is required" });
+      }
+      
+      if (!Array.isArray(relatedSkillIds) || relatedSkillIds.length === 0) {
+        return res.status(400).json({ message: "At least one skill ID is required" });
+      }
+      
+      // Get the skills associated with the provided skill IDs
+      const skills = await Promise.all(
+        relatedSkillIds.map(id => storage.getSkill(id))
+      );
+      
+      // Filter out any undefined skills (in case of invalid skill IDs)
+      const validSkills = skills.filter(skill => skill !== undefined);
+      
+      if (validSkills.length === 0) {
+        return res.status(400).json({ message: "No valid skills found" });
+      }
+      
+      // Get existing examples for these skills to use as context
+      const existingExamples = await storage.getExamplesBySkillIds(relatedSkillIds);
+      
+      // Generate synthetic example using OpenAI
+      try {
+        // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+        const response = await openai.chat.completions.create({
+          model: "gpt-4o",
+          messages: [
+            {
+              role: "system",
+              content: `You are an expert at creating realistic portfolio examples that demonstrate specific skills. 
+              Generate a detailed, realistic example project or work experience that demonstrates the following skills: 
+              ${validSkills.map(skill => skill.name).join(", ")}.
+              
+              Use these existing examples as a reference for style and detail level:
+              ${existingExamples.map(ex => `Title: ${ex.title}\nDescription: ${ex.description}\nDetails: ${ex.details}`).join("\n\n")}
+              
+              Create a response in JSON format with these fields:
+              - title: A concise, professional title for the example (max 100 chars)
+              - description: A brief summary of the example (max 200 chars)
+              - details: Detailed explanation of the example, including challenges, approach, and outcomes (500-800 chars)
+              - image: Leave this as null
+              - link: Leave this as null`
+            },
+            {
+              role: "user",
+              content: prompt
+            }
+          ],
+          response_format: { type: "json_object" },
+          max_tokens: 1000,
+        });
+        
+        const generatedContent = JSON.parse(response.choices[0].message.content);
+        
+        // Create a new skill example
+        const exampleData = insertSkillExampleSchema.parse({
+          title: generatedContent.title,
+          description: generatedContent.description,
+          details: generatedContent.details,
+          image: "https://placehold.co/600x400?text=AI+Generated+Example",
+          link: null,
+          isSynthetic: true
+        });
+        
+        const newExample = await storage.createSkillExample(exampleData);
+        
+        // Associate the example with the skills
+        await Promise.all(
+          relatedSkillIds.map(skillId => 
+            storage.createSkillToExample({
+              skillId,
+              exampleId: newExample.id
+            })
+          )
+        );
+        
+        return res.status(200).json({
+          message: "Successfully generated synthetic example",
+          example: {
+            ...newExample,
+            skills: validSkills
+          }
+        });
+      } catch (error) {
+        console.error("OpenAI API error:", error);
+        return res.status(500).json({ message: "Failed to generate synthetic example" });
+      }
+    } catch (error) {
+      console.error("Create synthetic example error:", error);
+      return res.status(500).json({ message: "Failed to create synthetic example" });
+    }
+  });
+  
+  // === CHAT ROUTES ===
+  
+  // Chat endpoint to handle Q&A with RAG
+  app.post("/api/chat", async (req: Request, res: Response) => {
+    try {
+      const { question } = req.body;
+      
+      if (!question || typeof question !== "string") {
+        return res.status(400).json({ message: "Question is required" });
+      }
+      
+      // Get relevant context from the storage
+      const relevantContexts = await storage.searchRagContexts(question);
+      let contextText = "";
+      
+      if (relevantContexts.length > 0) {
+        contextText = relevantContexts.map(ctx => ctx.content).join("\n\n");
+      }
+      
+      // Generate answer using OpenAI
+      let answer = "";
+      try {
+        // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+        const response = await openai.chat.completions.create({
+          model: "gpt-4o",
+          messages: [
+            {
+              role: "system",
+              content: `You are a helpful assistant that provides information about a portfolio owner's professional experience.
+              Use the following context information to answer the user's question:
+              ${contextText}
+              
+              If the context doesn't contain enough information to answer the question, respond with what you know about the portfolio owner based on the context provided.
+              Keep your answers concise and professional.`
+            },
+            {
+              role: "user",
+              content: question
+            }
+          ],
+          max_tokens: 500,
+        });
+        
+        answer = response.choices[0].message.content || "I'm sorry, I couldn't generate a response at this time.";
+      } catch (error) {
+        console.error("OpenAI API error:", error);
+        // Fallback answer if the API call fails
+        answer = "I'm experiencing some technical difficulties right now. Please try again later.";
+      }
+      
+      // Store the chat exchange
+      const validatedData = insertChatMessageSchema.parse({
+        question,
+        answer
+      });
+      
+      const chatMessage = await storage.createChatMessage(validatedData);
+      
+      return res.status(200).json({
+        message: "Successfully generated answer",
+        answer,
+        question
+      });
+    } catch (error) {
+      console.error("Chat endpoint error:", error);
+      return res.status(500).json({ message: "Failed to process your question" });
+    }
+  });
+  
+  // Get chat history
+  app.get("/api/chat/history", async (_req: Request, res: Response) => {
+    try {
+      const messages = await storage.getChatMessages();
+      return res.status(200).json(messages);
+    } catch (error) {
+      console.error("Get chat history error:", error);
+      return res.status(500).json({ message: "Failed to retrieve chat history" });
+    }
+  });
+  
+  // === CONTACT ROUTES ===
+  
+  // Contact form submission
+  app.post("/api/contact", async (req: Request, res: Response) => {
+    try {
+      const submission = req.body;
+      
+      // Validate the submission with zod schema
+      const validatedData = insertContactSubmissionSchema.parse(submission);
+      
+      // Store the submission
+      const savedSubmission = await storage.createContactSubmission(validatedData);
+      
+      return res.status(200).json({
+        message: "Contact form submitted successfully",
+        submission: savedSubmission
+      });
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      return res.status(500).json({ message: "Failed to submit contact form" });
+    }
+  });
+  
+  // === PORTFOLIO DATA ROUTES ===
+  
+  // Get portfolio data
+  app.get("/api/portfolio", async (_req: Request, res: Response) => {
+    try {
+      // Get RAG contexts which contain basic portfolio data
+      const aboutData = await storage.getRagContextsBySection("about");
+      
+      // Get skill hierarchy data
+      const rootCategories = await storage.getSkillCategoriesByParentId(null);
+      
+      // Format the data for the frontend
+      const portfolio = {
+        about: aboutData,
+        skillCategories: rootCategories
+      };
+      
+      return res.status(200).json(portfolio);
+    } catch (error) {
+      console.error("Get portfolio data error:", error);
+      return res.status(500).json({ message: "Failed to retrieve portfolio data" });
+    }
+  });
+
+  const httpServer = createServer(app);
+  
+  return httpServer;
+}
