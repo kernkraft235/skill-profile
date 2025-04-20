@@ -15,7 +15,8 @@ import {
   User,
   Globe,
   Code,
-  BookOpen
+  BookOpen,
+  Terminal
 } from 'lucide-react';
 import { PORTFOLIO_OWNER } from '@/lib/constants';
 
@@ -81,10 +82,10 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">I bridge infrastructure knowledge with powerful command line and automation skills</span> — 
-              focusing on how systems interact rather than syntax. My shell scripting and CLI expertise let me efficiently 
-              automate operations across Platform Engineering, Infrastructure, and Cloud environments without needing to be 
-              primarily a developer.
+              <span className="font-semibold text-foreground">I combine technical versatility with a deep understanding of systems</span> — 
+              focusing on how technology components interact and work together. My skills span multiple domains including infrastructure, 
+              automation, and technical problem-solving, allowing me to adapt to various roles and challenges in today's 
+              technology landscape.
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
@@ -136,13 +137,13 @@ const Dashboard = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-                Infrastructure & Automation Solutions
+                Skill Synthesis
               </h2>
               <p className="text-lg text-muted-foreground">
-                See how my command line expertise and systems understanding could solve <span className="font-semibold text-foreground">your technical challenges</span>. 
-                Describe an infrastructure or automation need, and the AI will showcase a solution <span className="font-semibold text-foreground">using my shell scripting and systems expertise</span>. 
-                My focus is on how systems interact rather than syntax details—I can architect solutions that connect components 
-                and automate processes efficiently, even without being primarily a developer.
+                See how my diverse technical skills could address <span className="font-semibold text-foreground">your specific challenges</span>. 
+                Describe a scenario from your workplace, and the AI will create a tailored response showing how my 
+                skillset could be applied to your unique situation. This demonstrates my ability to adapt to different 
+                environments and requirements.
               </p>
             </div>
           </div>
@@ -152,19 +153,19 @@ const Dashboard = () => {
               <form className="space-y-4">
                 <div className="space-y-2">
                   <label htmlFor="scenario" className="text-sm font-medium">
-                    Describe your infrastructure or automation challenge:
+                    Describe your technical challenge or project:
                   </label>
                   <textarea 
                     id="scenario" 
                     rows={3} 
-                    placeholder="Example: We need to automate server provisioning and configuration management while ensuring consistent security standards across environments..."
+                    placeholder="Example: Our team needs to improve workflow efficiency by connecting several systems together and automating repetitive tasks..."
                     className="w-full rounded-md border border-input bg-background p-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   />
                 </div>
                 <div className="flex justify-end">
                   <Link href="/skills">
                     <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Generate Solution
+                      Generate Response
                       <Sparkles className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -179,8 +180,8 @@ const Dashboard = () => {
                 <span className="font-semibold">1</span>
               </div>
               <div>
-                <h4 className="font-medium">Describe Your Technical Challenge</h4>
-                <p className="text-sm text-muted-foreground">Outline an infrastructure, automation, or systems integration problem</p>
+                <h4 className="font-medium">Describe Your Challenge</h4>
+                <p className="text-sm text-muted-foreground">Outline a technical challenge, project, or workplace scenario</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -188,8 +189,8 @@ const Dashboard = () => {
                 <span className="font-semibold">2</span>
               </div>
               <div>
-                <h4 className="font-medium">Technical Analysis</h4>
-                <p className="text-sm text-muted-foreground">AI maps your challenge to my infrastructure knowledge, automation capabilities, and systems expertise</p>
+                <h4 className="font-medium">Skills Analysis</h4>
+                <p className="text-sm text-muted-foreground">AI identifies the relevant skills and experience from my profile</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -197,37 +198,56 @@ const Dashboard = () => {
                 <span className="font-semibold">3</span>
               </div>
               <div>
-                <h4 className="font-medium">Solution Architecture</h4>
-                <p className="text-sm text-muted-foreground">Receive a tailored solution that demonstrates my ability to architect, automate, and implement technical systems</p>
+                <h4 className="font-medium">Customized Response</h4>
+                <p className="text-sm text-muted-foreground">Receive a personalized synthesis showing how my skills could address your needs</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skill transition message */}
+      {/* Technical specialties */}
       <section className="mb-16">
-        <Card className="border-border/50 shadow-sm bg-gradient-to-r from-primary/5 to-purple-500/5">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <div className="bg-primary/10 p-3 rounded-full">
-                <Code className="h-6 w-6 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="border-border/50 shadow-sm bg-gradient-to-r from-primary/5 to-purple-500/5">
+            <CardContent className="p-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-full">
+                  <Code className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
+                  <p className="text-muted-foreground">
+                    This profile showcases my comprehensive understanding of IT ecosystems—from computer architecture 
+                    and virtualization to databases and infrastructure. My unique position is at the intersection of 
+                    traditional IT and modern DevOps practices, with a focus on understanding how systems interact together. 
+                    These skills are valuable in roles like Platform Engineering, Infrastructure Automation, 
+                    Cloud Operations, and Technical Solutions Engineering.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
-                <p className="text-muted-foreground">
-                  This profile showcases my comprehensive understanding of IT ecosystems—from computer architecture 
-                  and virtualization to databases and infrastructure. I have exceptional command line expertise and shell 
-                  scripting abilities, allowing me to "operate like a motherfucker from the command line." My unique position 
-                  is at the intersection of traditional IT and modern DevOps practices, where I focus on understanding how 
-                  systems interact together and automating their operations. I excel in roles like Platform Engineering, 
-                  Infrastructure Automation, Junior SRE, and Cloud Operations where these automation skills combined with 
-                  my deep systems knowledge create significant value.
-                </p>
+            </CardContent>
+          </Card>
+          
+          <Card className="border-border/50 shadow-sm bg-gradient-to-r from-blue-500/5 to-cyan-500/5">
+            <CardContent className="p-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-blue-500/10 p-3 rounded-full">
+                  <Terminal className="h-6 w-6 text-blue-500" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Command Line & Scripting Expert</h3>
+                  <p className="text-muted-foreground">
+                    I have exceptional command line expertise and shell scripting abilities, allowing me to "operate like a 
+                    motherfucker from the command line." This proficiency enables me to efficiently automate operations, manage 
+                    systems, and solve complex technical problems through scripting rather than requiring full application 
+                    development. I excel at creating practical solutions that connect systems and streamline workflows.
+                  </p>
+                </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       {/* Main sections */}
