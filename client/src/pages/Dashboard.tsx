@@ -82,8 +82,8 @@ const Dashboard = () => {
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
               <span className="font-semibold text-foreground">This portfolio itself is a demonstration of some of my skills</span> — 
-              built with React, TypeScript, and RAG-based retrieval systems, showcasing abilities in 
-              full-stack development, UI/UX design, and neural-network inference techniques.
+              built with React, TypeScript, and context-aware RAG systems, showcasing abilities in 
+              full-stack development, UI/UX design, and practical OpenAI API integration.
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
