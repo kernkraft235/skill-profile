@@ -153,13 +153,13 @@ const Dashboard = () => {
                   id="scenario" 
                   rows={3} 
                   placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
-                  className="w-full h-full min-h-[72px] rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="w-full h-full min-h-[48px] rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 />
               </div>
-              <div className="md:flex-shrink-0 w-full md:w-auto flex items-center">
-                <Link href="/skills" className="w-full md:w-auto flex">
-                  <Button className="bg-gradient-to-r from-primary to-purple-600 w-[72px] h-[72px] rounded-md flex items-center justify-center" title="Match Skills to Your Need">
-                    <Sparkles className="h-8 w-8" />
+              <div className="md:flex-shrink-0 w-full md:w-auto flex">
+                <Link href="/skills" className="w-full md:w-auto">
+                  <Button className="bg-gradient-to-r from-primary to-purple-600 w-[48px] h-[48px] rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
+                    <Sparkles className="h-6 w-6" />
                   </Button>
                 </Link>
               </div>
