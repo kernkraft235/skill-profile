@@ -140,10 +140,10 @@ const Dashboard = () => {
                 Skill Translator
               </h2>
               <p className="text-lg text-muted-foreground">
-                This tool <span className="font-semibold text-foreground">shows how my actual skills can adapt to your unique challenges</span>. 
-                Share a workplace scenario, and see how my existing capabilities could solve it in ways you 
-                might not expect. Unlike generic matching, this is firmly grounded in my documented skills and experience,
-                revealing non-obvious applications of my background to your specific situation.
+                This tool <span className="font-semibold text-foreground">connects your needs with my documented capabilities</span>. 
+                Share a workplace scenario, and I'll identify which of my actual skills and experiences are directly relevant.
+                Unlike generic lists, this focuses on mapping my specific technical background to your 
+                particular situation, showing you exactly which of my skills apply to your needs.
               </p>
             </div>
           </div>
@@ -189,8 +189,8 @@ const Dashboard = () => {
                 <span className="font-semibold">2</span>
               </div>
               <div>
-                <h4 className="font-medium">Intelligent Matching</h4>
-                <p className="text-sm text-muted-foreground">System identifies which of my skills are most relevant to your specific needs</p>
+                <h4 className="font-medium">Skill Mapping</h4>
+                <p className="text-sm text-muted-foreground">System identifies which of my documented skills directly apply to your scenario</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -198,8 +198,8 @@ const Dashboard = () => {
                 <span className="font-semibold">3</span>
               </div>
               <div>
-                <h4 className="font-medium">Tailored Skill Match</h4>
-                <p className="text-sm text-muted-foreground">See how my specific skills align with your challenge and create a perfect match</p>
+                <h4 className="font-medium">Relevant Experience Match</h4>
+                <p className="text-sm text-muted-foreground">See exactly which of my real-world experiences are relevant to your specific situation</p>
               </div>
             </div>
           </div>
