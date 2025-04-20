@@ -81,8 +81,9 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">This interactive resume demonstrates how my technical understanding enhances AI tool usage</span> — 
-              my knowledge of IT infrastructure and systems makes working with AI technologies like RAG more effective than "vibe coding" alone.
+              <span className="font-semibold text-foreground">My skills bridge the gap between IT infrastructure and modern automation</span> — 
+              combining deep technical knowledge with practical automation abilities that let me operate effectively in 
+              Platform Engineering, Infrastructure Automation, Cloud Operations, and Junior SRE roles.
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
@@ -134,12 +135,13 @@ const Dashboard = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-                AI-Powered Skill Matching
+                Infrastructure & Automation Solutions
               </h2>
               <p className="text-lg text-muted-foreground">
-                See how my skills could apply to <span className="font-semibold text-foreground">your specific needs</span>. 
-                Enter a scenario or project from your workplace, and the AI will create a response <span className="font-semibold text-foreground">grounded in my documented skills</span>. 
-                Even for unique skill combinations I haven't directly used together, the AI can intelligently infer capabilities based on my proven skill set.
+                See how my infrastructure knowledge and automation skills could address <span className="font-semibold text-foreground">your specific challenges</span>. 
+                Enter a technical scenario from your workplace, and the AI will create a solution approach <span className="font-semibold text-foreground">that leverages my unique skillset</span> at 
+                the intersection of IT infrastructure and automation. This demonstrates how my blend of system knowledge 
+                and technical capabilities can solve complex problems without extensive developer expertise.
               </p>
             </div>
           </div>
@@ -149,19 +151,19 @@ const Dashboard = () => {
               <form className="space-y-4">
                 <div className="space-y-2">
                   <label htmlFor="scenario" className="text-sm font-medium">
-                    Enter your workplace scenario, project, or challenge:
+                    Describe your infrastructure or automation challenge:
                   </label>
                   <textarea 
                     id="scenario" 
                     rows={3} 
-                    placeholder="Example: Create a dashboard to track customer engagement metrics and visualize trends..."
+                    placeholder="Example: We need to automate server provisioning and configuration management while ensuring consistent security standards across environments..."
                     className="w-full rounded-md border border-input bg-background p-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   />
                 </div>
                 <div className="flex justify-end">
                   <Link href="/skills">
                     <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Generate Scenario
+                      Generate Solution
                       <Sparkles className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -176,8 +178,8 @@ const Dashboard = () => {
                 <span className="font-semibold">1</span>
               </div>
               <div>
-                <h4 className="font-medium">Enter Your Scenario</h4>
-                <p className="text-sm text-muted-foreground">Describe a specific challenge or project from your workplace</p>
+                <h4 className="font-medium">Describe Your Technical Challenge</h4>
+                <p className="text-sm text-muted-foreground">Outline an infrastructure, automation, or systems integration problem</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -185,8 +187,8 @@ const Dashboard = () => {
                 <span className="font-semibold">2</span>
               </div>
               <div>
-                <h4 className="font-medium">Skill Matching</h4>
-                <p className="text-sm text-muted-foreground">AI analyzes your scenario and identifies the relevant skills from my documented capabilities</p>
+                <h4 className="font-medium">Technical Analysis</h4>
+                <p className="text-sm text-muted-foreground">AI maps your challenge to my infrastructure knowledge, automation capabilities, and systems expertise</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -194,8 +196,8 @@ const Dashboard = () => {
                 <span className="font-semibold">3</span>
               </div>
               <div>
-                <h4 className="font-medium">Synthesized Response</h4>
-                <p className="text-sm text-muted-foreground">Receive a tailored scenario showing how my skills could be combined to address your challenge</p>
+                <h4 className="font-medium">Solution Architecture</h4>
+                <p className="text-sm text-muted-foreground">Receive a tailored solution that demonstrates my ability to architect, automate, and implement technical systems</p>
               </div>
             </div>
           </div>
@@ -211,13 +213,13 @@ const Dashboard = () => {
                 <Code className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Technical Infrastructure Specialist</h3>
+                <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
                 <p className="text-muted-foreground">
                   This profile showcases my comprehensive understanding of IT ecosystems—from computer architecture 
-                  and virtualization to databases and infrastructure. While I'm not primarily a developer, my deep 
-                  technical knowledge allows me to effectively leverage AI coding tools in ways that "vibe coders" cannot. 
-                  I'm seeking roles in Systems Analysis, DevOps, or SRE where my holistic understanding of technology 
-                  combined with practical technical experience creates unique value.
+                  and virtualization to databases and infrastructure. My unique position is at the intersection of traditional 
+                  IT and modern DevOps practices. I excel in roles like Platform Engineering, Infrastructure Automation, 
+                  Junior SRE, Cloud Operations, or Technical Solutions Engineer where my deep understanding of systems 
+                  combined with automation capabilities creates value without requiring extensive developer experience.
                 </p>
               </div>
             </div>
