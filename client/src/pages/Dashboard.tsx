@@ -144,9 +144,6 @@ const Dashboard = () => {
           </div>
 
           <div className="mb-6">
-            <label htmlFor="scenario" className="text-sm font-medium block mb-2">
-              Describe your technical challenge or project:
-            </label>
             <div className="flex flex-col md:flex-row gap-3">
               <div className="flex-grow">
                 <textarea 
