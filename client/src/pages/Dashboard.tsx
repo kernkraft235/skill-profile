@@ -202,37 +202,26 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Quick stats */}
+      {/* Skill transition message */}
       <section className="mb-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <Card className="border-border/50 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Experience</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold">{PORTFOLIO_OWNER.yearsExperience}+</p>
-              <p className="text-muted-foreground text-sm">Years</p>
-            </CardContent>
-          </Card>
-          <Card className="border-border/50 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Skills</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold">25+</p>
-              <p className="text-muted-foreground text-sm">Proficient skills</p>
-            </CardContent>
-          </Card>
-          <Card className="border-border/50 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Projects</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold">30+</p>
-              <p className="text-muted-foreground text-sm">Completed</p>
-            </CardContent>
-          </Card>
-        </div>
+        <Card className="border-border/50 shadow-sm bg-gradient-to-r from-primary/5 to-purple-500/5">
+          <CardContent className="p-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-primary/10 p-3 rounded-full">
+                <Code className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Technician to Developer Journey</h3>
+                <p className="text-muted-foreground">
+                  This profile showcases how my technical foundation as a technician combined with
+                  self-taught development skills creates a unique blend of practical experience and modern 
+                  development capabilities. I'm looking to transition into development, DevOps, or IT roles
+                  where I can apply both my hands-on technical experience and programming abilities.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </section>
 
       {/* Main sections */}
