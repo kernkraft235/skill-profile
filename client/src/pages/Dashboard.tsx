@@ -144,18 +144,16 @@ const Dashboard = () => {
           </div>
 
           <div className="mb-6">
-            <div className="flex flex-col md:flex-row gap-3">
-              <div className="flex-grow">
-                <textarea 
-                  id="scenario" 
-                  rows={3} 
-                  placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
-                  className="w-full h-12 rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary resize-none"
-                />
-              </div>
-              <div>
+            <div className="flex flex-row gap-3 relative">
+              <textarea 
+                id="scenario" 
+                rows={2}
+                placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
+                className="w-full pr-16 rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary resize-none"
+              />
+              <div className="absolute right-0 top-0 h-full flex items-center pr-1">
                 <Link href="/skills">
-                  <Button className="bg-primary h-12 w-12 rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
+                  <Button className="bg-primary h-11 w-11 rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
                     <Sparkles className="h-5 w-5 text-white" />
                   </Button>
                 </Link>
