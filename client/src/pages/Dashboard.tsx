@@ -156,10 +156,10 @@ const Dashboard = () => {
                   className="w-full h-full min-h-[72px] rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 />
               </div>
-              <div className="md:flex-shrink-0 w-full md:w-auto flex items-stretch">
+              <div className="md:flex-shrink-0 w-full md:w-auto flex items-center">
                 <Link href="/skills" className="w-full md:w-auto flex">
-                  <Button className="bg-gradient-to-r from-primary to-purple-600 h-full aspect-square flex items-center justify-center" title="Match Skills to Your Need">
-                    <Sparkles className="h-6 w-6" />
+                  <Button className="bg-gradient-to-r from-primary to-purple-600 w-[72px] h-[72px] rounded-md flex items-center justify-center" title="Match Skills to Your Need">
+                    <Sparkles className="h-8 w-8" />
                   </Button>
                 </Link>
               </div>
