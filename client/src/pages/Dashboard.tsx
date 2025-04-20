@@ -140,10 +140,10 @@ const Dashboard = () => {
                 Skill Translator
               </h2>
               <p className="text-lg text-muted-foreground">
-                This tool <span className="font-semibold text-foreground">shows how my skills directly apply to your business challenges</span>. 
-                Describe a workplace scenario, and see which parts of my technical toolbox are relevant.
-                The system makes clear semantic connections between your specific needs and my documented 
-                capabilities, demonstrating how my skill set could be leveraged to address real business problems.
+                This tool <span className="font-semibold text-foreground">identifies which of my skills are relevant to your specific needs</span>. 
+                Describe a workplace challenge, and see exactly which parts of my documented skill set apply.
+                The system shows not just which skills match your situation, but explains why they're 
+                relevant and how they directly relate to addressing your specific business needs.
               </p>
             </div>
           </div>
@@ -165,7 +165,7 @@ const Dashboard = () => {
                 <div className="flex justify-end">
                   <Link href="/skills">
                     <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Translate My Skills
+                      Match Skills to Your Need
                       <Sparkles className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -190,7 +190,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <h4 className="font-medium">Skill Mapping</h4>
-                <p className="text-sm text-muted-foreground">System connects your challenge with relevant skills in my personal toolbox</p>
+                <p className="text-sm text-muted-foreground">Identifies which of my documented skills are relevant to your situation</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -199,7 +199,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <h4 className="font-medium">Relevant Experience Match</h4>
-                <p className="text-sm text-muted-foreground">Shows the semantic connection between my skills and your business problem</p>
+                <p className="text-sm text-muted-foreground">Explains exactly how each skill applies to your specific situation</p>
               </div>
             </div>
           </div>
