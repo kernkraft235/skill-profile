@@ -16,7 +16,8 @@ import {
   Globe,
   Code,
   BookOpen,
-  Terminal
+  Terminal,
+  BarChart2
 } from 'lucide-react';
 import { PORTFOLIO_OWNER } from '@/lib/constants';
 
@@ -137,13 +138,13 @@ const Dashboard = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-                Skill Synthesis
+                Real-World Problem Solver
               </h2>
               <p className="text-lg text-muted-foreground">
-                See how my diverse technical skills could address <span className="font-semibold text-foreground">your specific challenges</span>. 
-                Describe a scenario from your workplace, and the AI will create a tailored response showing how my 
-                skillset could be applied to your unique situation. This demonstrates my ability to adapt to different 
-                environments and requirements.
+                See how my actual skills could address <span className="font-semibold text-foreground">your specific workplace challenges</span>. 
+                Describe a technical scenario you're facing, and the AI will analyze my documented skills and experience to show 
+                how I could realistically approach your problem. This tool is grounded in my actual capabilities—it won't 
+                make things up, only demonstrate how my existing skills could be applied to your situation.
               </p>
             </div>
           </div>
@@ -208,45 +209,88 @@ const Dashboard = () => {
 
       {/* Technical specialties */}
       <section className="mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="border-border/50 shadow-sm bg-gradient-to-r from-primary/5 to-purple-500/5">
+        <div className="space-y-6">
+          {/* Engineering background transition message */}
+          <Card className="border-border/50 shadow-sm bg-gradient-to-r from-orange-500/5 to-amber-500/5">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <Code className="h-6 w-6 text-primary" />
+                <div className="bg-orange-500/10 p-3 rounded-full">
+                  <BookOpen className="h-6 w-6 text-orange-500" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
+                  <h3 className="text-xl font-semibold mb-2">From Nuclear Engineering to IT Systems</h3>
                   <p className="text-muted-foreground">
-                    This profile showcases my comprehensive understanding of IT ecosystems—from computer architecture 
-                    and virtualization to databases and infrastructure. My unique position is at the intersection of 
-                    traditional IT and modern DevOps practices, with a focus on understanding how systems interact together. 
-                    These skills are valuable in roles like Platform Engineering, Infrastructure Automation, 
-                    Cloud Operations, and Technical Solutions Engineering.
+                    My journey began with specialized technical training as a nuclear operator, working on nuclear submarines 
+                    and reactors. This foundation in advanced engineering and later experience in process engineering gave me 
+                    a unique analytical approach to technical problems. The transition from nuclear/process engineering to IT 
+                    was natural—both domains require system thinking, careful analysis, and precision. This background gives me 
+                    a different perspective when approaching IT problems that pure computer science graduates might not have.
                   </p>
                 </div>
               </div>
             </CardContent>
           </Card>
           
-          <Card className="border-border/50 shadow-sm bg-gradient-to-r from-blue-500/5 to-cyan-500/5">
-            <CardContent className="p-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-500/10 p-3 rounded-full">
-                  <Terminal className="h-6 w-6 text-blue-500" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="border-border/50 shadow-sm bg-gradient-to-r from-primary/5 to-purple-500/5">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Code className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
+                    <p className="text-muted-foreground">
+                      I have a comprehensive understanding of IT ecosystems—from computer architecture 
+                      and virtualization to databases and infrastructure. My unique position is at the intersection of 
+                      traditional IT and modern DevOps practices, with a focus on understanding how systems interact together. 
+                      These skills are valuable in roles like Platform Engineering, Infrastructure Automation, 
+                      and Technical Solutions Engineering.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">Command Line & Scripting Expert</h3>
-                  <p className="text-muted-foreground">
-                    I have exceptional command line expertise and shell scripting abilities, allowing me to "operate like a 
-                    motherfucker from the command line." This proficiency enables me to efficiently automate operations, manage 
-                    systems, and solve complex technical problems through scripting rather than requiring full application 
-                    development. I excel at creating practical solutions that connect systems and streamline workflows.
-                  </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-border/50 shadow-sm bg-gradient-to-r from-blue-500/5 to-cyan-500/5">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-500/10 p-3 rounded-full">
+                    <Terminal className="h-6 w-6 text-blue-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Command Line & Scripting Expert</h3>
+                    <p className="text-muted-foreground">
+                      I have exceptional command line expertise and shell scripting abilities, allowing me to "operate like a 
+                      motherfucker from the command line." This proficiency enables me to efficiently automate operations, manage 
+                      systems, and solve complex technical problems through scripting rather than requiring full application 
+                      development. I excel at creating practical solutions that connect systems and streamline workflows.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-border/50 shadow-sm bg-gradient-to-r from-green-500/5 to-emerald-500/5">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-500/10 p-3 rounded-full">
+                    <BarChart2 className="h-6 w-6 text-green-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Data Engineering Skills</h3>
+                    <p className="text-muted-foreground">
+                      My process engineering background naturally evolved into strong data transformation and pipeline skills. 
+                      I excel at data analysis, ETL processes, and creating efficient data workflows. While not a full data 
+                      engineer, I bridge the gap between raw data and actionable insights—extracting, transforming, and 
+                      delivering data to where it's needed most. I'm the "data bitch" who makes information usable, accessible, 
+                      and valuable across systems.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
