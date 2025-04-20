@@ -150,14 +150,29 @@ const Dashboard = () => {
               <p className="text-muted-foreground text-sm">Completed</p>
             </CardContent>
           </Card>
-
+          <Card className="border-primary/30 shadow-sm bg-gradient-to-r from-primary/10 to-purple-500/10">
+            <CardHeader className="pb-2">
+              <div className="flex items-center">
+                <Sparkles className="h-5 w-5 text-primary mr-2" />
+                <CardTitle className="text-lg">AI Examples</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">Generate custom examples of skill combinations</p>
+              <Link href="/skills" className="mt-2 inline-block">
+                <Button variant="link" className="text-primary p-0 h-auto font-semibold">
+                  Try it out <ArrowRight className="h-3 w-3 ml-1" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
       {/* Main sections */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8">Explore Interactive Sections</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {sections.map((section, index) => (
             <motion.div
               key={section.title}

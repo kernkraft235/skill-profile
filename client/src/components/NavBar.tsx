@@ -34,7 +34,7 @@ const NavBar = () => {
 
   return (
     <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+      <div className="container mx-auto px-4 flex h-14 items-center">
         <div className="flex flex-1 items-center justify-between">
           <div className="mr-4 hidden md:flex">
             <div className="mr-6 flex items-center space-x-2">
@@ -59,7 +59,7 @@ const NavBar = () => {
           
           {/* Mobile Navigation */}
           <div className="flex items-center justify-between md:hidden w-full">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 pl-1">
               <Link href="/">
                 <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Portfolio</span>
               </Link>
