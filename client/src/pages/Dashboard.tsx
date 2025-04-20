@@ -140,10 +140,10 @@ const Dashboard = () => {
                 Skill Translator
               </h2>
               <p className="text-lg text-muted-foreground">
-                This tool <span className="font-semibold text-foreground">connects your needs with my documented capabilities</span>. 
-                Share a workplace scenario, and I'll identify which of my actual skills and experiences are directly relevant.
-                Unlike generic lists, this focuses on mapping my specific technical background to your 
-                particular situation, showing you exactly which of my skills apply to your needs.
+                This tool <span className="font-semibold text-foreground">shows how my skills directly apply to your business challenges</span>. 
+                Describe a workplace scenario, and see which parts of my technical toolbox are relevant.
+                The system makes clear semantic connections between your specific needs and my documented 
+                capabilities, demonstrating how my skill set could be leveraged to address real business problems.
               </p>
             </div>
           </div>
@@ -190,7 +190,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <h4 className="font-medium">Skill Mapping</h4>
-                <p className="text-sm text-muted-foreground">System identifies which of my documented skills directly apply to your scenario</p>
+                <p className="text-sm text-muted-foreground">System connects your challenge with relevant skills in my personal toolbox</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -199,7 +199,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <h4 className="font-medium">Relevant Experience Match</h4>
-                <p className="text-sm text-muted-foreground">See exactly which of my real-world experiences are relevant to your specific situation</p>
+                <p className="text-sm text-muted-foreground">Shows the semantic connection between my skills and your business problem</p>
               </div>
             </div>
           </div>
