@@ -137,13 +137,13 @@ const Dashboard = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
-                Smart Skills Matchmaker
+                Skill Translator
               </h2>
               <p className="text-lg text-muted-foreground">
-                Discover how my <span className="font-semibold text-foreground">unique skills match your workplace needs</span>. 
-                Describe your technical challenge, and this tool will intelligently match it with my relevant capabilities, 
-                revealing connections you might not have considered. It's designed to identify the perfect fit between 
-                your situation and my specialized expertise.
+                This tool <span className="font-semibold text-foreground">translates your workplace challenges into my skill language</span>. 
+                Describe a technical situation you're facing, and it will identify which of my specific capabilities 
+                would be most valuable to you. It reveals connections between your needs and my expertise that 
+                might not be immediately obvious from my background.
               </p>
             </div>
           </div>
@@ -165,7 +165,7 @@ const Dashboard = () => {
                 <div className="flex justify-end">
                   <Link href="/skills">
                     <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Find Skill Matches
+                      Translate My Skills
                       <Sparkles className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
