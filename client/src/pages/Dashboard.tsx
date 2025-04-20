@@ -81,8 +81,8 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">This interactive resume itself is a demonstration of some of my skills</span> — 
-              built with React, TypeScript, and context-aware RAG AI integration.
+              <span className="font-semibold text-foreground">This interactive resume demonstrates how my technical understanding enhances AI tool usage</span> — 
+              my knowledge of IT infrastructure and systems makes working with AI technologies like RAG more effective than "vibe coding" alone.
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
@@ -211,12 +211,13 @@ const Dashboard = () => {
                 <Code className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Technician to Developer Journey</h3>
+                <h3 className="text-xl font-semibold mb-2">Technical Infrastructure Specialist</h3>
                 <p className="text-muted-foreground">
-                  This profile showcases how my technical foundation as a technician combined with
-                  self-taught development skills creates a unique blend of practical experience and modern 
-                  development capabilities. I'm looking to transition into development, DevOps, or IT roles
-                  where I can apply both my hands-on technical experience and programming abilities.
+                  This profile showcases my comprehensive understanding of IT ecosystems—from computer architecture 
+                  and virtualization to databases and infrastructure. While I'm not primarily a developer, my deep 
+                  technical knowledge allows me to effectively leverage AI coding tools in ways that "vibe coders" cannot. 
+                  I'm seeking roles in Systems Analysis, DevOps, or SRE where my holistic understanding of technology 
+                  combined with practical technical experience creates unique value.
                 </p>
               </div>
             </div>
