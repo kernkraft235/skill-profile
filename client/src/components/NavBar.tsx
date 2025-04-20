@@ -39,7 +39,7 @@ const NavBar = () => {
           <div className="mr-4 hidden md:flex">
             <div className="mr-6 flex items-center space-x-2">
               <Link href="/">
-                <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Portfolio</span>
+                <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Skill Profile</span>
               </Link>
             </div>
             <nav className="flex items-center space-x-6 text-sm font-medium">
@@ -61,7 +61,7 @@ const NavBar = () => {
           <div className="flex items-center justify-between md:hidden w-full">
             <div className="flex items-center space-x-2 pl-1">
               <Link href="/">
-                <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Portfolio</span>
+                <span className="text-xl font-bold bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">Skill Profile</span>
               </Link>
             </div>
             <div className="flex items-center space-x-1">

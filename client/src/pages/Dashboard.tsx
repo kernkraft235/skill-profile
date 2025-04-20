@@ -68,7 +68,7 @@ const Dashboard = () => {
             <Badge 
               className="mb-4 bg-gradient-to-r from-primary to-purple-500 text-white hover:from-primary hover:to-purple-600"
             >
-              Interactive Portfolio
+              Interactive Resume
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
               Welcome to {PORTFOLIO_OWNER.name}'s
@@ -81,7 +81,7 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">This portfolio itself is a demonstration of some of my skills</span> — 
+              <span className="font-semibold text-foreground">This interactive resume itself is a demonstration of some of my skills</span> — 
               built with React, TypeScript, and context-aware RAG AI integration.
             </p>
             <div className="flex items-center gap-3">
@@ -293,7 +293,7 @@ const Dashboard = () => {
                 <Search className="h-6 w-6 text-blue-500 mr-2" />
                 <CardTitle>Interactive Search</CardTitle>
               </div>
-              <CardDescription>Find exactly what you're looking for in my portfolio</CardDescription>
+              <CardDescription>Find exactly what you're looking for in my profile</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -304,7 +304,7 @@ const Dashboard = () => {
             <CardFooter>
               <Link href="/search">
                 <Button variant="outline" className="border-blue-500/20 hover:border-blue-500/50">
-                  Search Portfolio
+                  Search Profile
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
