@@ -133,9 +133,9 @@ const Dashboard = () => {
                 AI-Powered Skill Matching
               </h2>
               <p className="text-lg text-muted-foreground">
-                See exactly how my skills could apply to <span className="font-semibold text-foreground">your specific needs</span>. 
-                Enter a scenario or project from your workplace, and the AI will create a response <span className="font-semibold text-foreground">based on my actual experience</span> and 
-                documented skills, not theoretical examples. Get a real-world demonstration of how I've tackled similar challenges.
+                See how my skills could apply to <span className="font-semibold text-foreground">your specific needs</span>. 
+                Enter a scenario or project from your workplace, and the AI will create a response <span className="font-semibold text-foreground">grounded in my documented skills</span>. 
+                Even for unique skill combinations I haven't directly used together, the AI can intelligently infer capabilities based on my proven skill set.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ const Dashboard = () => {
                 <div className="flex justify-end">
                   <Link href="/skills">
                     <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Generate Real Response
+                      Generate Scenario
                       <Sparkles className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -181,8 +181,8 @@ const Dashboard = () => {
                 <span className="font-semibold">2</span>
               </div>
               <div>
-                <h4 className="font-medium">Experience Matching</h4>
-                <p className="text-sm text-muted-foreground">AI analyzes your scenario and matches it with my documented experiences and skills</p>
+                <h4 className="font-medium">Skill Matching</h4>
+                <p className="text-sm text-muted-foreground">AI analyzes your scenario and identifies the relevant skills from my documented capabilities</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -190,8 +190,8 @@ const Dashboard = () => {
                 <span className="font-semibold">3</span>
               </div>
               <div>
-                <h4 className="font-medium">Real-world Application</h4>
-                <p className="text-sm text-muted-foreground">Get a practical response based on my actual work that addresses your specific challenge</p>
+                <h4 className="font-medium">Synthesized Response</h4>
+                <p className="text-sm text-muted-foreground">Receive a tailored scenario showing how my skills could be combined to address your challenge</p>
               </div>
             </div>
           </div>
