@@ -81,9 +81,10 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">My skills bridge the gap between IT infrastructure and modern automation</span> — 
-              combining deep technical knowledge with practical automation abilities that let me operate effectively in 
-              Platform Engineering, Infrastructure Automation, Cloud Operations, and Junior SRE roles.
+              <span className="font-semibold text-foreground">I bridge infrastructure knowledge with powerful command line and automation skills</span> — 
+              focusing on how systems interact rather than syntax. My shell scripting and CLI expertise let me efficiently 
+              automate operations across Platform Engineering, Infrastructure, and Cloud environments without needing to be 
+              primarily a developer.
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
@@ -138,10 +139,10 @@ const Dashboard = () => {
                 Infrastructure & Automation Solutions
               </h2>
               <p className="text-lg text-muted-foreground">
-                See how my infrastructure knowledge and automation skills could address <span className="font-semibold text-foreground">your specific challenges</span>. 
-                Enter a technical scenario from your workplace, and the AI will create a solution approach <span className="font-semibold text-foreground">that leverages my unique skillset</span> at 
-                the intersection of IT infrastructure and automation. This demonstrates how my blend of system knowledge 
-                and technical capabilities can solve complex problems without extensive developer expertise.
+                See how my command line expertise and systems understanding could solve <span className="font-semibold text-foreground">your technical challenges</span>. 
+                Describe an infrastructure or automation need, and the AI will showcase a solution <span className="font-semibold text-foreground">using my shell scripting and systems expertise</span>. 
+                My focus is on how systems interact rather than syntax details—I can architect solutions that connect components 
+                and automate processes efficiently, even without being primarily a developer.
               </p>
             </div>
           </div>
@@ -216,10 +217,12 @@ const Dashboard = () => {
                 <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
                 <p className="text-muted-foreground">
                   This profile showcases my comprehensive understanding of IT ecosystems—from computer architecture 
-                  and virtualization to databases and infrastructure. My unique position is at the intersection of traditional 
-                  IT and modern DevOps practices. I excel in roles like Platform Engineering, Infrastructure Automation, 
-                  Junior SRE, Cloud Operations, or Technical Solutions Engineer where my deep understanding of systems 
-                  combined with automation capabilities creates value without requiring extensive developer experience.
+                  and virtualization to databases and infrastructure. I have exceptional command line expertise and shell 
+                  scripting abilities, allowing me to "operate like a motherfucker from the command line." My unique position 
+                  is at the intersection of traditional IT and modern DevOps practices, where I focus on understanding how 
+                  systems interact together and automating their operations. I excel in roles like Platform Engineering, 
+                  Infrastructure Automation, Junior SRE, and Cloud Operations where these automation skills combined with 
+                  my deep systems knowledge create significant value.
                 </p>
               </div>
             </div>
