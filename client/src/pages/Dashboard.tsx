@@ -261,8 +261,8 @@ const Dashboard = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Command Line & Scripting Expert</h3>
                     <p className="text-muted-foreground">
-                      I have exceptional command line expertise and shell scripting abilities, allowing me to "operate like a 
-                      motherfucker from the command line." This proficiency enables me to efficiently automate operations, manage 
+                      I have exceptional command line expertise and shell scripting abilities, allowing me to operate with 
+                      advanced proficiency in terminal environments. This skill enables me to efficiently automate operations, manage 
                       systems, and solve complex technical problems through scripting rather than requiring full application 
                       development. I excel at creating practical solutions that connect systems and streamline workflows.
                     </p>
@@ -283,7 +283,7 @@ const Dashboard = () => {
                       My process engineering background naturally evolved into strong data transformation and pipeline skills. 
                       I excel at data analysis, ETL processes, and creating efficient data workflows. While not a full data 
                       engineer, I bridge the gap between raw data and actionable insights—extracting, transforming, and 
-                      delivering data to where it's needed most. I'm the "data bitch" who makes information usable, accessible, 
+                      delivering data to where it's needed most. I'm the data specialist who makes information usable, accessible, 
                       and valuable across systems.
                     </p>
                   </div>
