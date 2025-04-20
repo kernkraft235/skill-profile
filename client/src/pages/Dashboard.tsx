@@ -141,9 +141,7 @@ const Dashboard = () => {
               </h2>
               <p className="text-lg text-muted-foreground">
                 This tool <span className="font-semibold text-foreground">identifies which of my skills are relevant to your specific needs</span>. 
-                Describe a workplace challenge, and see exactly which parts of my documented skill set apply.
-                The system shows not just which skills match your situation, but explains why they're 
-                relevant and how they directly relate to addressing your specific business needs.
+                Describe a workplace challenge, and see exactly how my relevant skills can be applied.
               </p>
             </div>
           </div>
