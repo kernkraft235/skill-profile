@@ -144,7 +144,7 @@ const Dashboard = () => {
           </div>
 
           <div className="mb-6">
-            <div className="flex gap-2 w-full">
+            <div className="flex gap-2 w-full items-start">
               <textarea 
                 id="scenario" 
                 rows={2}
@@ -152,7 +152,7 @@ const Dashboard = () => {
                 className="flex-1 rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary resize-none"
               />
               <Link href="/skills">
-                <Button className="bg-primary h-[60px] w-[60px] min-w-[60px] rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
+                <Button className="bg-primary h-[40px] w-[40px] min-w-[40px] rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
                   <Sparkles className="h-5 w-5 text-white" />
                 </Button>
               </Link>
