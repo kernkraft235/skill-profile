@@ -8,6 +8,8 @@ import {
   skillExamples, type SkillExample, type InsertSkillExample,
   skillToExample, type SkillToExample, type InsertSkillToExample
 } from "@shared/schema";
+import { db } from "./db";
+import { eq, isNull, inArray, desc, or, ilike } from "drizzle-orm";
 
 // Interface defining all storage operations
 export interface IStorage {
@@ -242,7 +244,8 @@ export class MemStorage implements IStorage {
       .filter(mapping => skillIds.includes(mapping.skillId));
       
     // Extract unique example ids from the mappings
-    const exampleIds = [...new Set(mappings.map(mapping => mapping.exampleId))];
+    const exampleIdsSet = new Set(mappings.map(mapping => mapping.exampleId));
+    const exampleIds = Array.from(exampleIdsSet);
     
     // Return all examples that match the example ids
     return Array.from(this.skillExamples.values())
@@ -557,4 +560,225 @@ export class MemStorage implements IStorage {
 }
 
 // Create and export the storage instance
-export const storage = new MemStorage();
+// Database implementation of the storage interface
+export class DatabaseStorage implements IStorage {
+  // User operations
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+  
+  // Skill Category operations
+  async createSkillCategory(insertCategory: InsertSkillCategory): Promise<SkillCategory> {
+    const [category] = await db
+      .insert(skillCategories)
+      .values({
+        ...insertCategory,
+      })
+      .returning();
+    return category;
+  }
+
+  async getSkillCategory(id: number): Promise<SkillCategory | undefined> {
+    const [category] = await db.select().from(skillCategories).where(eq(skillCategories.id, id));
+    return category || undefined;
+  }
+
+  async getAllSkillCategories(): Promise<SkillCategory[]> {
+    return await db.select().from(skillCategories).orderBy(skillCategories.order);
+  }
+
+  async getSkillCategoriesByParentId(parentId: number | null): Promise<SkillCategory[]> {
+    return await db.select().from(skillCategories).where(
+      parentId === null 
+        ? isNull(skillCategories.parentId)
+        : eq(skillCategories.parentId, parentId)
+    ).orderBy(skillCategories.order);
+  }
+  
+  // Skill operations
+  async createSkill(insertSkill: InsertSkill): Promise<Skill> {
+    const [skill] = await db
+      .insert(skills)
+      .values({
+        ...insertSkill,
+      })
+      .returning();
+    return skill;
+  }
+
+  async getSkill(id: number): Promise<Skill | undefined> {
+    const [skill] = await db.select().from(skills).where(eq(skills.id, id));
+    return skill || undefined;
+  }
+
+  async getAllSkills(): Promise<Skill[]> {
+    return await db.select().from(skills).orderBy(skills.order);
+  }
+
+  async getSkillsByCategoryId(categoryId: number): Promise<Skill[]> {
+    return await db.select().from(skills)
+      .where(eq(skills.categoryId, categoryId))
+      .orderBy(skills.order);
+  }
+  
+  // Skill Example operations
+  async createSkillExample(insertExample: InsertSkillExample): Promise<SkillExample> {
+    const [example] = await db
+      .insert(skillExamples)
+      .values({
+        ...insertExample,
+        createdAt: new Date()
+      })
+      .returning();
+    return example;
+  }
+
+  async getSkillExample(id: number): Promise<SkillExample | undefined> {
+    const [example] = await db.select().from(skillExamples).where(eq(skillExamples.id, id));
+    return example || undefined;
+  }
+
+  async getAllSkillExamples(): Promise<SkillExample[]> {
+    return await db.select().from(skillExamples);
+  }
+  
+  // Skill to Example mapping operations
+  async createSkillToExample(insertMapping: InsertSkillToExample): Promise<SkillToExample> {
+    const [mapping] = await db
+      .insert(skillToExample)
+      .values(insertMapping)
+      .returning();
+    return mapping;
+  }
+
+  async getExamplesBySkillId(skillId: number): Promise<SkillExample[]> {
+    const results = await db
+      .select({
+        example: skillExamples
+      })
+      .from(skillToExample)
+      .innerJoin(skillExamples, eq(skillToExample.exampleId, skillExamples.id))
+      .where(eq(skillToExample.skillId, skillId));
+    
+    return results.map(r => r.example);
+  }
+
+  async getSkillsByExampleId(exampleId: number): Promise<Skill[]> {
+    const results = await db
+      .select({
+        skill: skills
+      })
+      .from(skillToExample)
+      .innerJoin(skills, eq(skillToExample.skillId, skills.id))
+      .where(eq(skillToExample.exampleId, exampleId));
+    
+    return results.map(r => r.skill);
+  }
+
+  async getExamplesBySkillIds(skillIds: number[]): Promise<SkillExample[]> {
+    // Get unique example IDs that match any of the provided skill IDs
+    const mappings = await db
+      .select({
+        exampleId: skillToExample.exampleId,
+      })
+      .from(skillToExample)
+      .where(inArray(skillToExample.skillId, skillIds))
+      .groupBy(skillToExample.exampleId);
+    
+    const exampleIds = mappings.map(m => m.exampleId);
+    
+    if (exampleIds.length === 0) {
+      return [];
+    }
+    
+    // Get the actual examples
+    return await db
+      .select()
+      .from(skillExamples)
+      .where(inArray(skillExamples.id, exampleIds));
+  }
+  
+  // Chat message operations
+  async createChatMessage(insertMessage: InsertChatMessage): Promise<ChatMessage> {
+    const [message] = await db
+      .insert(chatMessages)
+      .values({
+        ...insertMessage,
+        createdAt: new Date()
+      })
+      .returning();
+    return message;
+  }
+
+  async getChatMessages(limit = 10): Promise<ChatMessage[]> {
+    return await db
+      .select()
+      .from(chatMessages)
+      .orderBy(desc(chatMessages.createdAt))
+      .limit(limit);
+  }
+  
+  // Contact form operations
+  async createContactSubmission(insertSubmission: InsertContactSubmission): Promise<ContactSubmission> {
+    const [submission] = await db
+      .insert(contactSubmissions)
+      .values({
+        ...insertSubmission,
+        createdAt: new Date()
+      })
+      .returning();
+    return submission;
+  }
+  
+  // RAG context operations
+  async createRagContext(insertContext: InsertRagContext): Promise<RagContext> {
+    const [context] = await db
+      .insert(ragContexts)
+      .values({
+        ...insertContext,
+      })
+      .returning();
+    return context;
+  }
+
+  async getAllRagContexts(): Promise<RagContext[]> {
+    return await db.select().from(ragContexts);
+  }
+
+  async getRagContextsBySection(section: string): Promise<RagContext[]> {
+    return await db
+      .select()
+      .from(ragContexts)
+      .where(eq(ragContexts.section, section));
+  }
+
+  async searchRagContexts(query: string): Promise<RagContext[]> {
+    const lowerQuery = `%${query.toLowerCase()}%`;
+    
+    return await db
+      .select()
+      .from(ragContexts)
+      .where(
+        or(
+          ilike(ragContexts.content, lowerQuery),
+          ilike(ragContexts.title, lowerQuery)
+        )
+      );
+  }
+}
+
+export const storage = new DatabaseStorage();
