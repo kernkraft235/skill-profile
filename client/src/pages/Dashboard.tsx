@@ -83,10 +83,9 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">I combine technical versatility with a deep understanding of systems</span> — 
-              focusing on how technology components interact and work together. My skills span multiple domains including infrastructure, 
-              automation, and technical problem-solving, allowing me to adapt to various roles and challenges in today's 
-              technology landscape.
+              <span className="font-semibold text-foreground">I combine technical versatility with systems thinking</span> — 
+              understanding how technology components interact together. My skills span infrastructure, automation, and
+              technical problem-solving, enabling me to adapt to diverse technical challenges.
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
@@ -141,10 +140,9 @@ const Dashboard = () => {
                 Real-World Problem Solver
               </h2>
               <p className="text-lg text-muted-foreground">
-                See how my actual skills could address <span className="font-semibold text-foreground">your specific workplace challenges</span>. 
-                Describe a technical scenario you're facing, and the AI will analyze my documented skills and experience to show 
-                how I could realistically approach your problem. This tool is grounded in my actual capabilities—it won't 
-                make things up, only demonstrate how my existing skills could be applied to your situation.
+                See how my actual skills could solve <span className="font-semibold text-foreground">your specific workplace challenges</span>. 
+                Describe a technical scenario, and the AI will analyze my documented skills to show how I would realistically 
+                approach your problem. This tool is grounded in my actual capabilities and experience.
               </p>
             </div>
           </div>
@@ -220,11 +218,10 @@ const Dashboard = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">From Nuclear Engineering to IT Systems</h3>
                   <p className="text-muted-foreground">
-                    My journey began with specialized technical training as a nuclear operator, working on nuclear submarines 
-                    and reactors. This foundation in advanced engineering and later experience in process engineering gave me 
-                    a unique analytical approach to technical problems. The transition from nuclear/process engineering to IT 
-                    was natural—both domains require system thinking, careful analysis, and precision. This background gives me 
-                    a different perspective when approaching IT problems that pure computer science graduates might not have.
+                    My journey began as a nuclear operator on submarines and reactors, followed by process engineering experience. 
+                    This foundation gave me a unique analytical approach to technical problems. The transition to IT was natural—both 
+                    domains require system thinking, careful analysis, and precision. This background gives me a different perspective 
+                    than pure computer science graduates.
                   </p>
                 </div>
               </div>
@@ -241,11 +238,9 @@ const Dashboard = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
                     <p className="text-muted-foreground">
-                      I have a comprehensive understanding of IT ecosystems—from computer architecture 
-                      and virtualization to databases and infrastructure. My unique position is at the intersection of 
-                      traditional IT and modern DevOps practices, with a focus on understanding how systems interact together. 
-                      These skills are valuable in roles like Platform Engineering, Infrastructure Automation, 
-                      and Technical Solutions Engineering.
+                      I have a comprehensive understanding of IT ecosystems—from computer architecture to infrastructure. 
+                      I work at the intersection of traditional IT and modern DevOps, with expertise in how systems interact. 
+                      These skills excel in Platform Engineering, Infrastructure Automation, and Technical Solutions Engineering.
                     </p>
                   </div>
                 </div>
@@ -261,10 +256,10 @@ const Dashboard = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Command Line & Scripting Expert</h3>
                     <p className="text-muted-foreground">
-                      I have exceptional command line expertise and shell scripting abilities, allowing me to operate with 
-                      advanced proficiency in terminal environments. This skill enables me to efficiently automate operations, manage 
-                      systems, and solve complex technical problems through scripting rather than requiring full application 
-                      development. I excel at creating practical solutions that connect systems and streamline workflows.
+                      I have exceptional command line expertise and shell scripting abilities with advanced proficiency in terminal 
+                      environments. This enables me to automate operations, manage systems, and solve complex problems through 
+                      scripting instead of full application development. I create practical solutions that connect systems 
+                      and streamline workflows.
                     </p>
                   </div>
                 </div>
@@ -280,11 +275,10 @@ const Dashboard = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Data Engineering Skills</h3>
                     <p className="text-muted-foreground">
-                      My process engineering background naturally evolved into strong data transformation and pipeline skills. 
-                      I excel at data analysis, ETL processes, and creating efficient data workflows. While not a full data 
-                      engineer, I bridge the gap between raw data and actionable insights—extracting, transforming, and 
-                      delivering data to where it's needed most. I'm the data specialist who makes information usable, accessible, 
-                      and valuable across systems.
+                      My process engineering background evolved into strong data transformation skills. 
+                      I excel at data analysis, ETL processes, and efficient workflows. I bridge the gap between 
+                      raw data and actionable insights—extracting, transforming, and delivering information where it's needed.
+                      I'm the data specialist who makes information usable and valuable across systems.
                     </p>
                   </div>
                 </div>
