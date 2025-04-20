@@ -45,15 +45,9 @@ const ExperienceExplorer = () => {
   const [viewState, setViewState] = useState<ViewState>('list');
   const [selectedExperienceId, setSelectedExperienceId] = useState<number | null>(null);
 
-  // Fetch experience data
-  const { data: experiences, isLoading } = useQuery({
-    queryKey: ['/api/experiences'],
-    queryFn: async () => {
-      const res = await apiRequest('GET', '/api/experiences');
-      const data = await res.json();
-      return data as Experience[];
-    }
-  });
+  // Use the experience data from constants
+  const [experiences, setExperiences] = useState(EXPERIENCES);
+  const isLoading = false;
 
   // Handle experience selection
   const handleExperienceSelect = (experienceId: number) => {
