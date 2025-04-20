@@ -81,8 +81,8 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">This portfolio itself is a demonstration of my skills</span> — 
-              built with React, TypeScript, and AI integration, showing my abilities in 
+              <span className="font-semibold text-foreground">This portfolio itself is a demonstration of some of my skills</span> — 
+              built with React, TypeScript, and AI integration, showcasing abilities in 
               full-stack development, UI/UX design, and implementing AI technologies.
             </p>
             <div className="flex items-center gap-3">
