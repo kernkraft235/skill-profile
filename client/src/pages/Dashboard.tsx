@@ -128,7 +128,7 @@ const Dashboard = () => {
       {/* Skill Translator Feature */}
       <section className="mb-16">
         <div className="bg-gradient-to-br from-primary/5 via-purple-500/5 to-primary/5 rounded-xl border border-primary/20 p-8">
-          <div>
+          <div className="mb-10">
             <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
               Skill Translator
             </h2>
@@ -138,7 +138,7 @@ const Dashboard = () => {
             </p>
           </div>
 
-          <div className="mt-8 mb-8">
+          <div className="mb-8">
             <div className="flex gap-2 w-full">
               <textarea 
                 id="scenario" 
