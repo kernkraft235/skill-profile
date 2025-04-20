@@ -143,7 +143,7 @@ const Dashboard = () => {
               <textarea 
                 id="scenario" 
                 rows={2}
-                placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
+                placeholder="Describe a technical problem you're trying to solve..."
                 className="flex-1 rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary resize-none"
                 style={{ height: "68px" }}
               />
