@@ -8,8 +8,7 @@ import {
   BrainCircuit, 
   Briefcase, 
   Heart, 
-  ArrowRight, 
-  Sparkles, 
+  ArrowRight,
   Search,
   Bot,
   User,
@@ -130,7 +129,7 @@ const Dashboard = () => {
         <div className="bg-gradient-to-br from-primary/5 via-purple-500/5 to-primary/5 rounded-xl border border-primary/20 p-8">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center mb-6">
             <div className="flex-shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
-              <Sparkles className="h-10 w-10 text-white" />
+              <ArrowRight className="h-10 w-10 text-white" />
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
@@ -154,7 +153,7 @@ const Dashboard = () => {
               />
               <Link href="/skills" className="h-[68px] flex items-center">
                 <Button className="bg-primary h-[68px] w-[68px] rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
-                  <Sparkles className="h-8 w-8 text-white" />
+                  <ArrowRight className="h-8 w-8 text-white" />
                 </Button>
               </Link>
             </div>
