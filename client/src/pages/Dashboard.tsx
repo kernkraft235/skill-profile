@@ -134,8 +134,8 @@ const Dashboard = () => {
               </h2>
               <p className="text-lg text-muted-foreground">
                 See exactly how my skills could apply to <span className="font-semibold text-foreground">your specific needs</span>. 
-                Enter a scenario or project from your workplace, and the AI will generate a customized example of how 
-                I would approach it using my experience and skills.
+                Enter a scenario or project from your workplace, and the AI will create a response <span className="font-semibold text-foreground">based on my actual experience</span> and 
+                documented skills, not theoretical examples. Get a real-world demonstration of how I've tackled similar challenges.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ const Dashboard = () => {
                 <div className="flex justify-end">
                   <Link href="/skills">
                     <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Generate Custom Example
+                      Generate Real Response
                       <Sparkles className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -181,8 +181,8 @@ const Dashboard = () => {
                 <span className="font-semibold">2</span>
               </div>
               <div>
-                <h4 className="font-medium">AI Analysis</h4>
-                <p className="text-sm text-muted-foreground">Our AI analyzes the scenario and matches it with my relevant skills</p>
+                <h4 className="font-medium">Experience Matching</h4>
+                <p className="text-sm text-muted-foreground">AI analyzes your scenario and matches it with my documented experiences and skills</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -190,8 +190,8 @@ const Dashboard = () => {
                 <span className="font-semibold">3</span>
               </div>
               <div>
-                <h4 className="font-medium">Customized Response</h4>
-                <p className="text-sm text-muted-foreground">Receive a tailored example of how I would tackle your specific challenge</p>
+                <h4 className="font-medium">Real-world Application</h4>
+                <p className="text-sm text-muted-foreground">Get a practical response based on my actual work that addresses your specific challenge</p>
               </div>
             </div>
           </div>
