@@ -8,6 +8,8 @@ export const PORTFOLIO_OWNER = {
   linkedin: "https://linkedin.com/in/johndoe",
   description: "I build innovative web applications with cutting-edge technologies. Explore my work and learn more about my journey in tech.",
   photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+  yearsExperience: 7,
+  education: "MS Computer Science",
 };
 
 export const HIGHLIGHTS = [
