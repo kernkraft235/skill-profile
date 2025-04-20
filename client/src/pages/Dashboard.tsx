@@ -125,10 +125,9 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* AI Examples Feature - New Prominent Section */}
-      <section className="mb-16 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-primary/5 rounded-3xl -z-10"></div>
-        <div className="py-8 px-6 md:p-10 rounded-3xl border border-primary/20">
+      {/* Skill Translator Feature */}
+      <section className="mb-16">
+        <div className="bg-gradient-to-br from-primary/5 via-purple-500/5 to-primary/5 rounded-xl border border-primary/20 p-8">
           <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center mb-6">
             <div className="flex-shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
               <Sparkles className="h-10 w-10 text-white" />
@@ -144,31 +143,29 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <Card className="border-primary/30 shadow-lg bg-background/80 backdrop-blur-sm mb-6">
-            <CardContent className="p-6">
-              <form className="space-y-4">
-                <div className="space-y-2">
-                  <label htmlFor="scenario" className="text-sm font-medium">
-                    Describe your technical challenge or project:
-                  </label>
-                  <textarea 
-                    id="scenario" 
-                    rows={3} 
-                    placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
-                    className="w-full rounded-md border border-input bg-background p-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                  />
-                </div>
-                <div className="flex justify-end">
-                  <Link href="/skills">
-                    <Button className="bg-gradient-to-r from-primary to-purple-600">
-                      Match Skills to Your Need
-                      <Sparkles className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </div>
-              </form>
-            </CardContent>
-          </Card>
+          <div className="mb-6">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="scenario" className="text-sm font-medium">
+                  Describe your technical challenge or project:
+                </label>
+                <textarea 
+                  id="scenario" 
+                  rows={3} 
+                  placeholder="Describe a specific workplace challenge or technical problem you're trying to solve..."
+                  className="w-full rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                />
+              </div>
+              <div className="flex justify-end">
+                <Link href="/skills">
+                  <Button className="bg-gradient-to-r from-primary to-purple-600">
+                    Match Skills to Your Need
+                    <Sparkles className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex items-start gap-3">
