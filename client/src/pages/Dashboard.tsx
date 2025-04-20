@@ -83,9 +83,7 @@ const Dashboard = () => {
               designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">I combine technical versatility with systems thinking</span> — 
-              understanding how technology components interact together. My skills span infrastructure, automation, and
-              technical problem-solving, enabling me to adapt to diverse technical challenges.
+              <span className="font-semibold text-foreground">I blend systems thinking with technical versatility to solve infrastructure, automation, and integration challenges.</span>
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
