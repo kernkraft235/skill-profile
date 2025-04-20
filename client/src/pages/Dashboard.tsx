@@ -120,9 +120,87 @@ const Dashboard = () => {
         </div>
       </section>
 
+      {/* AI Examples Feature - New Prominent Section */}
+      <section className="mb-16 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-primary/5 rounded-3xl -z-10"></div>
+        <div className="py-8 px-6 md:p-10 rounded-3xl border border-primary/20">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center mb-6">
+            <div className="flex-shrink-0 w-20 h-20 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
+              <Sparkles className="h-10 w-10 text-white" />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+                AI-Powered Skill Matching
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                See exactly how my skills could apply to <span className="font-semibold text-foreground">your specific needs</span>. 
+                Enter a scenario or project from your workplace, and the AI will generate a customized example of how 
+                I would approach it using my experience and skills.
+              </p>
+            </div>
+          </div>
+
+          <Card className="border-primary/30 shadow-lg bg-background/80 backdrop-blur-sm mb-6">
+            <CardContent className="p-6">
+              <form className="space-y-4">
+                <div className="space-y-2">
+                  <label htmlFor="scenario" className="text-sm font-medium">
+                    Enter your workplace scenario, project, or challenge:
+                  </label>
+                  <textarea 
+                    id="scenario" 
+                    rows={3} 
+                    placeholder="Example: Create a dashboard to track customer engagement metrics and visualize trends..."
+                    className="w-full rounded-md border border-input bg-background p-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  />
+                </div>
+                <div className="flex justify-end">
+                  <Link href="/skills">
+                    <Button className="bg-gradient-to-r from-primary to-purple-600">
+                      Generate Custom Example
+                      <Sparkles className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </form>
+            </CardContent>
+          </Card>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="font-semibold">1</span>
+              </div>
+              <div>
+                <h4 className="font-medium">Enter Your Scenario</h4>
+                <p className="text-sm text-muted-foreground">Describe a specific challenge or project from your workplace</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="font-semibold">2</span>
+              </div>
+              <div>
+                <h4 className="font-medium">AI Analysis</h4>
+                <p className="text-sm text-muted-foreground">Our AI analyzes the scenario and matches it with my relevant skills</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <span className="font-semibold">3</span>
+              </div>
+              <div>
+                <h4 className="font-medium">Customized Response</h4>
+                <p className="text-sm text-muted-foreground">Receive a tailored example of how I would tackle your specific challenge</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Quick stats */}
       <section className="mb-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <Card className="border-border/50 shadow-sm">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg">Experience</CardTitle>
@@ -148,22 +226,6 @@ const Dashboard = () => {
             <CardContent>
               <p className="text-3xl font-bold">30+</p>
               <p className="text-muted-foreground text-sm">Completed</p>
-            </CardContent>
-          </Card>
-          <Card className="border-primary/30 shadow-sm bg-gradient-to-r from-primary/10 to-purple-500/10">
-            <CardHeader className="pb-2">
-              <div className="flex items-center">
-                <Sparkles className="h-5 w-5 text-primary mr-2" />
-                <CardTitle className="text-lg">AI Examples</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">Generate custom examples of skill combinations</p>
-              <Link href="/skills" className="mt-2 inline-block">
-                <Button variant="link" className="text-primary p-0 h-auto font-semibold">
-                  Try it out <ArrowRight className="h-3 w-3 ml-1" />
-                </Button>
-              </Link>
             </CardContent>
           </Card>
         </div>
@@ -217,34 +279,10 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* Special features */}
+      {/* Other Features */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-6">Unique Features</h2>
+        <h2 className="text-3xl font-bold mb-6">Other Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="bg-gradient-to-br from-primary/10 to-purple-500/10 border-primary/20">
-            <CardHeader>
-              <div className="flex items-center mb-2">
-                <Sparkles className="h-6 w-6 text-primary mr-2" />
-                <CardTitle>AI-Generated Examples</CardTitle>
-              </div>
-              <CardDescription>See how I would approach new projects using multiple skills</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Use the synthetic example generator to create custom examples of how I would apply combinations of my skills 
-                to new projects or scenarios. Great for seeing how I might handle your specific requirements.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/skills">
-                <Button variant="outline" className="border-primary/20 hover:border-primary/50">
-                  Try It Out
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-          
           <Card className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20">
             <CardHeader>
               <div className="flex items-center mb-2">
@@ -263,6 +301,30 @@ const Dashboard = () => {
               <Link href="/search">
                 <Button variant="outline" className="border-blue-500/20 hover:border-blue-500/50">
                   Search Portfolio
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
+          
+          <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20">
+            <CardHeader>
+              <div className="flex items-center mb-2">
+                <User className="h-6 w-6 text-green-500 mr-2" />
+                <CardTitle>Career Match</CardTitle>
+              </div>
+              <CardDescription>See how my experience aligns with your needs</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Explore detailed information about my professional experience and see how my 
+                background aligns with the requirements of your team or project.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/experience">
+                <Button variant="outline" className="border-green-500/20 hover:border-green-500/50">
+                  View Experience
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
