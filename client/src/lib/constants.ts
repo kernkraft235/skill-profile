@@ -1,15 +1,14 @@
 import { Project, Experience, Education, Certification, SkillCategory, Technology } from "../types";
 
 export const PORTFOLIO_OWNER = {
-  name: "John Doe",
+  name: "Graham Colehour",
   title: "Full Stack Developer & AI Enthusiast",
-  email: "john.doe@example.com",
-  github: "https://github.com/johndoe",
-  linkedin: "https://linkedin.com/in/johndoe",
+  email: "graham.colehour@example.com",
+  github: "https://github.com/grahamcolehour",
+  linkedin: "https://linkedin.com/in/grahamcolehour",
   description: "I build innovative web applications with cutting-edge technologies. Explore my work and learn more about my journey in tech.",
   photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
   yearsExperience: 7,
-  education: "MS Computer Science",
 };
 
 export const HIGHLIGHTS = [
@@ -155,36 +154,7 @@ export const EXPERIENCES: Experience[] = [
   }
 ];
 
-export const EDUCATIONS: Education[] = [
-  {
-    id: 1,
-    degree: "Master of Science in Computer Science",
-    institution: "Stanford University",
-    period: "2013 - 2015",
-    description: "Specialized in Machine Learning and Artificial Intelligence. Graduated with honors.",
-    courses: [
-      "Advanced Algorithms",
-      "Machine Learning",
-      "Neural Networks",
-      "Distributed Systems",
-      "Cloud Computing"
-    ]
-  },
-  {
-    id: 2,
-    degree: "Bachelor of Science in Computer Engineering",
-    institution: "Massachusetts Institute of Technology",
-    period: "2009 - 2013",
-    description: "Graduated cum laude with a focus on software engineering and computer systems.",
-    courses: [
-      "Data Structures",
-      "Operating Systems",
-      "Computer Architecture",
-      "Database Systems",
-      "Web Development"
-    ]
-  }
-];
+export const EDUCATIONS: Education[] = [];
 
 export const CERTIFICATIONS: Certification[] = [
   {

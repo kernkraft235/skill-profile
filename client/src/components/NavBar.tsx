@@ -1,16 +1,22 @@
 import { Link, useLocation } from 'wouter';
 import { cn } from '@/lib/utils';
-import { BrainCircuit, Briefcase, Heart } from 'lucide-react';
+import { BrainCircuit, Briefcase, Heart, User } from 'lucide-react';
 
 const NavBar = () => {
   const [location] = useLocation();
 
   const navItems = [
     { 
-      href: '/', 
+      href: '/about', 
+      label: 'About Me', 
+      icon: <User className="h-5 w-5" />,
+      active: location.startsWith('/about')
+    },
+    { 
+      href: '/skills', 
       label: 'Skill Explorer', 
       icon: <BrainCircuit className="h-5 w-5" />,
-      active: location === '/' || location.startsWith('/skills')
+      active: location === '/skills' || location.startsWith('/skills')
     },
     { 
       href: '/experience', 

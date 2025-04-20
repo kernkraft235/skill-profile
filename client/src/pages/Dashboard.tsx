@@ -140,15 +140,7 @@ const Dashboard = () => {
               <p className="text-muted-foreground text-sm">Completed</p>
             </CardContent>
           </Card>
-          <Card className="border-border/50 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Education</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold">{PORTFOLIO_OWNER.education}</p>
-              <p className="text-muted-foreground text-sm">Highest degree</p>
-            </CardContent>
-          </Card>
+
         </div>
       </section>
 
