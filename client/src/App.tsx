@@ -3,6 +3,8 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { AuthProvider } from "@/hooks/use-auth";
+import { ProtectedRoute } from "@/lib/protected-route";
 
 // Main components
 import NavBar from "@/components/NavBar";
@@ -14,6 +16,7 @@ import AboutMe from "@/pages/AboutMe";
 import ExperienceExplorer from "@/pages/ExperienceExplorer";
 import InterestsExplorer from "@/pages/InterestsExplorer";
 import Admin from "@/pages/Admin";
+import AuthPage from "@/pages/auth-page";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -27,8 +30,10 @@ function Router() {
           <Route path="/skills" component={Home} />
           <Route path="/experience" component={ExperienceExplorer} />
           <Route path="/interests" component={InterestsExplorer} />
-          {/* Admin route */}
-          <Route path="/admin" component={Admin} />
+          {/* Auth route */}
+          <Route path="/auth" component={AuthPage} />
+          {/* Protected Admin route */}
+          <ProtectedRoute path="/admin" component={Admin} />
           {/* Additional routes */}
           {/* <Route path="/chat" component={ChatBot} /> */}
           {/* <Route path="/contact" component={Contact} /> */}
@@ -43,10 +48,12 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

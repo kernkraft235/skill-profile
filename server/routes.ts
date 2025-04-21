@@ -196,8 +196,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  // Delete skill
-  app.delete("/api/skills/:id", async (req: Request, res: Response) => {
+  // Delete skill (admin only)
+  app.delete("/api/skills/:id", requireAdmin, async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) {
