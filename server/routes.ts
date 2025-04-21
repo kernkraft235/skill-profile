@@ -10,6 +10,7 @@ import {
   insertSkillToExampleSchema,
   insertSkillSchema,
   skillSchema,
+  type ContentSection,
 } from "@shared/schema";
 import { createOpenRouter } from "./openrouter";
 
@@ -654,9 +655,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const contentSections = await storage.getAllContentSections();
       
       // Organize content sections by type
-      const aboutMeSections = contentSections.filter(section => section.section === 'about_me');
-      const workExperienceSections = contentSections.filter(section => section.section === 'work_experience');
-      const personalInterestsSections = contentSections.filter(section => section.section === 'personal_interests');
+      const aboutMeSections = contentSections.filter((section: ContentSection) => section.section === 'about_me');
+      const workExperienceSections = contentSections.filter((section: ContentSection) => section.section === 'work_experience');
+      const personalInterestsSections = contentSections.filter((section: ContentSection) => section.section === 'personal_interests');
 
       // Format the data for the frontend
       const portfolio = {

@@ -1007,6 +1007,73 @@ export class DatabaseStorage implements IStorage {
         ),
       );
   }
+
+  // Content Section operations for database storage
+  async createContentSection(insertSection: InsertContentSection): Promise<ContentSection> {
+    const [section] = await db
+      .insert(contentSections)
+      .values({
+        section: insertSection.section,
+        title: insertSection.title,
+        content: insertSection.content,
+        order: insertSection.order || 0,
+        metadata: insertSection.metadata || null,
+      })
+      .returning();
+    
+    return section;
+  }
+
+  async getContentSection(id: number): Promise<ContentSection | undefined> {
+    const [section] = await db
+      .select()
+      .from(contentSections)
+      .where(eq(contentSections.id, id));
+    
+    return section || undefined;
+  }
+
+  async getContentSectionsByType(sectionType: string): Promise<ContentSection[]> {
+    return db
+      .select()
+      .from(contentSections)
+      .where(eq(contentSections.section, sectionType))
+      .orderBy(contentSections.order);
+  }
+
+  async updateContentSection(section: ContentSection): Promise<ContentSection> {
+    const [updatedSection] = await db
+      .update(contentSections)
+      .set({
+        section: section.section,
+        title: section.title,
+        content: section.content,
+        order: section.order || 0,
+        metadata: section.metadata,
+        updatedAt: new Date(),
+      })
+      .where(eq(contentSections.id, section.id))
+      .returning();
+    
+    if (!updatedSection) {
+      throw new Error(`Content section with ID ${section.id} not found`);
+    }
+    
+    return updatedSection;
+  }
+
+  async deleteContentSection(id: number): Promise<void> {
+    await db
+      .delete(contentSections)
+      .where(eq(contentSections.id, id));
+  }
+
+  async getAllContentSections(): Promise<ContentSection[]> {
+    return db
+      .select()
+      .from(contentSections)
+      .orderBy(contentSections.section, contentSections.order);
+  }
 }
 
 export const storage = new DatabaseStorage();
