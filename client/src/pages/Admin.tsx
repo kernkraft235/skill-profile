@@ -1,5 +1,7 @@
 import SkillsAdmin from "@/components/SkillsAdmin";
 import ContentAdmin from "@/components/ContentAdmin";
+import CategoryAdmin from "@/components/CategoryAdmin";
+import ExamplesAdmin from "@/components/ExamplesAdmin";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Admin = () => {
@@ -24,15 +26,11 @@ const Admin = () => {
         </TabsContent>
         
         <TabsContent value="categories">
-          <div className="p-8 text-center text-gray-500">
-            Category management coming soon
-          </div>
+          <CategoryAdmin />
         </TabsContent>
         
         <TabsContent value="examples">
-          <div className="p-8 text-center text-gray-500">
-            Examples management coming soon
-          </div>
+          <ExamplesAdmin />
         </TabsContent>
       </Tabs>
     </div>

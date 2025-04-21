@@ -69,6 +69,7 @@ export interface IStorage {
   getExamplesBySkillId(skillId: number): Promise<SkillExample[]>;
   getSkillsByExampleId(exampleId: number): Promise<Skill[]>;
   getExamplesBySkillIds(skillIds: number[]): Promise<SkillExample[]>;
+  deleteSkillToExample(skillId: number, exampleId: number): Promise<void>;
 
   // Chat message operations
   createChatMessage(message: InsertChatMessage): Promise<ChatMessage>;
@@ -336,6 +337,17 @@ export class MemStorage implements IStorage {
     return Array.from(this.skillExamples.values()).filter((example) =>
       exampleIds.includes(example.id),
     );
+  }
+  
+  async deleteSkillToExample(skillId: number, exampleId: number): Promise<void> {
+    // Find and delete the mapping
+    const mappingToDelete = Array.from(this.skillToExamples.entries())
+      .find(([_, mapping]) => mapping.skillId === skillId && mapping.exampleId === exampleId);
+    
+    if (mappingToDelete) {
+      const [mappingId] = mappingToDelete;
+      this.skillToExamples.delete(mappingId);
+    }
   }
 
   // Chat message operations

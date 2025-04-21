@@ -259,6 +259,58 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     },
   );
+  
+  // Create a skill-to-example mapping
+  app.post(
+    "/api/skill-to-example",
+    requireAdmin,
+    async (req: Request, res: Response) => {
+      try {
+        const { skillId, exampleId } = req.body;
+        
+        if (!skillId || !exampleId || typeof skillId !== "number" || typeof exampleId !== "number") {
+          return res.status(400).json({ message: "Valid skill ID and example ID are required" });
+        }
+        
+        const mapping = await storage.createSkillToExample({
+          skillId,
+          exampleId
+        });
+        
+        return res.status(201).json(mapping);
+      } catch (error) {
+        console.error("Create skill-to-example mapping error:", error);
+        return res.status(500).json({ message: "Failed to create mapping" });
+      }
+    }
+  );
+  
+  // Delete all skill-to-example mappings for a specific example
+  app.delete(
+    "/api/skill-to-example/example/:exampleId",
+    requireAdmin,
+    async (req: Request, res: Response) => {
+      try {
+        const exampleId = parseInt(req.params.exampleId);
+        if (isNaN(exampleId)) {
+          return res.status(400).json({ message: "Invalid example ID" });
+        }
+        
+        // Get the skills associated with this example first
+        const skills = await storage.getSkillsByExampleId(exampleId);
+        
+        // Delete the mappings
+        await Promise.all(skills.map(skill => 
+          storage.deleteSkillToExample(skill.id, exampleId)
+        ));
+        
+        return res.status(200).json({ message: "Mappings deleted successfully" });
+      } catch (error) {
+        console.error("Delete skill-to-example mappings error:", error);
+        return res.status(500).json({ message: "Failed to delete mappings" });
+      }
+    }
+  );
 
   // Get examples by multiple skill ids (for filtering)
   app.post(
