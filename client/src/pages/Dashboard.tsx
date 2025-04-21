@@ -26,6 +26,7 @@ import {
   Terminal,
   BarChart2,
 } from "lucide-react";
+import ShareButton from "@/components/ShareButton";
 import { PORTFOLIO_OWNER } from "@/lib/constants";
 
 const Dashboard = () => {
@@ -127,6 +128,11 @@ const Dashboard = () => {
                   Chat With Me
                 </Button>
               </Link>
+              <ShareButton 
+                title={`${PORTFOLIO_OWNER.name}'s Technical Profile`}
+                description="Explore my skills, experience, and interests through interactive applications designed to showcase what I can bring to your team."
+                className="ml-1"
+              />
             </div>
           </div>
           <div className="w-full max-w-md aspect-square relative hidden md:block">

@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Alert } from "@/components/ui/alert";
+import { AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/hooks/use-toast";
 import { 
   Share2, Copy, Twitter, Linkedin, Facebook, Mail, Link, CheckCircle2, 
@@ -315,12 +316,10 @@ const SocialShare = ({
                   
                   <SocialPreview platform={previewPlatform} />
                   
-                  <Alert variant="outline" className="py-2">
-                    <AlertDescription className="text-xs flex items-center">
-                      <CheckCircle2 className="h-3 w-3 mr-1 text-green-500" />
-                      This is how your shared content may appear on {previewPlatform}.
-                    </AlertDescription>
-                  </Alert>
+                  <div className="py-2 border rounded-md flex items-center px-3 text-xs">
+                    <CheckCircle2 className="h-3 w-3 mr-1 text-green-500" />
+                    This is how your shared content may appear on {previewPlatform}.
+                  </div>
                 </TabsContent>
               </Tabs>
             </div>

@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import { storage } from "./storage";
+import { Request, Response } from 'express';
+import { storage } from './storage';
+import { PORTFOLIO_OWNER } from '../client/src/lib/constants';
 
-// Types for open graph metadata
 interface OpenGraphData {
   title: string;
   description: string;
@@ -10,195 +10,206 @@ interface OpenGraphData {
   type: string;
 }
 
-// Function to generate Open Graph HTML tags
+/**
+ * Generate OpenGraph meta tags based on the provided data
+ */
 export function generateOpenGraphTags(data: OpenGraphData): string {
-  const { title, description, imageUrl, url, type } = data;
+  const baseUrl = process.env.BASE_URL || 'https://graham-colehour-profile.replit.app';
   
-  let tags = `
-    <meta property="og:title" content="${escapeHtml(title)}" />
-    <meta property="og:description" content="${escapeHtml(description)}" />
-    <meta property="og:url" content="${escapeHtml(url)}" />
-    <meta property="og:type" content="${escapeHtml(type)}" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escapeHtml(title)}" />
-    <meta name="twitter:description" content="${escapeHtml(description)}" />
+  return `
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="${escapeHtml(data.title)}">
+    <meta name="description" content="${escapeHtml(data.description)}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="${escapeHtml(data.type)}">
+    <meta property="og:url" content="${escapeHtml(data.url)}">
+    <meta property="og:title" content="${escapeHtml(data.title)}">
+    <meta property="og:description" content="${escapeHtml(data.description)}">
+    ${data.imageUrl ? `<meta property="og:image" content="${escapeHtml(data.imageUrl)}">` : ''}
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="${escapeHtml(data.url)}">
+    <meta property="twitter:title" content="${escapeHtml(data.title)}">
+    <meta property="twitter:description" content="${escapeHtml(data.description)}">
+    ${data.imageUrl ? `<meta property="twitter:image" content="${escapeHtml(data.imageUrl)}">` : ''}
   `;
-  
-  // Add image if provided
-  if (imageUrl) {
-    tags += `
-      <meta property="og:image" content="${escapeHtml(imageUrl)}" />
-      <meta name="twitter:image" content="${escapeHtml(imageUrl)}" />
-    `;
-  }
-  
-  return tags;
 }
 
-// Helper to escape HTML characters in meta tags
+// Helper function to escape HTML to prevent XSS
 function escapeHtml(unsafe: string): string {
   return unsafe
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
-// Handle OG meta tags for home page
+/**
+ * Handle OpenGraph tags for the homepage
+ */
 export async function handleHomepageOG(req: Request, res: Response) {
   try {
-    // Get about me content from storage for the description
-    const aboutMeSections = await storage.getContentSectionsByType("about_me");
-    const firstAboutMe = aboutMeSections[0];
-    
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
-    const title = "Graham Colehour | Technical Profile";
-    const description = firstAboutMe 
-      ? firstAboutMe.content.substring(0, 160) + (firstAboutMe.content.length > 160 ? '...' : '')
-      : "Technical profile showcasing skills, experience, and capabilities.";
+    const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+    const imageUrl = `${baseUrl}/api/og-image/home`;
     
     const openGraphData: OpenGraphData = {
-      title,
-      description,
-      url: baseUrl,
-      type: "website",
-      imageUrl: `${baseUrl}/api/og-image/home`,
+      title: `${PORTFOLIO_OWNER.name}'s Technical Profile`,
+      description: `Explore ${PORTFOLIO_OWNER.name}'s skills, experience, and interests through interactive applications designed to showcase what they can bring to your team.`,
+      imageUrl,
+      url: `${baseUrl}/`,
+      type: 'website',
     };
     
-    res.send(generateOpenGraphTags(openGraphData));
+    const ogTags = generateOpenGraphTags(openGraphData);
+    res.send(ogTags);
   } catch (error) {
-    console.error("Error generating home OG tags:", error);
-    res.status(500).send("Error generating Open Graph tags");
+    console.error('Error generating OG tags for homepage:', error);
+    res.status(500).send('Error generating OG tags');
   }
 }
 
-// Handle OG meta tags for skill page
+/**
+ * Handle OpenGraph tags for skill pages
+ */
 export async function handleSkillOG(req: Request, res: Response) {
   try {
-    const skillId = parseInt(req.params.id);
-    
-    if (isNaN(skillId)) {
-      return res.status(400).send("Invalid skill ID");
-    }
-    
-    const skill = await storage.getSkill(skillId);
+    const { id } = req.params;
+    const skill = await storage.getSkill(Number(id));
     
     if (!skill) {
-      return res.status(404).send("Skill not found");
+      return res.status(404).send('Skill not found');
     }
     
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
-    const title = `${skill.name} | Graham Colehour`;
-    const description = skill.description;
+    const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+    const imageUrl = `${baseUrl}/api/og-image/skill/${id}`;
     
     const openGraphData: OpenGraphData = {
-      title,
-      description,
-      url: `${baseUrl}/skills/${skillId}`,
-      type: "article",
-      imageUrl: `${baseUrl}/api/og-image/skill/${skillId}`,
+      title: `${skill.name} - ${PORTFOLIO_OWNER.name}'s Skills`,
+      description: skill.description,
+      imageUrl,
+      url: `${baseUrl}/skills/${id}`,
+      type: 'article',
     };
     
-    res.send(generateOpenGraphTags(openGraphData));
+    const ogTags = generateOpenGraphTags(openGraphData);
+    res.send(ogTags);
   } catch (error) {
-    console.error("Error generating skill OG tags:", error);
-    res.status(500).send("Error generating Open Graph tags");
+    console.error('Error generating OG tags for skill:', error);
+    res.status(500).send('Error generating OG tags');
   }
 }
 
-// Handle OG meta tags for example page
+/**
+ * Handle OpenGraph tags for example pages
+ */
 export async function handleExampleOG(req: Request, res: Response) {
   try {
-    const exampleId = parseInt(req.params.id);
-    
-    if (isNaN(exampleId)) {
-      return res.status(400).send("Invalid example ID");
-    }
-    
-    const example = await storage.getSkillExample(exampleId);
+    const { id } = req.params;
+    const example = await storage.getSkillExample(Number(id));
     
     if (!example) {
-      return res.status(404).send("Example not found");
+      return res.status(404).send('Example not found');
     }
     
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
-    const title = `${example.title} | Graham Colehour`;
-    const description = example.description;
+    const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+    const imageUrl = `${baseUrl}/api/og-image/example/${id}`;
     
     const openGraphData: OpenGraphData = {
-      title,
-      description,
-      url: `${baseUrl}/examples/${exampleId}`,
-      type: "article",
-      imageUrl: example.image || `${baseUrl}/api/og-image/example/${exampleId}`,
+      title: `${example.title} - Project Example`,
+      description: example.description,
+      imageUrl,
+      url: `${baseUrl}/examples/${id}`,
+      type: 'article',
     };
     
-    res.send(generateOpenGraphTags(openGraphData));
+    const ogTags = generateOpenGraphTags(openGraphData);
+    res.send(ogTags);
   } catch (error) {
-    console.error("Error generating example OG tags:", error);
-    res.status(500).send("Error generating Open Graph tags");
+    console.error('Error generating OG tags for example:', error);
+    res.status(500).send('Error generating OG tags');
   }
 }
 
-// Handle OG meta tags for content sections (About Me, Work Experience, etc)
+/**
+ * Handle OpenGraph tags for content section pages
+ */
 export async function handleSectionOG(req: Request, res: Response) {
   try {
-    const sectionType = req.params.type;
-    const sections = await storage.getContentSectionsByType(sectionType);
+    const { type } = req.params;
+    const sections = await storage.getContentSectionsByType(type);
     
     if (!sections || sections.length === 0) {
-      return res.status(404).send("Section not found");
+      return res.status(404).send('Section not found');
     }
     
-    const firstSection = sections[0];
-    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    let title, description;
     
-    // Format the section type to be more readable
-    const sectionTitle = sectionType
-      .split('_')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    switch (type) {
+      case 'about_me':
+        title = `About ${PORTFOLIO_OWNER.name}`;
+        description = `Learn more about ${PORTFOLIO_OWNER.name}'s background, experience, and approach to work.`;
+        break;
+      case 'work_experience':
+        title = `${PORTFOLIO_OWNER.name}'s Work Experience`;
+        description = `Explore ${PORTFOLIO_OWNER.name}'s professional journey and career achievements.`;
+        break;
+      case 'personal_interests':
+        title = `${PORTFOLIO_OWNER.name}'s Interests`;
+        description = `Discover what drives and inspires ${PORTFOLIO_OWNER.name} outside of work.`;
+        break;
+      default:
+        title = `${PORTFOLIO_OWNER.name}'s Technical Profile`;
+        description = `Explore ${PORTFOLIO_OWNER.name}'s skills, experience, and interests.`;
+    }
     
-    const title = `${sectionTitle} | Graham Colehour`;
-    const description = firstSection.content.substring(0, 160) + 
-      (firstSection.content.length > 160 ? '...' : '');
+    const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+    const imageUrl = `${baseUrl}/api/og-image/section/${type}`;
     
     const openGraphData: OpenGraphData = {
       title,
       description,
-      url: `${baseUrl}/${sectionType.replace('_', '-')}`,
-      type: "article",
-      imageUrl: `${baseUrl}/api/og-image/section/${sectionType}`,
+      imageUrl,
+      url: `${baseUrl}/${type.replace('_', '-')}`,
+      type: 'article',
     };
     
-    res.send(generateOpenGraphTags(openGraphData));
+    const ogTags = generateOpenGraphTags(openGraphData);
+    res.send(ogTags);
   } catch (error) {
-    console.error("Error generating section OG tags:", error);
-    res.status(500).send("Error generating Open Graph tags");
+    console.error('Error generating OG tags for section:', error);
+    res.status(500).send('Error generating OG tags');
   }
 }
 
-// For custom sharing scenarios
+/**
+ * Handle custom OpenGraph tags
+ */
 export async function handleCustomOG(req: Request, res: Response) {
   try {
-    const { title, description, imageUrl, url, type } = req.query;
+    const { title, description, url, type } = req.query;
     
     if (!title || !description || !url) {
-      return res.status(400).send("Missing required fields");
+      return res.status(400).send('Missing required parameters');
     }
     
+    const baseUrl = process.env.BASE_URL || `${req.protocol}://${req.get('host')}`;
+    const imageUrl = `${baseUrl}/api/og-image/custom?title=${encodeURIComponent(title as string)}&subtitle=${encodeURIComponent(description as string)}`;
+    
     const openGraphData: OpenGraphData = {
-      title: title.toString(),
-      description: description.toString(),
-      url: url.toString(),
-      type: type?.toString() || "article",
-      imageUrl: imageUrl?.toString(),
+      title: title as string,
+      description: description as string,
+      imageUrl,
+      url: url as string,
+      type: (type as string) || 'article',
     };
     
-    res.send(generateOpenGraphTags(openGraphData));
+    const ogTags = generateOpenGraphTags(openGraphData);
+    res.send(ogTags);
   } catch (error) {
-    console.error("Error generating custom OG tags:", error);
-    res.status(500).send("Error generating Open Graph tags");
+    console.error('Error generating custom OG tags:', error);
+    res.status(500).send('Error generating OG tags');
   }
 }
