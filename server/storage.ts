@@ -28,7 +28,7 @@ import {
   type InsertContentSection,
 } from "@shared/schema";
 import { db } from "./db";
-import { eq, isNull, inArray, desc, or, ilike } from "drizzle-orm";
+import { eq, isNull, inArray, desc, or, ilike, and } from "drizzle-orm";
 
 // Interface defining all storage operations
 import session from "express-session";
@@ -946,6 +946,17 @@ export class DatabaseStorage implements IStorage {
       .select()
       .from(skillExamples)
       .where(inArray(skillExamples.id, exampleIds));
+  }
+
+  async deleteSkillToExample(skillId: number, exampleId: number): Promise<void> {
+    await db
+      .delete(skillToExample)
+      .where(
+        and(
+          eq(skillToExample.skillId, skillId),
+          eq(skillToExample.exampleId, exampleId)
+        )
+      );
   }
 
   // Chat message operations
