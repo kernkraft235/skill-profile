@@ -1,0 +1,142 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Technical Skills",
+      "description": "Core technical competencies and hard skills",
+      "parentId": null,
+      "level": 0,
+      "icon": "code",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "name": "Infrastructure & Automation",
+      "description": "Systems infrastructure design and automated management",
+      "parentId": 1,
+      "level": 1,
+      "icon": "server",
+      "order": 1
+    },
+    {
+      "id": 3,
+      "name": "Command Line",
+      "description": "Terminal expertise and shell capabilities",
+      "parentId": 1,
+      "level": 1,
+      "icon": "terminal",
+      "order": 2
+    },
+    {
+      "id": 4,
+      "name": "Data Engineering",
+      "description": "Data transformation, analysis and workflow skills",
+      "parentId": 1,
+      "level": 1,
+      "icon": "database",
+      "order": 3
+    },
+    {
+      "id": 5,
+      "name": "Soft Skills",
+      "description": "Professional and interpersonal capabilities",
+      "parentId": null,
+      "level": 0,
+      "icon": "users",
+      "order": 2
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Infrastructure as Code",
+      "description": "Defining and managing infrastructure through code and configuration files",
+      "categoryId": 2,
+      "proficiencyLevel": 4,
+      "icon": "file-code",
+      "years": 3,
+      "order": 1
+    },
+    {
+      "id": 2,
+      "name": "Server Configuration",
+      "description": "Setting up and managing servers with optimal configurations",
+      "categoryId": 2,
+      "proficiencyLevel": 5,
+      "icon": "settings",
+      "years": 5,
+      "order": 2
+    },
+    {
+      "id": 3,
+      "name": "Shell Scripting",
+      "description": "Creating advanced bash scripts for process automation and system management",
+      "categoryId": 3,
+      "proficiencyLevel": 5,
+      "icon": "terminal",
+      "years": 7,
+      "order": 1
+    },
+    {
+      "id": 4,
+      "name": "ETL Processes",
+      "description": "Designing and implementing extract, transform, load operations for data",
+      "categoryId": 4,
+      "proficiencyLevel": 4,
+      "icon": "refresh-cw",
+      "years": 4,
+      "order": 1
+    }
+  ],
+  "examples": [
+    {
+      "id": 1,
+      "title": "Nuclear Plant Monitoring System",
+      "description": "Built an automated monitoring and alert system for critical plant parameters",
+      "details": "Leveraged my nuclear operations background to design a comprehensive monitoring system that tracks over 50 critical parameters within the plant's systems. Created custom scripts that analyze trends, predict potential issues 30-45 minutes before conventional alarms would trigger, and route notifications to appropriate response teams based on severity. This system reduced emergency shutdowns by 65% and improved response time to anomalies by 78%.",
+      "image": "plant_monitoring.png",
+      "link": "",
+      "isSynthetic": false
+    },
+    {
+      "id": 2,
+      "title": "Automated Log Analysis System",
+      "description": "Created a scriptable system to analyze and extract insights from system logs",
+      "details": "Developed a comprehensive bash script system that processes server logs, identifies patterns, extracts meaningful metrics, and generates reports. This reduced manual analysis time by 85% and improved early error detection rates. The system was implemented across 35 servers and processes approximately 2GB of log data daily.",
+      "image": "log_analysis.png",
+      "link": "",
+      "isSynthetic": false
+    },
+    {
+      "id": 3,
+      "title": "Data Integration Pipeline",
+      "description": "Built an ETL pipeline connecting legacy systems with modern analytics platforms",
+      "details": "Designed and implemented a complete data pipeline that extracts information from three legacy systems, transforms and normalizes the data through a series of processing stages, and loads it into a modern analytics platform. This integration enabled cross-system reporting for the first time, revealing insights that led to a 23% improvement in process efficiency and $145,000 in annual cost savings.",
+      "image": "data_pipeline.png",
+      "link": "",
+      "isSynthetic": false
+    }
+  ],
+  "skillToExample": [
+    {
+      "skillId": 1,
+      "exampleId": 1
+    },
+    {
+      "skillId": 2,
+      "exampleId": 1
+    },
+    {
+      "skillId": 3,
+      "exampleId": 1
+    },
+    {
+      "skillId": 3,
+      "exampleId": 2
+    },
+    {
+      "skillId": 4,
+      "exampleId": 3
+    }
+  ]
+}
