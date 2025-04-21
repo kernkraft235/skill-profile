@@ -50,7 +50,7 @@ const AboutMe = () => {
                     {PORTFOLIO_OWNER.name}
                   </h2>
                   <p className="text-muted-foreground">
-                    Technology Enthusiast & Self-taught Developer
+                    Tech Enthusiast, Integrator, and Automator
                   </p>
 
                   <div className="flex gap-3 mt-4">
@@ -177,18 +177,18 @@ const AboutMe = () => {
                     Hello, I'm {PORTFOLIO_OWNER.name}!
                   </h2>
                   <p className="text-muted-foreground mb-4">
-                    I'm a passionate technology enthusiast with a strong
-                    interest in software development and digital innovation. I
-                    enjoy creating interactive web applications and exploring
-                    new technologies. My journey in technology has been
-                    self-directed, driven by curiosity and a desire to build
-                    useful applications.
+                    I’m a self-driven technologist with deep curiosity and a
+                    bias for building. My background blends hands-on system
+                    design with a strong interest in software development,
+                    automation, and digital innovation. I specialize in crafting
+                    interactive applications and prototyping solutions that
+                    solve real problems.
                   </p>
                   <p className="text-muted-foreground">
-                    This interactive resume is designed to showcase my skills,
-                    projects, and approach to problem-solving. Feel free to
-                    explore the different sections to get a comprehensive view
-                    of what I can bring to your team or project.
+                    This interactive resumé is built to reflect how I think,
+                    what I build, and how I approach complexity. Explore the
+                    sections to see how my experience and mindset can add value
+                    to your team or initiative.
                   </p>
                 </div>
 
@@ -239,17 +239,19 @@ const AboutMe = () => {
                 <div>
                   <h2 className="text-2xl font-semibold mb-4">My Background</h2>
                   <p className="text-muted-foreground mb-4">
-                    I began my journey in technology through self-directed
-                    learning and personal projects. Driven by curiosity and a
-                    passion for creating digital solutions, I've developed a
-                    strong foundation in programming and web development.
+                    My journey in technology has been shaped by deep curiosity,
+                    systems thinking, and hands-on problem solving. I’ve built
+                    my skill set through a combination of intensive technical
+                    training, real-world implementation, and continuous
+                    self-guided learning.
                   </p>
                   <p className="text-muted-foreground mb-4">
-                    My approach to learning has been hands-on, building projects
-                    that solve real problems while mastering new technologies
-                    and frameworks. I've supplemented this practical experience
-                    with online courses, tutorials, and active participation in
-                    developer communities.
+                    I approach technology as a craft: not just coding, but
+                    solving systemic problems, streamlining workflows, and
+                    modernizing infrastructure. Most of my learning happens
+                    outside traditional paths—through experimentation, deep
+                    dives, and real-world application across both personal and
+                    enterprise environments.
                   </p>
                 </div>
 
@@ -261,50 +263,56 @@ const AboutMe = () => {
                     <div className="relative pl-8 border-l border-muted pb-6">
                       <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-primary"></div>
                       <h4 className="text-lg font-medium">
-                        Web Development Foundations
+                        Systems & Workflow Foundations
                       </h4>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Mastered HTML, CSS, and JavaScript through building
-                        responsive websites and interactive web applications.
-                        Focused on modern best practices and semantic markup.
+                        Learned by dissecting complex systems—both physical
+                        (Naval Nuclear Power) and digital (enterprise software
+                        stacks). Applied structured problem-solving under
+                        operational pressure before pivoting into modern
+                        software and automation tooling.
                       </p>
                     </div>
 
                     <div className="relative pl-8 border-l border-muted pb-6">
                       <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-primary"></div>
                       <h4 className="text-lg font-medium">
-                        Front-end Frameworks
+                        Front-end & UX Design
                       </h4>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Developed proficiency in React and modern JavaScript
-                        frameworks. Built single-page applications with state
-                        management, routing, and API integration. Explored
-                        component-based architecture and UI libraries.
+                        Built dashboards, internal tools, and data
+                        visualizations with an emphasis on clarity, efficiency,
+                        and responsiveness. Comfortable with React and UI
+                        libraries but focus is on usability and function, not
+                        trend-chasing.
                       </p>
                     </div>
 
                     <div className="relative pl-8 border-l border-muted pb-6">
                       <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-primary"></div>
                       <h4 className="text-lg font-medium">
-                        Back-end & Full Stack Development
+                        Back-end & Automation
                       </h4>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Learned Node.js, Express, and database technologies to
-                        build full-stack applications. Implemented RESTful APIs,
-                        authentication systems, and data persistence solutions.
+                        Develop full-stack tools using Python, Node.js, and
+                        shell scripting—especially for process automation,
+                        systems integration, and data pipeline cleanup.
+                        Prioritize reliability and self-healing workflows over
+                        flash.
                       </p>
                     </div>
 
                     <div className="relative pl-8">
                       <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full bg-primary"></div>
                       <h4 className="text-lg font-medium">
-                        Continuous Learning
+                        Continuous Modernization & Problem-Solving
                       </h4>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Actively expanding knowledge through online courses,
-                        documentation, coding challenges, and contributing to
-                        open-source projects. Always exploring new technologies
-                        and industry best practices.
+                        Always leveling up—through obscure documentation, GitHub
+                        rabbit holes, and unconventional problem-solving.
+                        Projects often involve stitching together legacy
+                        systems, modern APIs, and private infrastructure to
+                        achieve results corporate IT can’t (or won’t) deliver.
                       </p>
                     </div>
                   </div>
@@ -324,10 +332,11 @@ const AboutMe = () => {
                     My Values & Approach
                   </h2>
                   <p className="text-muted-foreground mb-4">
-                    I believe that technology should empower people and solve
-                    real problems. My approach to development is guided by a set
-                    of core values that ensure I deliver high-quality,
-                    user-centric solutions.
+                    I believe technology is a force multiplier—its purpose is to
+                    reduce friction, eliminate waste, and empower people to do
+                    more with less. My approach is grounded in pragmatism,
+                    clarity, and autonomy, shaped by real-world constraints and
+                    a refusal to tolerate inefficiency.
                   </p>
                 </div>
 
@@ -338,13 +347,13 @@ const AboutMe = () => {
                         <div className="w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
                           <Code className="h-4 w-4 text-blue-500" />
                         </div>
-                        Clean, Maintainable Code
+                        Systems over Scripts
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        I value writing clean, well-documented, and maintainable
-                        code. I follow best practices, consistent coding
-                        standards, and thoughtful architecture to ensure
-                        long-term sustainability.
+                        Code is just a tool. I focus on designing systems that
+                        are modular, observable, and resilient—even if that
+                        means fewer lines of code. Tools should enable change,
+                        not become another problem to manage.
                       </p>
                     </CardContent>
                   </Card>
@@ -355,13 +364,14 @@ const AboutMe = () => {
                         <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center">
                           <User className="h-4 w-4 text-green-500" />
                         </div>
-                        User-Centered Design
+                        Operational Empathy
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        I prioritize the end user's needs and experiences in my
-                        development process. I believe in creating intuitive,
-                        accessible, and delightful interfaces that solve real
-                        problems.
+                        I build with the end user, maintainer, and stakeholder
+                        in mind. Interfaces should feel obvious. Workflows
+                        should reflect reality. Good design means understanding
+                        the full lifecycle of a tool—from deployment to
+                        debugging.
                       </p>
                     </CardContent>
                   </Card>
@@ -372,13 +382,14 @@ const AboutMe = () => {
                         <div className="w-8 h-8 rounded-full bg-orange-500/10 flex items-center justify-center">
                           <Clock className="h-4 w-4 text-orange-500" />
                         </div>
-                        Continuous Learning
+                        Relentless Improvement
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        I am committed to ongoing education and skill
-                        development. The tech field evolves rapidly, and I stay
-                        current with new technologies, methodologies, and best
-                        practices.
+                        My learning doesn’t pause. I stay sharp by
+                        reverse-engineering what works, stress-testing what
+                        doesn’t, and hunting for better patterns across
+                        disciplines. If something feels inefficient, I assume it
+                        can be fixed.
                       </p>
                     </CardContent>
                   </Card>
@@ -392,10 +403,11 @@ const AboutMe = () => {
                         Passion & Dedication
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        I approach every project with enthusiasm and commitment.
-                        I'm passionate about technology and dedicated to
-                        creating meaningful, impactful solutions that make a
-                        difference.
+                        I’m wired to solve problems. I’ve got a warped sense of
+                        fun—debugging flaky systems, closing feedback loops,
+                        untangling janky workflows. It's not about obligation; I
+                        genuinely enjoy chasing better solutions and stitching
+                        things together until they click.
                       </p>
                     </CardContent>
                   </Card>
@@ -412,13 +424,13 @@ const AboutMe = () => {
                       </div>
                       <div>
                         <h4 className="text-lg font-medium">
-                          Understanding the Problem
+                          Context & Constraints
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          I start by thoroughly understanding the problem, user
-                          needs, and project requirements. This foundation
-                          ensures that the solution addresses the core
-                          challenges effectively.
+                          I zoom out to understand the system—what’s broken,
+                          who’s involved, where the constraints are, and what
+                          outcomes actually matter. Most solutions fail because
+                          the problem wasn’t correctly scoped.
                         </p>
                       </div>
                     </div>
@@ -428,15 +440,11 @@ const AboutMe = () => {
                         <span className="font-medium">2</span>
                       </div>
                       <div>
-                        <h4 className="text-lg font-medium">
-                          Planning & Architecture
-                        </h4>
+                        <h4 className="text-lg font-medium">Leverage Points</h4>
                         <p className="text-sm text-muted-foreground">
-                          I design a thoughtful architecture and create a
-                          development plan before coding. This includes
-                          selecting the right technologies, planning the
-                          structure, and breaking down tasks into manageable
-                          components.
+                          I look for failure points, time sinks, or manual glue
+                          that’s holding everything together. I focus where a
+                          small fix or integration unlocks the most value.
                         </p>
                       </div>
                     </div>
@@ -446,12 +454,13 @@ const AboutMe = () => {
                         <span className="font-medium">3</span>
                       </div>
                       <div>
-                        <h4 className="text-lg font-medium">Implementation</h4>
+                        <h4 className="text-lg font-medium">
+                          Prototype Fast, Solve Precisely
+                        </h4>
                         <p className="text-sm text-muted-foreground">
-                          I implement the solution with clean, maintainable
-                          code, following best practices and industry standards.
-                          I focus on creating components that are modular,
-                          reusable, and well-documented.
+                          I work iteratively. Quick wins, minimal risk. Duct
+                          tape the flow first, then solidify what works.
+                          Functional beats theoretical.
                         </p>
                       </div>
                     </div>
@@ -462,13 +471,13 @@ const AboutMe = () => {
                       </div>
                       <div>
                         <h4 className="text-lg font-medium">
-                          Testing & Refinement
+                          Stabilize & Modularize
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          I thoroughly test the application to ensure it works
-                          as expected, is free of bugs, and provides a smooth
-                          user experience. I refine the solution based on
-                          feedback and testing results.
+                          Once a solution holds up, I make it clean, modular,
+                          and connectable. I don’t chase perfection—just
+                          clarity, reliability, and alignment with adjacent
+                          systems.
                         </p>
                       </div>
                     </div>
@@ -479,13 +488,12 @@ const AboutMe = () => {
                       </div>
                       <div>
                         <h4 className="text-lg font-medium">
-                          Delivery & Continuous Improvement
+                          Track the Friction
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          After delivering the solution, I remain committed to
-                          its success. I gather feedback, monitor performance,
-                          and make ongoing improvements to ensure the product
-                          continues to meet users' evolving needs.
+                          I keep an eye on usage patterns, weird edge cases, and
+                          where humans still struggle. That’s where the next
+                          iteration starts.
                         </p>
                       </div>
                     </div>

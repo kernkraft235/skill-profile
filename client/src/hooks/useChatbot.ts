@@ -14,7 +14,7 @@ export function useChatbot() {
       {
         question: "system",
         answer:
-          "👋 Hi there! I'm John's virtual assistant. How can I help you today? You can ask me about his skills, experience, projects, or background.",
+          "👋 Hi there! I'm Graham's virtual assistant. How can I help you today? You can ask me about his skills, experience, projects, or background.",
       },
     ]);
 

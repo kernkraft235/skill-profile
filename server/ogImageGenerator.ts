@@ -123,6 +123,9 @@ function generateOgImageHtml({
             margin-right: 16px;
             font-size: 24px;
             font-weight: bold;
+            background-image: url('${process.env.BASE_URL || ''}/assets/profile.png');
+            background-size: cover;
+            background-position: center;
           }
           
           .name {

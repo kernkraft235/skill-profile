@@ -10,13 +10,13 @@ import {
 export const PORTFOLIO_OWNER = {
   name: "Graham Colehour",
   title: "Full Stack Developer & AI Enthusiast",
-  email: "graham.colehour@example.com",
-  github: "https://github.com/grahamcolehour",
-  linkedin: "https://linkedin.com/in/grahamcolehour",
+  email: "graham@colehour.net",
+  github: "https://github.com/kernkraft235",
+  linkedin: "https://www.linkedin.com/in/gcolehour/",
   description:
-    "I build innovative web applications with cutting-edge technologies. Explore my work and learn more about my journey in tech.",
-  photo: "https://placehold.co/400x400/grey/white?text=GC&font=playfair",
-  yearsExperience: 7,
+    "I stabilize the old, stand up the new, and make the transition seamless.",
+  photo: "/assets/profile.png",
+  yearsExperience: 10,
 };
 
 export const HIGHLIGHTS = [
