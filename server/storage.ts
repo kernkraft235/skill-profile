@@ -213,7 +213,7 @@ export class MemStorage implements IStorage {
 
   async getAllSkillCategories(): Promise<SkillCategory[]> {
     return Array.from(this.skillCategories.values()).sort(
-      (a, b) => a.order - b.order,
+      (a, b) => (a.order || 0) - (b.order || 0),
     );
   }
 
@@ -226,7 +226,7 @@ export class MemStorage implements IStorage {
           ? category.parentId === undefined || category.parentId === null
           : category.parentId === parentId,
       )
-      .sort((a, b) => a.order - b.order);
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
   }
 
   // Skill operations
@@ -251,13 +251,13 @@ export class MemStorage implements IStorage {
   }
 
   async getAllSkills(): Promise<Skill[]> {
-    return Array.from(this.skills.values()).sort((a, b) => a.order - b.order);
+    return Array.from(this.skills.values()).sort((a, b) => (a.order || 0) - (b.order || 0));
   }
 
   async getSkillsByCategoryId(categoryId: number): Promise<Skill[]> {
     return Array.from(this.skills.values())
       .filter((skill) => skill.categoryId === categoryId)
-      .sort((a, b) => a.order - b.order);
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
   }
 
   // Skill Example operations
