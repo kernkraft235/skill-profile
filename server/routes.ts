@@ -546,6 +546,101 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // === PORTFOLIO DATA ROUTES ===
 
+  // Content Sections API
+  app.get("/api/content-sections", async (_req: Request, res: Response) => {
+    try {
+      const sections = await storage.getAllContentSections();
+      res.json(sections);
+    } catch (error) {
+      console.error("Error fetching content sections:", error);
+      res.status(500).json({ error: "Error fetching content sections" });
+    }
+  });
+
+  app.get("/api/content-sections/:type", async (req: Request, res: Response) => {
+    try {
+      const sectionType = req.params.type;
+      const sections = await storage.getContentSectionsByType(sectionType);
+      res.json(sections);
+    } catch (error) {
+      console.error(`Error fetching ${req.params.type} sections:`, error);
+      res.status(500).json({ error: `Error fetching ${req.params.type} sections` });
+    }
+  });
+
+  app.get("/api/content-sections/id/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "Invalid ID" });
+      }
+      
+      const section = await storage.getContentSection(id);
+      if (!section) {
+        return res.status(404).json({ error: "Content section not found" });
+      }
+      
+      res.json(section);
+    } catch (error) {
+      console.error("Error fetching content section:", error);
+      res.status(500).json({ error: "Error fetching content section" });
+    }
+  });
+
+  app.post("/api/content-sections", requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const newSection = await storage.createContentSection(req.body);
+      res.status(201).json(newSection);
+    } catch (error) {
+      console.error("Error creating content section:", error);
+      res.status(500).json({ error: "Error creating content section" });
+    }
+  });
+
+  app.put("/api/content-sections/:id", requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "Invalid ID" });
+      }
+      
+      const existingSection = await storage.getContentSection(id);
+      if (!existingSection) {
+        return res.status(404).json({ error: "Content section not found" });
+      }
+      
+      const updatedSection = await storage.updateContentSection({
+        ...req.body,
+        id,
+      });
+      
+      res.json(updatedSection);
+    } catch (error) {
+      console.error("Error updating content section:", error);
+      res.status(500).json({ error: "Error updating content section" });
+    }
+  });
+
+  app.delete("/api/content-sections/:id", requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "Invalid ID" });
+      }
+      
+      const existingSection = await storage.getContentSection(id);
+      if (!existingSection) {
+        return res.status(404).json({ error: "Content section not found" });
+      }
+      
+      await storage.deleteContentSection(id);
+      res.status(204).end();
+    } catch (error) {
+      console.error("Error deleting content section:", error);
+      res.status(500).json({ error: "Error deleting content section" });
+    }
+  });
+
   // Get portfolio data
   app.get("/api/portfolio", async (_req: Request, res: Response) => {
     try {
@@ -554,11 +649,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Get skill hierarchy data
       const rootCategories = await storage.getSkillCategoriesByParentId(null);
+      
+      // Get content sections (about_me, work_experience, personal_interests)
+      const contentSections = await storage.getAllContentSections();
+      
+      // Organize content sections by type
+      const aboutMeSections = contentSections.filter(section => section.section === 'about_me');
+      const workExperienceSections = contentSections.filter(section => section.section === 'work_experience');
+      const personalInterestsSections = contentSections.filter(section => section.section === 'personal_interests');
 
       // Format the data for the frontend
       const portfolio = {
         about: aboutData,
         skillCategories: rootCategories,
+        contentSections: {
+          aboutMe: aboutMeSections,
+          workExperience: workExperienceSections,
+          personalInterests: personalInterestsSections,
+          all: contentSections
+        }
       };
 
       return res.status(200).json(portfolio);
