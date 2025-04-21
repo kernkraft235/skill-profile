@@ -13,6 +13,7 @@ import Home from "@/pages/Home";
 import AboutMe from "@/pages/AboutMe";
 import ExperienceExplorer from "@/pages/ExperienceExplorer";
 import InterestsExplorer from "@/pages/InterestsExplorer";
+import Admin from "@/pages/Admin";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -26,6 +27,8 @@ function Router() {
           <Route path="/skills" component={Home} />
           <Route path="/experience" component={ExperienceExplorer} />
           <Route path="/interests" component={InterestsExplorer} />
+          {/* Admin route */}
+          <Route path="/admin" component={Admin} />
           {/* Additional routes */}
           {/* <Route path="/chat" component={ChatBot} /> */}
           {/* <Route path="/contact" component={Contact} /> */}

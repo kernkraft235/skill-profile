@@ -128,7 +128,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/skills", async (req: Request, res: Response) => {
     try {
       const skillData = req.body;
-      const validatedData = insertSkillSchema.parse(skillData);
+      // Ensure required fields have default values
+      const dataWithDefaults = {
+        ...skillData,
+        icon: skillData.icon || null,
+        years: skillData.years || null,
+        order: skillData.order || 0
+      };
+      const validatedData = insertSkillSchema.parse(dataWithDefaults);
       const skill = await storage.createSkill(validatedData);
       return res.status(201).json({ message: "Skill created successfully", skill });
     } catch (error) {
@@ -151,10 +158,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const skillData = req.body;
-      const validatedData = insertSkillSchema.parse(skillData);
+      // Ensure required fields have default values
+      const dataWithDefaults = {
+        ...skillData,
+        icon: skillData.icon || null,
+        years: skillData.years || null,
+        order: skillData.order || 0
+      };
+      const validatedData = insertSkillSchema.parse(dataWithDefaults);
       
       // Update skill in storage
-      const updatedSkill = { ...validatedData, id };
+      const updatedSkill = { 
+        ...validatedData, 
+        id,
+        icon: validatedData.icon || null,
+        years: validatedData.years || null,
+        order: validatedData.order || 0
+      };
       await storage.updateSkill(updatedSkill);
       
       return res.status(200).json({ message: "Skill updated successfully", skill: updatedSkill });
