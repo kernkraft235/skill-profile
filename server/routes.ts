@@ -11,7 +11,7 @@ import {
 import { createOpenRouter } from "./openrouter";
 
 // Initialize OpenRouter client
-const openai = createOpenRouter(process.env.OPENAI_API_KEY || "dummy-key-for-development");
+const openai = createOpenRouter(process.env.OPENROUTER_API_KEY || "dummy-key-for-development");
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // prefix all routes with /api
