@@ -7,6 +7,8 @@ import {
   insertContactSubmissionSchema,
   insertSkillExampleSchema,
   insertSkillToExampleSchema,
+  insertSkillSchema,
+  skillSchema,
 } from "@shared/schema";
 import { createOpenRouter } from "./openrouter";
 
@@ -119,6 +121,68 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Get all skills error:", error);
       return res.status(500).json({ message: "Failed to retrieve all skills" });
+    }
+  });
+  
+  // Create skill
+  app.post("/api/skills", async (req: Request, res: Response) => {
+    try {
+      const skillData = req.body;
+      const validatedData = insertSkillSchema.parse(skillData);
+      const skill = await storage.createSkill(validatedData);
+      return res.status(201).json({ message: "Skill created successfully", skill });
+    } catch (error) {
+      console.error("Create skill error:", error);
+      return res.status(500).json({ message: "Failed to create skill" });
+    }
+  });
+  
+  // Update skill
+  app.put("/api/skills/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid skill ID" });
+      }
+      
+      const existingSkill = await storage.getSkill(id);
+      if (!existingSkill) {
+        return res.status(404).json({ message: "Skill not found" });
+      }
+      
+      const skillData = req.body;
+      const validatedData = insertSkillSchema.parse(skillData);
+      
+      // Update skill in storage
+      const updatedSkill = { ...validatedData, id };
+      await storage.updateSkill(updatedSkill);
+      
+      return res.status(200).json({ message: "Skill updated successfully", skill: updatedSkill });
+    } catch (error) {
+      console.error("Update skill error:", error);
+      return res.status(500).json({ message: "Failed to update skill" });
+    }
+  });
+  
+  // Delete skill
+  app.delete("/api/skills/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ message: "Invalid skill ID" });
+      }
+      
+      const existingSkill = await storage.getSkill(id);
+      if (!existingSkill) {
+        return res.status(404).json({ message: "Skill not found" });
+      }
+      
+      await storage.deleteSkill(id);
+      
+      return res.status(200).json({ message: "Skill deleted successfully" });
+    } catch (error) {
+      console.error("Delete skill error:", error);
+      return res.status(500).json({ message: "Failed to delete skill" });
     }
   });
 

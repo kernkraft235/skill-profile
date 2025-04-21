@@ -47,6 +47,8 @@ export interface IStorage {
   getSkill(id: number): Promise<Skill | undefined>;
   getAllSkills(): Promise<Skill[]>;
   getSkillsByCategoryId(categoryId: number): Promise<Skill[]>;
+  updateSkill(skill: Skill): Promise<Skill>;
+  deleteSkill(id: number): Promise<void>;
 
   // Skill Example operations
   createSkillExample(example: InsertSkillExample): Promise<SkillExample>;
@@ -77,6 +79,29 @@ export interface IStorage {
 
 // In-memory implementation of the storage interface
 export class MemStorage implements IStorage {
+  // Implementation for updateSkill and deleteSkill
+  async updateSkill(skill: Skill): Promise<Skill> {
+    if (!this.skills.has(skill.id)) {
+      throw new Error(`Skill with ID ${skill.id} not found`);
+    }
+    this.skills.set(skill.id, skill);
+    return skill;
+  }
+
+  async deleteSkill(id: number): Promise<void> {
+    if (!this.skills.has(id)) {
+      throw new Error(`Skill with ID ${id} not found`);
+    }
+    this.skills.delete(id);
+    
+    // Also delete any skill-to-example mappings
+    const mappingsToDelete = Array.from(this.skillToExamples.entries())
+      .filter(([_, mapping]) => mapping.skillId === id);
+    
+    for (const [mappingId] of mappingsToDelete) {
+      this.skillToExamples.delete(mappingId);
+    }
+  }
   private users: Map<number, User>;
   private chatMessages: Map<number, ChatMessage>;
   private contactSubmissions: Map<number, ContactSubmission>;
@@ -614,6 +639,35 @@ export class MemStorage implements IStorage {
 // Create and export the storage instance
 // Database implementation of the storage interface
 export class DatabaseStorage implements IStorage {
+  async updateSkill(skill: Skill): Promise<Skill> {
+    const [updatedSkill] = await db
+      .update(skills)
+      .set({
+        name: skill.name,
+        description: skill.description,
+        categoryId: skill.categoryId,
+        proficiencyLevel: skill.proficiencyLevel,
+        icon: skill.icon,
+        years: skill.years,
+        order: skill.order,
+      })
+      .where(eq(skills.id, skill.id))
+      .returning();
+    
+    if (!updatedSkill) {
+      throw new Error(`Skill with ID ${skill.id} not found`);
+    }
+    
+    return updatedSkill;
+  }
+
+  async deleteSkill(id: number): Promise<void> {
+    // First delete any skill-to-example mappings
+    await db.delete(skillToExample).where(eq(skillToExample.skillId, id));
+    
+    // Then delete the skill
+    await db.delete(skills).where(eq(skills.id, id));
+  }
   // User operations
   async getUser(id: number): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.id, id));

@@ -7,7 +7,7 @@ import {
   boolean,
   jsonb,
 } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
 
 // User schema
@@ -71,6 +71,9 @@ export const insertSkillSchema = createInsertSchema(skills).pick({
   years: true,
   order: true,
 });
+
+// Also export the skill schema for update operations
+export const skillSchema = createSelectSchema(skills);
 
 export type InsertSkill = z.infer<typeof insertSkillSchema>;
 export type Skill = typeof skills.$inferSelect;
