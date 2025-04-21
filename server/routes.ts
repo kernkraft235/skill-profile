@@ -8,12 +8,10 @@ import {
   insertSkillExampleSchema,
   insertSkillToExampleSchema,
 } from "@shared/schema";
-import OpenAI from "openai";
+import { createOpenRouter } from "./openrouter";
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || "dummy-key-for-development",
-});
+// Initialize OpenRouter client
+const openai = createOpenRouter(process.env.OPENAI_API_KEY || "dummy-key-for-development");
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // prefix all routes with /api
@@ -262,9 +260,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
         // Generate synthetic example using OpenAI
         try {
-          // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+          // Using OpenRouter to access AI models
           const response = await openai.chat.completions.create({
-            model: "gpt-4o",
+            model: "anthropic/claude-3-opus:2024-05-07",
             messages: [
               {
                 role: "system",
@@ -361,9 +359,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Generate answer using OpenAI
       let answer = "";
       try {
-        // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+        // Using OpenRouter to access AI models
         const response = await openai.chat.completions.create({
-          model: "gpt-4o",
+          model: "anthropic/claude-3-opus:2024-05-07",
           messages: [
             {
               role: "system",
