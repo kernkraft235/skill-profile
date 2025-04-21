@@ -456,7 +456,7 @@ export class MemStorage implements IStorage {
   async getContentSectionsByType(sectionType: string): Promise<ContentSection[]> {
     return Array.from(this.contentSections.values())
       .filter((section) => section.section === sectionType)
-      .sort((a, b) => a.order - b.order);
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
   }
 
   async updateContentSection(section: ContentSection): Promise<ContentSection> {
@@ -489,7 +489,7 @@ export class MemStorage implements IStorage {
           return a.section.localeCompare(b.section);
         }
         // Then sort by order within each section
-        return a.order - b.order;
+        return (a.order || 0) - (b.order || 0);
       });
   }
 
