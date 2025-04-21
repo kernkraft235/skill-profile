@@ -13,6 +13,20 @@ import {
   type ContentSection,
 } from "@shared/schema";
 import { createOpenRouter } from "./openrouter";
+import {
+  handleHomepageOG,
+  handleSkillOG,
+  handleExampleOG,
+  handleSectionOG,
+  handleCustomOG
+} from "./openGraph";
+import {
+  handleHomepageOgImage,
+  handleSkillOgImage,
+  handleExampleOgImage,
+  handleSectionOgImage,
+  handleCustomOgImage
+} from "./ogImageGenerator";
 
 // Initialize OpenRouter client
 const openai = createOpenRouter(process.env.OPENROUTER_API_KEY || "dummy-key-for-development");
@@ -729,6 +743,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
       return res
         .status(500)
         .json({ message: "Failed to retrieve portfolio data" });
+    }
+  });
+
+  // === OPEN GRAPH AND SOCIAL SHARE ROUTES ===
+
+  // OpenGraph meta tags for different page types
+  app.get("/api/og-meta/home", handleHomepageOG);
+  app.get("/api/og-meta/skill/:id", handleSkillOG);
+  app.get("/api/og-meta/example/:id", handleExampleOG);
+  app.get("/api/og-meta/section/:type", handleSectionOG);
+  app.get("/api/og-meta/custom", handleCustomOG);
+
+  // OpenGraph image generation for social sharing
+  app.get("/api/og-image/home", handleHomepageOgImage);
+  app.get("/api/og-image/skill/:id", handleSkillOgImage);
+  app.get("/api/og-image/example/:id", handleExampleOgImage);
+  app.get("/api/og-image/section/:type", handleSectionOgImage);
+  app.get("/api/og-image/custom", handleCustomOgImage);
+
+  // Share URL shortener and tracking
+  app.post("/api/share", async (req: Request, res: Response) => {
+    try {
+      const { title, description, url, type } = req.body;
+      
+      if (!title || !description || !url) {
+        return res.status(400).json({ message: "Missing required fields" });
+      }
+      
+      // For now, we'll just return the full URL since we don't have URL shortening
+      // In the future, this could be implemented with a database for shortened URLs
+      return res.status(200).json({ 
+        shareUrl: url,
+        ogUrl: `/api/og-meta/custom?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}&url=${encodeURIComponent(url)}&type=${type || 'article'}`,
+        imageUrl: `/api/og-image/custom?title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent(description)}`
+      });
+    } catch (error) {
+      console.error("Share URL error:", error);
+      return res.status(500).json({ message: "Failed to create share URL" });
     }
   });
 
