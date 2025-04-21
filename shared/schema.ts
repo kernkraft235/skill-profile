@@ -177,3 +177,25 @@ export const insertRagContextSchema = createInsertSchema(ragContexts).pick({
 
 export type InsertRagContext = z.infer<typeof insertRagContextSchema>;
 export type RagContext = typeof ragContexts.$inferSelect;
+
+// Content sections schema (for about me, work experience, personal interests)
+export const contentSections = pgTable("content_sections", {
+  id: serial("id").primaryKey(),
+  section: text("section").notNull(), // 'about_me', 'work_experience', 'personal_interests'
+  title: text("title").notNull(),
+  content: text("content").notNull(),
+  order: integer("order").default(0),
+  metadata: jsonb("metadata"), // For additional structured data specific to each section type
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const insertContentSectionSchema = createInsertSchema(contentSections).pick({
+  section: true,
+  title: true,
+  content: true,
+  order: true,
+  metadata: true,
+});
+
+export type InsertContentSection = z.infer<typeof insertContentSectionSchema>;
+export type ContentSection = typeof contentSections.$inferSelect;

@@ -23,6 +23,9 @@ import {
   skillToExample,
   type SkillToExample,
   type InsertSkillToExample,
+  contentSections,
+  type ContentSection,
+  type InsertContentSection,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, isNull, inArray, desc, or, ilike } from "drizzle-orm";
@@ -81,6 +84,14 @@ export interface IStorage {
   getAllRagContexts(): Promise<RagContext[]>;
   getRagContextsBySection(section: string): Promise<RagContext[]>;
   searchRagContexts(query: string): Promise<RagContext[]>;
+  
+  // Content Section operations (About Me, Work Experience, Personal Interests)
+  createContentSection(section: InsertContentSection): Promise<ContentSection>;
+  getContentSection(id: number): Promise<ContentSection | undefined>;
+  getContentSectionsByType(sectionType: string): Promise<ContentSection[]>;
+  updateContentSection(section: ContentSection): Promise<ContentSection>;
+  deleteContentSection(id: number): Promise<void>;
+  getAllContentSections(): Promise<ContentSection[]>;
 }
 
 // In-memory implementation of the storage interface
@@ -116,6 +127,7 @@ export class MemStorage implements IStorage {
   private skills: Map<number, Skill>;
   private skillExamples: Map<number, SkillExample>;
   private skillToExamples: Map<number, SkillToExample>;
+  private contentSections: Map<number, ContentSection>;
 
   private userId: number;
   private chatMessageId: number;
@@ -125,6 +137,7 @@ export class MemStorage implements IStorage {
   private skillId: number;
   private skillExampleId: number;
   private skillToExampleId: number;
+  private contentSectionId: number;
 
   sessionStore: session.Store;
 
@@ -141,6 +154,7 @@ export class MemStorage implements IStorage {
     this.skills = new Map();
     this.skillExamples = new Map();
     this.skillToExamples = new Map();
+    this.contentSections = new Map();
 
     this.userId = 1;
     this.chatMessageId = 1;
@@ -150,6 +164,7 @@ export class MemStorage implements IStorage {
     this.skillId = 1;
     this.skillExampleId = 1;
     this.skillToExampleId = 1;
+    this.contentSectionId = 1;
 
     // Initialize with sample data
     this.initializeRagContexts();
@@ -415,6 +430,67 @@ export class MemStorage implements IStorage {
     contexts.forEach((context) => {
       this.createRagContext(context);
     });
+  }
+
+  // Content Section operations
+  async createContentSection(insertSection: InsertContentSection): Promise<ContentSection> {
+    const id = this.contentSectionId++;
+    const now = new Date();
+    const section: ContentSection = {
+      id,
+      section: insertSection.section,
+      title: insertSection.title,
+      content: insertSection.content,
+      order: insertSection.order || 0,
+      metadata: insertSection.metadata || null,
+      updatedAt: now,
+    };
+    this.contentSections.set(id, section);
+    return section;
+  }
+
+  async getContentSection(id: number): Promise<ContentSection | undefined> {
+    return this.contentSections.get(id);
+  }
+
+  async getContentSectionsByType(sectionType: string): Promise<ContentSection[]> {
+    return Array.from(this.contentSections.values())
+      .filter((section) => section.section === sectionType)
+      .sort((a, b) => a.order - b.order);
+  }
+
+  async updateContentSection(section: ContentSection): Promise<ContentSection> {
+    if (!this.contentSections.has(section.id)) {
+      throw new Error(`Content section with ID ${section.id} not found`);
+    }
+    
+    // Update the updatedAt timestamp
+    const updatedSection: ContentSection = {
+      ...section,
+      updatedAt: new Date(),
+    };
+    
+    this.contentSections.set(section.id, updatedSection);
+    return updatedSection;
+  }
+
+  async deleteContentSection(id: number): Promise<void> {
+    if (!this.contentSections.has(id)) {
+      throw new Error(`Content section with ID ${id} not found`);
+    }
+    this.contentSections.delete(id);
+  }
+
+  async getAllContentSections(): Promise<ContentSection[]> {
+    return Array.from(this.contentSections.values())
+      .sort((a, b) => {
+        // First sort by section type
+        if (a.section !== b.section) {
+          return a.section.localeCompare(b.section);
+        }
+        // Then sort by order within each section
+        return a.order - b.order;
+      });
   }
 
   // Initialize with skill data
