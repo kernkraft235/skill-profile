@@ -3,7 +3,8 @@ import App from "./App";
 import "./index.css";
 
 // Ensure modern browsers support used features
-const supportsModernBrowserFeatures = 'IntersectionObserver' in window && 'fetch' in window;
+const supportsModernBrowserFeatures =
+  "IntersectionObserver" in window && "fetch" in window;
 
 if (!supportsModernBrowserFeatures) {
   // If browser doesn't support modern features, show a warning

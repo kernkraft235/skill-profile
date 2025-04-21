@@ -1,4 +1,12 @@
-import { pgTable, text, serial, integer, timestamp, boolean, jsonb } from "drizzle-orm/pg-core";
+import {
+  pgTable,
+  text,
+  serial,
+  integer,
+  timestamp,
+  boolean,
+  jsonb,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -25,16 +33,18 @@ export const skillCategories = pgTable("skill_categories", {
   parentId: integer("parent_id"),
   level: integer("level").notNull().default(0), // 0 = root, 1 = main category, 2 = subcategory, etc.
   icon: text("icon"),
-  order: integer("order").notNull().default(0)
+  order: integer("order").notNull().default(0),
 });
 
-export const insertSkillCategorySchema = createInsertSchema(skillCategories).pick({
+export const insertSkillCategorySchema = createInsertSchema(
+  skillCategories,
+).pick({
   name: true,
   description: true,
   parentId: true,
   level: true,
   icon: true,
-  order: true
+  order: true,
 });
 
 export type InsertSkillCategory = z.infer<typeof insertSkillCategorySchema>;
@@ -49,7 +59,7 @@ export const skills = pgTable("skills", {
   proficiencyLevel: integer("proficiency_level").notNull(), // 1-5 scale
   icon: text("icon"),
   years: integer("years"), // Years of experience
-  order: integer("order").notNull().default(0)
+  order: integer("order").notNull().default(0),
 });
 
 export const insertSkillSchema = createInsertSchema(skills).pick({
@@ -59,7 +69,7 @@ export const insertSkillSchema = createInsertSchema(skills).pick({
   proficiencyLevel: true,
   icon: true,
   years: true,
-  order: true
+  order: true,
 });
 
 export type InsertSkill = z.infer<typeof insertSkillSchema>;
@@ -74,7 +84,7 @@ export const skillExamples = pgTable("skill_examples", {
   image: text("image"),
   link: text("link"),
   isSynthetic: boolean("is_synthetic").default(false),
-  createdAt: timestamp("created_at").defaultNow()
+  createdAt: timestamp("created_at").defaultNow(),
 });
 
 export const insertSkillExampleSchema = createInsertSchema(skillExamples).pick({
@@ -83,7 +93,7 @@ export const insertSkillExampleSchema = createInsertSchema(skillExamples).pick({
   details: true,
   image: true,
   link: true,
-  isSynthetic: true
+  isSynthetic: true,
 });
 
 export type InsertSkillExample = z.infer<typeof insertSkillExampleSchema>;
@@ -93,12 +103,14 @@ export type SkillExample = typeof skillExamples.$inferSelect;
 export const skillToExample = pgTable("skill_to_example", {
   id: serial("id").primaryKey(),
   skillId: integer("skill_id").notNull(),
-  exampleId: integer("example_id").notNull()
+  exampleId: integer("example_id").notNull(),
 });
 
-export const insertSkillToExampleSchema = createInsertSchema(skillToExample).pick({
+export const insertSkillToExampleSchema = createInsertSchema(
+  skillToExample,
+).pick({
   skillId: true,
-  exampleId: true
+  exampleId: true,
 });
 
 export type InsertSkillToExample = z.infer<typeof insertSkillToExampleSchema>;
@@ -109,7 +121,7 @@ export const chatMessages = pgTable("chat_messages", {
   id: serial("id").primaryKey(),
   question: text("question").notNull(),
   answer: text("answer").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull()
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const insertChatMessageSchema = createInsertSchema(chatMessages).pick({
@@ -127,17 +139,21 @@ export const contactSubmissions = pgTable("contact_submissions", {
   email: text("email").notNull(),
   subject: text("subject").notNull(),
   message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull()
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export const insertContactSubmissionSchema = createInsertSchema(contactSubmissions).pick({
+export const insertContactSubmissionSchema = createInsertSchema(
+  contactSubmissions,
+).pick({
   name: true,
   email: true,
   subject: true,
   message: true,
 });
 
-export type InsertContactSubmission = z.infer<typeof insertContactSubmissionSchema>;
+export type InsertContactSubmission = z.infer<
+  typeof insertContactSubmissionSchema
+>;
 export type ContactSubmission = typeof contactSubmissions.$inferSelect;
 
 // RAG context schema (for storing embeddings or retrieved context)
@@ -146,14 +162,14 @@ export const ragContexts = pgTable("rag_contexts", {
   title: text("title").notNull(),
   content: text("content").notNull(),
   section: text("section").notNull(),
-  embeddings: jsonb("embeddings")
+  embeddings: jsonb("embeddings"),
 });
 
 export const insertRagContextSchema = createInsertSchema(ragContexts).pick({
   title: true,
   content: true,
   section: true,
-  embeddings: true
+  embeddings: true,
 });
 
 export type InsertRagContext = z.infer<typeof insertRagContextSchema>;

@@ -1,13 +1,20 @@
-import { Link } from 'wouter';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { motion } from 'framer-motion';
-import { 
-  BrainCircuit, 
-  Briefcase, 
-  Heart, 
+import { Link } from "wouter";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { motion } from "framer-motion";
+import {
+  BrainCircuit,
+  Briefcase,
+  Heart,
   ArrowRight,
   Sparkles,
   Search,
@@ -17,48 +24,69 @@ import {
   Code,
   BookOpen,
   Terminal,
-  BarChart2
-} from 'lucide-react';
-import { PORTFOLIO_OWNER } from '@/lib/constants';
+  BarChart2,
+} from "lucide-react";
+import { PORTFOLIO_OWNER } from "@/lib/constants";
 
 const Dashboard = () => {
   const sections = [
     {
       title: "About Me",
-      description: "Learn more about me, my background, and my approach to work.",
-      longDescription: "Get to know me better through my professional journey, personal interests, and work philosophy. Find out what drives me and how I approach challenges.",
+      description:
+        "Learn more about me, my background, and my approach to work.",
+      longDescription:
+        "Get to know me better through my professional journey, personal interests, and work philosophy. Find out what drives me and how I approach challenges.",
       icon: <User className="h-10 w-10 text-emerald-500" />,
       color: "from-emerald-500 to-teal-600",
       link: "/about",
-      features: ["Professional background", "Personal interests", "Values & approach"]
+      features: [
+        "Professional background",
+        "Personal interests",
+        "Values & approach",
+      ],
     },
     {
       title: "Skill Explorer",
       description: "Dive into my skills and see detailed examples of my work.",
-      longDescription: "Browse through categorized skills with a hierarchical explorer. Filter by multiple skills and generate synthetic examples of how I would apply combinations of skills to new projects.",
+      longDescription:
+        "Browse through categorized skills with a hierarchical explorer. Filter by multiple skills and generate synthetic examples of how I would apply combinations of skills to new projects.",
       icon: <BrainCircuit className="h-10 w-10 text-violet-500" />,
       color: "from-violet-500 to-purple-600",
       link: "/skills",
-      features: ["Hierarchical skill browser", "Detailed work examples", "AI-generated example projects"]
+      features: [
+        "Hierarchical skill browser",
+        "Detailed work examples",
+        "AI-generated example projects",
+      ],
     },
     {
       title: "Work Experience",
       description: "Explore my professional journey in depth.",
-      longDescription: "View my work history with detailed information about each role, responsibilities, and key achievements. Learn how my experience has shaped my professional capabilities.",
+      longDescription:
+        "View my work history with detailed information about each role, responsibilities, and key achievements. Learn how my experience has shaped my professional capabilities.",
       icon: <Briefcase className="h-10 w-10 text-blue-500" />,
       color: "from-blue-500 to-cyan-600",
       link: "/experience",
-      features: ["Timeline visualization", "Role details", "Achievement highlights"]
+      features: [
+        "Timeline visualization",
+        "Role details",
+        "Achievement highlights",
+      ],
     },
     {
       title: "Personal Interests",
       description: "Discover what drives and inspires me outside of work.",
-      longDescription: "Get to know me beyond my professional skills. Explore my personal interests, hobbies, and passions to see what makes me tick and where I find inspiration.",
+      longDescription:
+        "Get to know me beyond my professional skills. Explore my personal interests, hobbies, and passions to see what makes me tick and where I find inspiration.",
       icon: <Heart className="h-10 w-10 text-rose-500" />,
       color: "from-rose-500 to-pink-600",
       link: "/interests",
-      features: ["Interest categories", "Personal projects", "Inspiration sources"]
-    }
+      features: [
+        "Interest categories",
+        "Personal projects",
+        "Inspiration sources",
+      ],
+    },
   ];
 
   return (
@@ -67,9 +95,7 @@ const Dashboard = () => {
       <section className="mb-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-2xl">
-            <Badge 
-              className="mb-4 bg-gradient-to-r from-primary to-purple-500 text-white hover:from-primary hover:to-purple-600"
-            >
+            <Badge className="mb-4 bg-gradient-to-r from-primary to-purple-500 text-white hover:from-primary hover:to-purple-600">
               Interactive Dashboard
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
@@ -79,11 +105,14 @@ const Dashboard = () => {
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-3">
-              Explore my skills, experience, and interests through interactive applications
-              designed to showcase what I can bring to your team.
+              Explore my skills, experience, and interests through interactive
+              applications designed to showcase what I can bring to your team.
             </p>
             <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
-              <span className="font-semibold text-foreground">I blend systems thinking with technical versatility to solve infrastructure, automation, and integration challenges.</span>
+              <span className="font-semibold text-foreground">
+                I blend systems thinking with technical versatility to solve
+                infrastructure, automation, and integration challenges.
+              </span>
             </p>
             <div className="flex items-center gap-3">
               <Link href="/skills">
@@ -133,22 +162,30 @@ const Dashboard = () => {
               Skill Translator
             </h2>
             <p className="text-lg text-muted-foreground">
-              This tool <span className="font-semibold text-foreground">identifies which of my skills are relevant to your specific needs</span>. 
-              Describe a workplace challenge, and see exactly how my relevant skills can be applied.
+              This tool{" "}
+              <span className="font-semibold text-foreground">
+                identifies which of my skills are relevant to your specific
+                needs
+              </span>
+              . Describe a workplace challenge, and see exactly how my relevant
+              skills can be applied.
             </p>
           </div>
 
           <div>
             <div className="flex gap-2 w-full">
-              <textarea 
-                id="scenario" 
+              <textarea
+                id="scenario"
                 rows={2}
                 placeholder="Describe a technical problem you're trying to solve..."
                 className="flex-1 rounded-md border border-input bg-background/80 p-3 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary resize-none"
                 style={{ height: "68px" }}
               />
               <Link href="/skills" className="h-[68px] flex items-center">
-                <Button className="bg-primary h-[68px] w-[68px] rounded-md p-0 flex items-center justify-center" title="Match Skills to Your Need">
+                <Button
+                  className="bg-primary h-[68px] w-[68px] rounded-md p-0 flex items-center justify-center"
+                  title="Match Skills to Your Need"
+                >
                   <Sparkles className="h-10 w-10 text-white" />
                 </Button>
               </Link>
@@ -162,7 +199,9 @@ const Dashboard = () => {
               </div>
               <div>
                 <h4 className="font-medium">Share Your Scenario</h4>
-                <p className="text-sm text-muted-foreground">Describe a workplace challenge or technical need you're facing</p>
+                <p className="text-sm text-muted-foreground">
+                  Describe a workplace challenge or technical need you're facing
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -171,7 +210,10 @@ const Dashboard = () => {
               </div>
               <div>
                 <h4 className="font-medium">Skill Mapping</h4>
-                <p className="text-sm text-muted-foreground">Identifies which of my documented skills are relevant to your situation</p>
+                <p className="text-sm text-muted-foreground">
+                  Identifies which of my documented skills are relevant to your
+                  situation
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -180,7 +222,10 @@ const Dashboard = () => {
               </div>
               <div>
                 <h4 className="font-medium">Relevant Experience Match</h4>
-                <p className="text-sm text-muted-foreground">Explains exactly how each skill applies to your specific situation</p>
+                <p className="text-sm text-muted-foreground">
+                  Explains exactly how each skill applies to your specific
+                  situation
+                </p>
               </div>
             </div>
           </div>
@@ -198,18 +243,23 @@ const Dashboard = () => {
                   <BookOpen className="h-6 w-6 text-orange-500" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">From Nuclear Engineering to IT Systems</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    From Nuclear Engineering to IT Systems
+                  </h3>
                   <p className="text-muted-foreground">
-                    My journey began as a nuclear operator on submarines and reactors, followed by process engineering experience. 
-                    This foundation gave me a unique analytical approach to technical problems. The transition to IT was natural—both 
-                    domains require system thinking, careful analysis, and precision. This background gives me a different perspective 
-                    than pure computer science graduates.
+                    My journey began as a nuclear operator on submarines and
+                    reactors, followed by process engineering experience. This
+                    foundation gave me a unique analytical approach to technical
+                    problems. The transition to IT was natural—both domains
+                    require system thinking, careful analysis, and precision.
+                    This background gives me a different perspective than pure
+                    computer science graduates.
                   </p>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="border-border/50 shadow-sm bg-gradient-to-r from-primary/5 to-purple-500/5">
               <CardContent className="p-6">
@@ -218,17 +268,22 @@ const Dashboard = () => {
                     <Code className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Infrastructure & Automation Specialist</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      Infrastructure & Automation Specialist
+                    </h3>
                     <p className="text-muted-foreground">
-                      I have a comprehensive understanding of IT ecosystems—from computer architecture to infrastructure. 
-                      I work at the intersection of traditional IT and modern DevOps, with expertise in how systems interact. 
-                      These skills excel in Platform Engineering, Infrastructure Automation, and Technical Solutions Engineering.
+                      I have a comprehensive understanding of IT ecosystems—from
+                      computer architecture to infrastructure. I work at the
+                      intersection of traditional IT and modern DevOps, with
+                      expertise in how systems interact. These skills excel in
+                      Platform Engineering, Infrastructure Automation, and
+                      Technical Solutions Engineering.
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card className="border-border/50 shadow-sm bg-gradient-to-r from-blue-500/5 to-cyan-500/5">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
@@ -236,18 +291,23 @@ const Dashboard = () => {
                     <Terminal className="h-6 w-6 text-blue-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Command Line & Scripting Expert</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      Command Line & Scripting Expert
+                    </h3>
                     <p className="text-muted-foreground">
-                      I have exceptional command line expertise and shell scripting abilities with advanced proficiency in terminal 
-                      environments. This enables me to automate operations, manage systems, and solve complex problems through 
-                      scripting instead of full application development. I create practical solutions that connect systems 
-                      and streamline workflows.
+                      I have exceptional command line expertise and shell
+                      scripting abilities with advanced proficiency in terminal
+                      environments. This enables me to automate operations,
+                      manage systems, and solve complex problems through
+                      scripting instead of full application development. I
+                      create practical solutions that connect systems and
+                      streamline workflows.
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card className="border-border/50 shadow-sm bg-gradient-to-r from-green-500/5 to-emerald-500/5">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
@@ -255,12 +315,17 @@ const Dashboard = () => {
                     <BarChart2 className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Data Engineering Skills</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      Data Engineering Skills
+                    </h3>
                     <p className="text-muted-foreground">
-                      My process engineering background evolved into strong data transformation skills. 
-                      I excel at data analysis, ETL processes, and efficient workflows. I bridge the gap between 
-                      raw data and actionable insights—extracting, transforming, and delivering information where it's needed.
-                      I'm the data specialist who makes information usable and valuable across systems.
+                      My process engineering background evolved into strong data
+                      transformation skills. I excel at data analysis, ETL
+                      processes, and efficient workflows. I bridge the gap
+                      between raw data and actionable insights—extracting,
+                      transforming, and delivering information where it's
+                      needed. I'm the data specialist who makes information
+                      usable and valuable across systems.
                     </p>
                   </div>
                 </div>
@@ -272,7 +337,9 @@ const Dashboard = () => {
 
       {/* Main sections */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-8">Explore Interactive Sections</h2>
+        <h2 className="text-3xl font-bold mb-8">
+          Explore Interactive Sections
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {sections.map((section, index) => (
             <motion.div
@@ -304,7 +371,7 @@ const Dashboard = () => {
                 </CardContent>
                 <CardFooter className="pt-0">
                   <Link href={section.link}>
-                    <Button 
+                    <Button
                       className={`w-full bg-gradient-to-r ${section.color} group-hover:shadow-md transition-all duration-300`}
                     >
                       Explore {section.title}
@@ -328,41 +395,53 @@ const Dashboard = () => {
                 <Search className="h-6 w-6 text-blue-500 mr-2" />
                 <CardTitle>Interactive Search</CardTitle>
               </div>
-              <CardDescription>Find exactly what you're looking for in my profile</CardDescription>
+              <CardDescription>
+                Find exactly what you're looking for in my profile
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Use the powerful search functionality to quickly find specific skills, projects, or experiences.
-                Filter results based on technologies, time periods, or specific requirements.
+                Use the powerful search functionality to quickly find specific
+                skills, projects, or experiences. Filter results based on
+                technologies, time periods, or specific requirements.
               </p>
             </CardContent>
             <CardFooter>
               <Link href="/search">
-                <Button variant="outline" className="border-blue-500/20 hover:border-blue-500/50">
+                <Button
+                  variant="outline"
+                  className="border-blue-500/20 hover:border-blue-500/50"
+                >
                   Search Profile
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </CardFooter>
           </Card>
-          
+
           <Card className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-green-500/20">
             <CardHeader>
               <div className="flex items-center mb-2">
                 <User className="h-6 w-6 text-green-500 mr-2" />
                 <CardTitle>Career Match</CardTitle>
               </div>
-              <CardDescription>See how my experience aligns with your needs</CardDescription>
+              <CardDescription>
+                See how my experience aligns with your needs
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Explore detailed information about my professional experience and see how my 
-                background aligns with the requirements of your team or project.
+                Explore detailed information about my professional experience
+                and see how my background aligns with the requirements of your
+                team or project.
               </p>
             </CardContent>
             <CardFooter>
               <Link href="/experience">
-                <Button variant="outline" className="border-green-500/20 hover:border-green-500/50">
+                <Button
+                  variant="outline"
+                  className="border-green-500/20 hover:border-green-500/50"
+                >
                   View Experience
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -378,9 +457,12 @@ const Dashboard = () => {
           <CardContent className="p-6 md:p-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
-                <h3 className="text-2xl font-bold mb-2">Ready to learn more?</h3>
+                <h3 className="text-2xl font-bold mb-2">
+                  Ready to learn more?
+                </h3>
                 <p className="text-muted-foreground max-w-xl">
-                  Start exploring my interactive resume or reach out to discuss how I can contribute to your team.
+                  Start exploring my interactive resume or reach out to discuss
+                  how I can contribute to your team.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">

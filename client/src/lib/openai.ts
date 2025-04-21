@@ -3,7 +3,7 @@ import { apiRequest } from "./queryClient";
 
 export async function generateChatResponse(question: string): Promise<string> {
   try {
-    const res = await apiRequest('POST', '/api/chat', { question });
+    const res = await apiRequest("POST", "/api/chat", { question });
     const data = await res.json();
     return data.answer;
   } catch (error) {
@@ -14,18 +14,18 @@ export async function generateChatResponse(question: string): Promise<string> {
 
 export async function getChatHistory(): Promise<ChatMessage[]> {
   try {
-    const res = await fetch('/api/chat/history', {
-      method: 'GET',
+    const res = await fetch("/api/chat/history", {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      credentials: 'include'
+      credentials: "include",
     });
-    
+
     if (!res.ok) {
       throw new Error(`${res.status}: ${res.statusText}`);
     }
-    
+
     return await res.json();
   } catch (error) {
     console.error("Error fetching chat history:", error);

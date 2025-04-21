@@ -21,6 +21,7 @@ Skill categories are organized hierarchically:
 ```
 
 Each category has:
+
 - **Name**: Short, descriptive title
 - **Description**: Brief explanation of the category
 - **Parent ID**: Reference to parent category (null for root categories)
@@ -74,6 +75,7 @@ When populating your skill database:
 ## Example Data Structure for Technical Profile
 
 ### Sample Category
+
 ```json
 {
   "name": "Infrastructure & Automation",
@@ -86,6 +88,7 @@ When populating your skill database:
 ```
 
 ### Sample Skill
+
 ```json
 {
   "name": "Shell Scripting",
@@ -99,6 +102,7 @@ When populating your skill database:
 ```
 
 ### Sample Example
+
 ```json
 {
   "title": "Automated Log Analysis System",
@@ -111,6 +115,7 @@ When populating your skill database:
 ```
 
 ### Linking Example to Skills
+
 ```json
 {
   "skillId": 5, // References "Shell Scripting" skill

@@ -1,73 +1,81 @@
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { apiRequest } from '@/lib/queryClient';
-import { SkillCategory } from '@shared/schema';
-import SkillExplorer from '@/components/SkillExplorer';
-import SkillDetail from '@/components/SkillDetail';
-import ExamplesList from '@/components/ExamplesList';
-import ExampleDetail from '@/components/ExampleDetail';
-import SidePanel from '@/components/SidePanel';
-import { useToast } from '@/hooks/use-toast';
-import { Loader2, BrainCircuit } from 'lucide-react';
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { SkillCategory } from "@shared/schema";
+import SkillExplorer from "@/components/SkillExplorer";
+import SkillDetail from "@/components/SkillDetail";
+import ExamplesList from "@/components/ExamplesList";
+import ExampleDetail from "@/components/ExampleDetail";
+import SidePanel from "@/components/SidePanel";
+import { useToast } from "@/hooks/use-toast";
+import { Loader2, BrainCircuit } from "lucide-react";
 
 // View states for the app
-type ViewState = 'categories' | 'skills' | 'examples' | 'example-detail';
+type ViewState = "categories" | "skills" | "examples" | "example-detail";
 
 const Home = () => {
-  const [viewState, setViewState] = useState<ViewState>('categories');
-  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
+  const [viewState, setViewState] = useState<ViewState>("categories");
+  const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(
+    null,
+  );
   const [selectedSkillId, setSelectedSkillId] = useState<number | null>(null);
-  const [selectedExampleId, setSelectedExampleId] = useState<number | null>(null);
+  const [selectedExampleId, setSelectedExampleId] = useState<number | null>(
+    null,
+  );
   const [selectedSkillIds, setSelectedSkillIds] = useState<number[]>([]);
   const { toast } = useToast();
 
   // Fetch root categories
-  const { data: rootCategories, isLoading, error } = useQuery({
-    queryKey: ['/api/skill-categories/root'],
+  const {
+    data: rootCategories,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["/api/skill-categories/root"],
     queryFn: async () => {
-      const res = await apiRequest('GET', '/api/skill-categories/root');
+      const res = await apiRequest("GET", "/api/skill-categories/root");
       const data = await res.json();
       return data as SkillCategory[];
-    }
+    },
   });
 
   // Handle category selection
   const handleCategorySelect = (categoryId: number) => {
     setSelectedCategoryId(categoryId);
-    setViewState('skills');
+    setViewState("skills");
   };
 
   // Handle skill selection
   const handleSkillSelect = (skillId: number) => {
     setSelectedSkillId(skillId);
-    setViewState('examples');
+    setViewState("examples");
   };
 
   // Handle example selection
   const handleExampleSelect = (exampleId: number) => {
     setSelectedExampleId(exampleId);
-    setViewState('example-detail');
+    setViewState("example-detail");
   };
 
   // Handle going back
   const handleBack = () => {
-    if (viewState === 'skills') {
+    if (viewState === "skills") {
       setSelectedCategoryId(null);
-      setViewState('categories');
-    } else if (viewState === 'examples') {
+      setViewState("categories");
+    } else if (viewState === "examples") {
       setSelectedSkillId(null);
-      setViewState('skills');
-    } else if (viewState === 'example-detail') {
+      setViewState("skills");
+    } else if (viewState === "example-detail") {
       setSelectedExampleId(null);
-      setViewState('examples');
+      setViewState("examples");
     }
   };
 
   // Handle filter toggle
   const handleFilterToggle = (skillId: number) => {
-    setSelectedSkillIds(prev => {
+    setSelectedSkillIds((prev) => {
       if (prev.includes(skillId)) {
-        return prev.filter(id => id !== skillId);
+        return prev.filter((id) => id !== skillId);
       } else {
         return [...prev, skillId];
       }
@@ -92,23 +100,25 @@ const Home = () => {
       });
 
       // Call the API to generate a synthetic example
-      const res = await apiRequest('POST', '/api/skill-examples/synthetic', {
+      const res = await apiRequest("POST", "/api/skill-examples/synthetic", {
         prompt,
-        relatedSkillIds: selectedSkillIds
+        relatedSkillIds: selectedSkillIds,
       });
-      
+
       if (!res.ok) {
         const error = await res.json();
-        throw new Error(error.message || 'Failed to generate synthetic example');
+        throw new Error(
+          error.message || "Failed to generate synthetic example",
+        );
       }
-      
+
       const data = await res.json();
-      
+
       // Navigate to the generated example detail view
       if (data.example && data.example.id) {
         setSelectedExampleId(data.example.id);
-        setViewState('example-detail');
-        
+        setViewState("example-detail");
+
         toast({
           title: "Example generated!",
           description: "Your custom example has been created successfully.",
@@ -117,10 +127,12 @@ const Home = () => {
       }
     } catch (err) {
       const error = err as Error;
-      console.error('Error generating synthetic example:', error);
+      console.error("Error generating synthetic example:", error);
       toast({
         title: "Generation failed",
-        description: error.message || "There was a problem generating your example. Please try again.",
+        description:
+          error.message ||
+          "There was a problem generating your example. Please try again.",
         variant: "destructive",
       });
     }
@@ -138,7 +150,9 @@ const Home = () => {
     return (
       <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-6">
         <h1 className="text-2xl font-bold mb-4">Error Loading Skills</h1>
-        <p className="text-muted-foreground">There was a problem loading the skill data. Please try again later.</p>
+        <p className="text-muted-foreground">
+          There was a problem loading the skill data. Please try again later.
+        </p>
       </div>
     );
   }
@@ -159,42 +173,39 @@ const Home = () => {
       <div className="flex flex-1 overflow-hidden">
         {/* Main content */}
         <main className="flex-1 overflow-auto p-6">
-          {viewState === 'categories' && rootCategories && (
-            <SkillExplorer 
-              categories={rootCategories} 
+          {viewState === "categories" && rootCategories && (
+            <SkillExplorer
+              categories={rootCategories}
               onCategorySelect={handleCategorySelect}
             />
           )}
-          
-          {viewState === 'skills' && selectedCategoryId && (
-            <SkillDetail 
-              categoryId={selectedCategoryId} 
-              onSkillSelect={handleSkillSelect} 
+
+          {viewState === "skills" && selectedCategoryId && (
+            <SkillDetail
+              categoryId={selectedCategoryId}
+              onSkillSelect={handleSkillSelect}
               onBack={handleBack}
               onFilterToggle={handleFilterToggle}
               selectedSkillIds={selectedSkillIds}
             />
           )}
-          
-          {viewState === 'examples' && selectedSkillId && (
-            <ExamplesList 
+
+          {viewState === "examples" && selectedSkillId && (
+            <ExamplesList
               skillId={selectedSkillId}
               onExampleSelect={handleExampleSelect}
               onBack={handleBack}
             />
           )}
-          
-          {viewState === 'example-detail' && selectedExampleId && (
-            <ExampleDetail 
-              exampleId={selectedExampleId} 
-              onBack={handleBack} 
-            />
+
+          {viewState === "example-detail" && selectedExampleId && (
+            <ExampleDetail exampleId={selectedExampleId} onBack={handleBack} />
           )}
         </main>
 
         {/* Side panel for filters and tools */}
-        <SidePanel 
-          selectedSkillIds={selectedSkillIds} 
+        <SidePanel
+          selectedSkillIds={selectedSkillIds}
           onFilterToggle={handleFilterToggle}
           onGenerateSynthetic={handleGenerateSynthetic}
         />
