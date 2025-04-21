@@ -1,7 +1,8 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { setupAuth } from "./auth";
 import {
   insertChatMessageSchema,
   insertContactSubmissionSchema,
@@ -16,6 +17,17 @@ import { createOpenRouter } from "./openrouter";
 const openai = createOpenRouter(process.env.OPENROUTER_API_KEY || "dummy-key-for-development");
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup authentication
+  setupAuth(app);
+  
+  // Create middleware for admin routes
+  const requireAdmin = (req: Request, res: Response, next: NextFunction) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+    next();
+  };
+  
   // prefix all routes with /api
 
   // === SKILL CATEGORY ROUTES ===
@@ -124,8 +136,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  // Create skill
-  app.post("/api/skills", async (req: Request, res: Response) => {
+  // Create skill (admin only)
+  app.post("/api/skills", requireAdmin, async (req: Request, res: Response) => {
     try {
       const skillData = req.body;
       // Ensure required fields have default values
@@ -144,8 +156,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
-  // Update skill
-  app.put("/api/skills/:id", async (req: Request, res: Response) => {
+  // Update skill (admin only)
+  app.put("/api/skills/:id", requireAdmin, async (req: Request, res: Response) => {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) {

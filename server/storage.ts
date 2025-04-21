@@ -28,7 +28,13 @@ import { db } from "./db";
 import { eq, isNull, inArray, desc, or, ilike } from "drizzle-orm";
 
 // Interface defining all storage operations
+import session from "express-session";
+import createMemoryStore from "memorystore";
+
+const MemoryStore = createMemoryStore(session);
+
 export interface IStorage {
+  sessionStore: session.Store;
   // User operations
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
@@ -120,7 +126,13 @@ export class MemStorage implements IStorage {
   private skillExampleId: number;
   private skillToExampleId: number;
 
+  sessionStore: session.Store;
+
   constructor() {
+    this.sessionStore = new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    });
+    
     this.users = new Map();
     this.chatMessages = new Map();
     this.contactSubmissions = new Map();
@@ -639,6 +651,13 @@ export class MemStorage implements IStorage {
 // Create and export the storage instance
 // Database implementation of the storage interface
 export class DatabaseStorage implements IStorage {
+  sessionStore: session.Store;
+  
+  constructor() {
+    this.sessionStore = new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    });
+  }
   async updateSkill(skill: Skill): Promise<Skill> {
     const [updatedSkill] = await db
       .update(skills)
