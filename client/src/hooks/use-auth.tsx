@@ -14,15 +14,9 @@ type AuthContextType = {
   error: Error | null;
   loginMutation: UseMutationResult<User, Error, LoginData>;
   logoutMutation: UseMutationResult<void, Error, void>;
-  registerMutation: UseMutationResult<User, Error, RegisterData>;
 };
 
 type LoginData = {
-  username: string;
-  password: string;
-};
-
-type RegisterData = {
   username: string;
   password: string;
 };

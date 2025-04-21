@@ -13,6 +13,10 @@ declare global {
   }
 }
 
+// Get admin credentials from environment variables
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'changeme';
+
 const scryptAsync = promisify(scrypt);
 
 async function hashPassword(password: string) {
@@ -48,11 +52,17 @@ export function setupAuth(app: Express) {
   passport.use(
     new LocalStrategy(async (username, password, done) => {
       try {
-        const user = await storage.getUserByUsername(username);
-        if (!user || !(await comparePasswords(password, user.password))) {
-          return done(null, false);
+        // Check if username and password match the admin credentials
+        if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+          // Create an admin user object
+          const adminUser: SelectUser = {
+            id: 1,
+            username: ADMIN_USERNAME,
+            password: 'not-stored', // Not actually storing the password in the session
+          };
+          return done(null, adminUser);
         } else {
-          return done(null, user);
+          return done(null, false);
         }
       } catch (error) {
         return done(error);
@@ -63,33 +73,24 @@ export function setupAuth(app: Express) {
   passport.serializeUser((user, done) => done(null, user.id));
   passport.deserializeUser(async (id: number, done) => {
     try {
-      const user = await storage.getUser(id);
-      done(null, user);
-    } catch (error) {
-      done(error);
-    }
-  });
-
-  app.post("/api/register", async (req, res, next) => {
-    try {
-      const existingUser = await storage.getUserByUsername(req.body.username);
-      if (existingUser) {
-        return res.status(400).json({ message: "Username already exists" });
+      // If id is 1, it's our admin user
+      if (id === 1) {
+        const adminUser: SelectUser = {
+          id: 1,
+          username: ADMIN_USERNAME,
+          password: 'not-stored',
+        };
+        done(null, adminUser);
+      } else {
+        // Should never happen since we only have one admin user
+        done(new Error('User not found'), null);
       }
-
-      const user = await storage.createUser({
-        ...req.body,
-        password: await hashPassword(req.body.password),
-      });
-
-      req.login(user, (err) => {
-        if (err) return next(err);
-        return res.status(201).json(user);
-      });
     } catch (error) {
-      next(error);
+      done(error, null);
     }
   });
+
+  // No registration endpoint - only admin can login
 
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.status(200).json(req.user);
