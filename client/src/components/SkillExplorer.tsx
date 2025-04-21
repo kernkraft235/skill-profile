@@ -11,6 +11,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Paintbrush, BarChart } from "lucide-react";
+import ShareButton from "@/components/ShareButton";
 
 interface SkillExplorerProps {
   categories: SkillCategory[];
@@ -36,12 +37,18 @@ const SkillExplorer = ({
 
   return (
     <div className="space-y-6">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Skill Explorer</h1>
-        <p className="text-muted-foreground">
-          Browse through my diverse set of skills and discover detailed examples
-          of my work.
-        </p>
+      <div className="flex justify-between items-start">
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight">Skill Explorer</h1>
+          <p className="text-muted-foreground">
+            Browse through my diverse set of skills and discover detailed examples
+            of my work.
+          </p>
+        </div>
+        <ShareButton 
+          title="Skill Explorer - Graham Colehour's Technical Profile"
+          description="Browse through Graham's diverse set of skills and discover detailed examples of his work in this interactive skill explorer."
+        />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -68,7 +75,12 @@ const SkillExplorer = ({
                 {category.description}
               </p>
             </CardContent>
-            <CardFooter className="p-4 md:p-6 pt-0 flex justify-end">
+            <CardFooter className="p-4 md:p-6 pt-0 flex justify-between">
+              <ShareButton 
+                variant="compact"
+                title={`${category.name} - Graham Colehour's Skills`}
+                description={category.description}
+              />
               <Button
                 variant="ghost"
                 className="group-hover:text-primary group-hover:bg-primary/10 transition-all duration-300"
