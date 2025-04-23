@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Proxmox",
+    "description": "Experience with Proxmox virtualization platform for managing virtual machines and containers",
+    "categoryId": 6,
+    "proficiencyLevel": 4,
+    "icon": "Server",
+    "years": 3,
+    "order": 1
+  },
+  {
+    "name": "KVM/QEMU",
+    "description": "Proficiency with Linux KVM hypervisor and QEMU for hardware virtualization",
+    "categoryId": 6,
+    "proficiencyLevel": 4,
+    "icon": "Layers",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "Docker",
+    "description": "Experience with Docker containers for application deployment and containerization",
+    "categoryId": 6,
+    "proficiencyLevel": 3,
+    "icon": "Boxes",
+    "years": 2,
+    "order": 3
+  },
+  {
+    "name": "LXC Containers",
+    "description": "Knowledge of Linux Containers (LXC) for operating system-level virtualization",
+    "categoryId": 6,
+    "proficiencyLevel": 3,
+    "icon": "Box",
+    "years": 2,
+    "order": 4
+  },
+  {
+    "name": "PCIe Passthrough",
+    "description": "Implementation of PCIe passthrough for hardware access in virtual environments",
+    "categoryId": 6,
+    "proficiencyLevel": 4,
+    "icon": "Plug",
+    "years": 2,
+    "order": 5
+  }
+]

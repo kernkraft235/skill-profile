@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Network Configuration",
+    "description": "Experience with network setup, routing, and configuration across various environments",
+    "categoryId": 7,
+    "proficiencyLevel": 3,
+    "icon": "Network",
+    "years": 4,
+    "order": 1
+  },
+  {
+    "name": "VPN Management",
+    "description": "Implementation and management of Virtual Private Networks for secure remote connections",
+    "categoryId": 7,
+    "proficiencyLevel": 3,
+    "icon": "Shield",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "Firewall Configuration",
+    "description": "Setting up and managing firewall rules to secure network environments",
+    "categoryId": 7,
+    "proficiencyLevel": 3,
+    "icon": "ShieldAlert",
+    "years": 3,
+    "order": 3
+  },
+  {
+    "name": "Load Balancing",
+    "description": "Experience with distributing network traffic across multiple servers",
+    "categoryId": 7,
+    "proficiencyLevel": 2,
+    "icon": "SplitSquareVertical",
+    "years": 2,
+    "order": 4
+  },
+  {
+    "name": "Mellanox NICs",
+    "description": "Experience with Mellanox high-performance network interface cards",
+    "categoryId": 7,
+    "proficiencyLevel": 3,
+    "icon": "Ethernet",
+    "years": 2,
+    "order": 5
+  }
+]
