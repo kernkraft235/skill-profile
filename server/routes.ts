@@ -818,6 +818,52 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // === AI EXPLANATION ROUTES ===
+  
+  // Generate AI explanation for technical terms
+  app.post("/api/explain", async (req: Request, res: Response) => {
+    try {
+      const { term, context } = req.body;
+      
+      if (!term || typeof term !== "string") {
+        return res.status(400).json({ message: "Term is required" });
+      }
+      
+      // Generate explanation using OpenAI/OpenRouter
+      try {
+        const response = await openai.chat.completions.create({
+          model: "anthropic/claude-3-opus:2024-05-07",
+          messages: [
+            {
+              role: "system",
+              content: `You are an expert at explaining technical concepts in simple, clear language.
+                Generate a brief, helpful explanation for a technical term.
+                If context is provided, use it to make the explanation more relevant.
+                Keep explanations under 150 words, focusing on practical understanding rather than academic definitions.
+                Avoid jargon when possible, and when you must use technical terms, explain them.`
+            },
+            {
+              role: "user",
+              content: `Please explain this technical term or concept: "${term}"
+                ${context ? `\nContext: ${context}` : ''}`
+            }
+          ],
+          max_tokens: 300,
+          temperature: 0.5,
+        });
+        
+        const explanation = response.choices[0].message.content.trim();
+        return res.status(200).json({ explanation });
+      } catch (error) {
+        console.error("AI explanation generation error:", error);
+        return res.status(500).json({ message: "Failed to generate AI explanation" });
+      }
+    } catch (error) {
+      console.error("Generate AI explanation error:", error);
+      return res.status(500).json({ message: "Failed to process explanation request" });
+    }
+  });
+
   const httpServer = createServer(app);
 
   return httpServer;
