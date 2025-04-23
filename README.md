@@ -40,6 +40,14 @@ This platform is built with a modern technology stack:
 - **AI Integration**: OpenRouter.ai API with Claude 3 Opus for advanced AI functionalities
 - **Sharing Capabilities**: Dynamic OpenGraph meta tags for rich previews when shared on social platforms
 
+## Project Structure
+
+### Data Organization
+
+- **/data/skills/** - Contains JSON files with skill categories and individual skills data
+- **/data/import_data.js** - Script for importing skill data into the database
+- **/documentation/** - Project documentation and design files
+
 ## Installation
 
 ```bash

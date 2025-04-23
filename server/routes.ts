@@ -382,6 +382,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
         .json({ message: "Failed to retrieve all examples" });
     }
   });
+  
+  // Create skill example (admin only)
+  app.post("/api/skill-examples", requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const exampleData = req.body;
+      const validatedData = insertSkillExampleSchema.parse(exampleData);
+      const example = await storage.createSkillExample(validatedData);
+      return res.status(201).json(example);
+    } catch (error) {
+      console.error("Create skill example error:", error);
+      return res.status(500).json({ message: "Failed to create skill example" });
+    }
+  });
 
   // Get single example by id
   app.get("/api/skill-examples/:id", async (req: Request, res: Response) => {
