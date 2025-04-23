@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Systems Infrastructure",
+    "description": "Expertise in setting up, managing, and optimizing the fundamental building blocks of IT infrastructure",
+    "parentId": null,
+    "level": 0,
+    "icon": "Server",
+    "order": 1
+  },
+  {
+    "name": "Engineering & Process",
+    "description": "Skills from nuclear and process engineering background that effectively transfer to technical systems",
+    "parentId": null,
+    "level": 0,
+    "icon": "Workflow",
+    "order": 2
+  },
+  {
+    "name": "Data & Analytics",
+    "description": "Capabilities in working with data, databases, and analytics tools",
+    "parentId": null,
+    "level": 0,
+    "icon": "Database",
+    "order": 3
+  },
+  {
+    "name": "Automation & Scripting",
+    "description": "Skills in automating tasks and creating scripts to improve efficiency",
+    "parentId": null,
+    "level": 0,
+    "icon": "Terminal",
+    "order": 4
+  },
+  {
+    "name": "Advanced Technologies",
+    "description": "Experience with emerging and specialized technologies",
+    "parentId": null,
+    "level": 0,
+    "icon": "Cpu",
+    "order": 5
+  }
+]

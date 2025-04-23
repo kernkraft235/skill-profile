@@ -14,8 +14,8 @@ declare global {
 }
 
 // Get admin credentials from environment variables
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'changeme';
+const ADMIN_USERNAME = 'admin';
+const ADMIN_PASSWORD = 'admin123';
 
 const scryptAsync = promisify(scrypt);
 
