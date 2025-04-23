@@ -15,7 +15,7 @@ export const PORTFOLIO_OWNER = {
   linkedin: "https://www.linkedin.com/in/gcolehour/",
   description:
     "I stabilize the old, stand up the new, and make the transition seamless.",
-  photo: "/assets/profile.png",
+  photo: `/assets/profile.png?t=${Date.now()}`,
   yearsExperience: 10,
 };
 

@@ -27,6 +27,7 @@ export function generateOpenGraphTags(data: OpenGraphData): string {
     <meta property="og:title" content="${escapeHtml(data.title)}">
     <meta property="og:description" content="${escapeHtml(data.description)}">
     ${data.imageUrl ? `<meta property="og:image" content="${escapeHtml(data.imageUrl)}">` : ''}
+    <meta property="og:site_name" content="${escapeHtml(PORTFOLIO_OWNER.name)}'s Technical Profile">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -34,6 +35,16 @@ export function generateOpenGraphTags(data: OpenGraphData): string {
     <meta property="twitter:title" content="${escapeHtml(data.title)}">
     <meta property="twitter:description" content="${escapeHtml(data.description)}">
     ${data.imageUrl ? `<meta property="twitter:image" content="${escapeHtml(data.imageUrl)}">` : ''}
+    
+    <!-- iOS Specific Meta Tags -->
+    <meta property="al:ios:url" content="${escapeHtml(data.url)}">
+    <meta property="al:ios:app_name" content="${escapeHtml(PORTFOLIO_OWNER.name)}'s Technical Profile">
+    <meta property="al:ios:app_store_id" content="123456789"> <!-- Placeholder app store ID -->
+    ${data.imageUrl ? `
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="${escapeHtml(data.imageUrl)}">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    ` : ''}
   `;
 }
 
