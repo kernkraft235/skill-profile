@@ -86,10 +86,15 @@ export function AITooltip({
                 Try again
               </Button>
             </div>
-          ) : (
+          ) : explanation ? (
             <div>
               <h4 className="font-medium mb-1">{term}</h4>
               <p>{explanation}</p>
+            </div>
+          ) : (
+            <div>
+              <h4 className="font-medium mb-1">{term}</h4>
+              <p>Preparing explanation...</p>
             </div>
           )}
         </TooltipContent>

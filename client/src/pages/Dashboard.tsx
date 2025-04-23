@@ -454,6 +454,36 @@ const Dashboard = () => {
               </Link>
             </CardFooter>
           </Card>
+          
+          <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-500/20">
+            <CardHeader>
+              <div className="flex items-center mb-2">
+                <Bot className="h-6 w-6 text-purple-500 mr-2" />
+                <CardTitle>AI Tooltips</CardTitle>
+              </div>
+              <CardDescription>
+                Interactive explanations powered by AI
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Hover over technical terms throughout this profile to get AI-generated 
+                explanations tailored to the specific context. Makes complex terms 
+                accessible to all visitors.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/tooltips">
+                <Button
+                  variant="outline"
+                  className="border-purple-500/20 hover:border-purple-500/50"
+                >
+                  Try AI Tooltips
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
         </div>
       </section>
 
