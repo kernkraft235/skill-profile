@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Python",
+    "description": "Experience with Python for automation, data processing, and system tasks",
+    "categoryId": 20,
+    "proficiencyLevel": 3,
+    "icon": "FileCode",
+    "years": 3,
+    "order": 1
+  },
+  {
+    "name": "JavaScript/HTML/CSS",
+    "description": "Basics of web development technologies for creating web applications",
+    "categoryId": 20,
+    "proficiencyLevel": 2,
+    "icon": "Code",
+    "years": 2,
+    "order": 2
+  },
+  {
+    "name": "Code Debugging",
+    "description": "Ability to diagnose and fix code issues across different languages",
+    "categoryId": 20,
+    "proficiencyLevel": 3,
+    "icon": "Bug",
+    "years": 3,
+    "order": 3
+  },
+  {
+    "name": "Version Control (Git)",
+    "description": "Proficiency with Git for source code management and collaboration",
+    "categoryId": 20,
+    "proficiencyLevel": 3,
+    "icon": "GitBranch",
+    "years": 3,
+    "order": 4
+  },
+  {
+    "name": "AI-Assisted Development",
+    "description": "Skills in leveraging AI tools to assist in development tasks",
+    "categoryId": 20,
+    "proficiencyLevel": 3,
+    "icon": "Brain",
+    "years": 1,
+    "order": 5
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "AI Tools Integration",
+    "description": "Experience integrating AI services and tools into applications and workflows",
+    "categoryId": 23,
+    "proficiencyLevel": 3,
+    "icon": "Brain",
+    "years": 1,
+    "order": 1
+  },
+  {
+    "name": "LLM Prompt Engineering",
+    "description": "Skill in creating effective prompts for large language models",
+    "categoryId": 23,
+    "proficiencyLevel": 3,
+    "icon": "MessageSquare",
+    "years": 1,
+    "order": 2
+  },
+  {
+    "name": "AI-Enhanced Automation",
+    "description": "Implementing AI to enhance automation workflows and processes",
+    "categoryId": 23,
+    "proficiencyLevel": 2,
+    "icon": "Bot",
+    "years": 1,
+    "order": 3
+  },
+  {
+    "name": "Basic ML Concepts",
+    "description": "Understanding of fundamental machine learning concepts and applications",
+    "categoryId": 23,
+    "proficiencyLevel": 2,
+    "icon": "Network",
+    "years": 2,
+    "order": 4
+  },
+  {
+    "name": "Data Analysis",
+    "description": "Ability to analyze data for insights and trends using various tools",
+    "categoryId": 23,
+    "proficiencyLevel": 3,
+    "icon": "BarChart",
+    "years": 3,
+    "order": 5
+  }
+]

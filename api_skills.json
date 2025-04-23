@@ -1,0 +1,47 @@
+[
+  {
+    "name": "REST API Integration",
+    "description": "Experience integrating with and consuming REST APIs from various services",
+    "categoryId": 17,
+    "proficiencyLevel": 3,
+    "icon": "Link",
+    "years": 3,
+    "order": 1
+  },
+  {
+    "name": "API Authentication",
+    "description": "Implementation of secure authentication methods for API access",
+    "categoryId": 17,
+    "proficiencyLevel": 3,
+    "icon": "Key",
+    "years": 2,
+    "order": 2
+  },
+  {
+    "name": "System Integration",
+    "description": "Skills in connecting disparate systems through APIs and other integration methods",
+    "categoryId": 17,
+    "proficiencyLevel": 3,
+    "icon": "GitMerge",
+    "years": 3,
+    "order": 3
+  },
+  {
+    "name": "Webhook Implementation",
+    "description": "Experience setting up webhook listeners and triggers for automation",
+    "categoryId": 17,
+    "proficiencyLevel": 2,
+    "icon": "Webhook",
+    "years": 1,
+    "order": 4
+  },
+  {
+    "name": "Data Exchange Formats",
+    "description": "Proficiency with common data exchange formats like JSON, XML, and CSV",
+    "categoryId": 17,
+    "proficiencyLevel": 3,
+    "icon": "FileJson",
+    "years": 3,
+    "order": 5
+  }
+]

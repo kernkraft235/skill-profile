@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Dashboard Development",
+    "description": "Creating informative dashboards to visualize system and operational data",
+    "categoryId": 18,
+    "proficiencyLevel": 3,
+    "icon": "LayoutDashboard",
+    "years": 2,
+    "order": 1
+  },
+  {
+    "name": "Data Visualization",
+    "description": "Converting complex data into clear visual representations for analysis",
+    "categoryId": 18,
+    "proficiencyLevel": 3,
+    "icon": "BarChart2",
+    "years": 2,
+    "order": 2
+  },
+  {
+    "name": "Monitoring Displays",
+    "description": "Setting up real-time monitoring displays for system performance",
+    "categoryId": 18,
+    "proficiencyLevel": 3,
+    "icon": "Activity",
+    "years": 3,
+    "order": 3
+  },
+  {
+    "name": "Web-Based Visualization",
+    "description": "Implementation of web-based visualization tools for data presentation",
+    "categoryId": 18,
+    "proficiencyLevel": 2,
+    "icon": "Globe",
+    "years": 2,
+    "order": 4
+  },
+  {
+    "name": "Technical Diagramming",
+    "description": "Creating clear technical diagrams to explain complex systems",
+    "categoryId": 18,
+    "proficiencyLevel": 3,
+    "icon": "GitBranch",
+    "years": 4,
+    "order": 5
+  }
+]

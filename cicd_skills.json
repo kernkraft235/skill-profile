@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Continuous Integration",
+    "description": "Understanding of CI principles and practices for automated testing and building",
+    "categoryId": 22,
+    "proficiencyLevel": 2,
+    "icon": "RefreshCw",
+    "years": 1,
+    "order": 1
+  },
+  {
+    "name": "Deployment Automation",
+    "description": "Experience automating software deployment processes",
+    "categoryId": 22,
+    "proficiencyLevel": 2,
+    "icon": "Rocket",
+    "years": 2,
+    "order": 2
+  },
+  {
+    "name": "Build Systems",
+    "description": "Knowledge of software build systems and compilation processes",
+    "categoryId": 22,
+    "proficiencyLevel": 2,
+    "icon": "Package",
+    "years": 2,
+    "order": 3
+  },
+  {
+    "name": "Testing Integration",
+    "description": "Implementing automated testing in deployment pipelines",
+    "categoryId": 22,
+    "proficiencyLevel": 2,
+    "icon": "CheckCircle",
+    "years": 1,
+    "order": 4
+  },
+  {
+    "name": "GitHub Workflows",
+    "description": "Familiarity with GitHub Actions and workflow automation",
+    "categoryId": 22,
+    "proficiencyLevel": 2,
+    "icon": "Github",
+    "years": 1,
+    "order": 5
+  }
+]

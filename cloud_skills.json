@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Cloud Concepts",
+    "description": "Understanding of cloud computing principles, services, and architectures",
+    "categoryId": 25,
+    "proficiencyLevel": 3,
+    "icon": "Cloud",
+    "years": 3,
+    "order": 1
+  },
+  {
+    "name": "Cloud Storage Solutions",
+    "description": "Experience with cloud-based storage systems and their integration",
+    "categoryId": 25,
+    "proficiencyLevel": 3,
+    "icon": "Database",
+    "years": 2,
+    "order": 2
+  },
+  {
+    "name": "Virtual Private Servers",
+    "description": "Setting up and managing virtual servers in cloud environments",
+    "categoryId": 25,
+    "proficiencyLevel": 3,
+    "icon": "Server",
+    "years": 3,
+    "order": 3
+  },
+  {
+    "name": "Cloud Integration",
+    "description": "Connecting on-premise systems with cloud services for hybrid solutions",
+    "categoryId": 25,
+    "proficiencyLevel": 2,
+    "icon": "Link",
+    "years": 2,
+    "order": 4
+  },
+  {
+    "name": "Cloud Backup & Recovery",
+    "description": "Implementing backup and disaster recovery solutions using cloud services",
+    "categoryId": 25,
+    "proficiencyLevel": 3,
+    "icon": "Archive",
+    "years": 2,
+    "order": 5
+  }
+]

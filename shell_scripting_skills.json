@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Bash Scripting",
+    "description": "Writing and maintaining Bash scripts for automation and system tasks",
+    "categoryId": 19,
+    "proficiencyLevel": 4,
+    "icon": "Terminal",
+    "years": 5,
+    "order": 1
+  },
+  {
+    "name": "Fish Shell",
+    "description": "Proficiency with Fish shell for enhanced command line productivity",
+    "categoryId": 19,
+    "proficiencyLevel": 4,
+    "icon": "Terminal",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "Shell Automation",
+    "description": "Creating automated workflows using shell scripts and commands",
+    "categoryId": 19,
+    "proficiencyLevel": 4,
+    "icon": "Play",
+    "years": 5,
+    "order": 3
+  },
+  {
+    "name": "Command Line Tools",
+    "description": "Expert with command line utilities for system administration and data processing",
+    "categoryId": 19,
+    "proficiencyLevel": 4,
+    "icon": "Terminal",
+    "years": 6,
+    "order": 4
+  },
+  {
+    "name": "Script Debugging",
+    "description": "Ability to troubleshoot and optimize shell scripts for reliability",
+    "categoryId": 19,
+    "proficiencyLevel": 3,
+    "icon": "Bug",
+    "years": 4,
+    "order": 5
+  }
+]

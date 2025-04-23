@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Docker Compose",
+    "description": "Defining and running multi-container Docker applications with YAML configurations",
+    "categoryId": 21,
+    "proficiencyLevel": 3,
+    "icon": "Box",
+    "years": 2,
+    "order": 1
+  },
+  {
+    "name": "Configuration Management",
+    "description": "Managing system configurations through code and automation",
+    "categoryId": 21,
+    "proficiencyLevel": 3,
+    "icon": "FileSettings",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "Environment Provisioning",
+    "description": "Automating the setup and provisioning of system environments",
+    "categoryId": 21,
+    "proficiencyLevel": 3,
+    "icon": "Factory",
+    "years": 2,
+    "order": 3
+  },
+  {
+    "name": "Build Pipelines",
+    "description": "Familiarity with creating and maintaining software build pipelines",
+    "categoryId": 21,
+    "proficiencyLevel": 2,
+    "icon": "PipelineVertical",
+    "years": 1,
+    "order": 4
+  },
+  {
+    "name": "YAML/JSON Configuration",
+    "description": "Proficiency with YAML and JSON formats for configuration files",
+    "categoryId": 21,
+    "proficiencyLevel": 3,
+    "icon": "FileText",
+    "years": 3,
+    "order": 5
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Raspberry Pi",
+    "description": "Experience building and configuring Raspberry Pi for various projects and applications",
+    "categoryId": 24,
+    "proficiencyLevel": 4,
+    "icon": "Cpu",
+    "years": 4,
+    "order": 1
+  },
+  {
+    "name": "GPIO Programming",
+    "description": "Working with GPIO pins for sensors, controls, and hardware integration",
+    "categoryId": 24,
+    "proficiencyLevel": 3,
+    "icon": "CircuitBoard",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "ESP32/ESP8266",
+    "description": "Experience with ESP microcontrollers for IoT applications",
+    "categoryId": 24,
+    "proficiencyLevel": 2,
+    "icon": "Microchip",
+    "years": 1,
+    "order": 3
+  },
+  {
+    "name": "Kiosk Systems",
+    "description": "Creating kiosk systems and dashboard displays using single-board computers",
+    "categoryId": 24,
+    "proficiencyLevel": 3,
+    "icon": "Monitor",
+    "years": 3,
+    "order": 4
+  },
+  {
+    "name": "RFID/NFC",
+    "description": "Working with RFID and NFC technologies for identification and access control",
+    "categoryId": 24,
+    "proficiencyLevel": 2,
+    "icon": "Scan",
+    "years": 1,
+    "order": 5
+  }
+]
