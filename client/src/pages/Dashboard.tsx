@@ -105,14 +105,14 @@ const Dashboard = () => {
                 Technical Profile
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-3">
-              Explore my skills, experience, and interests through interactive
-              applications designed to showcase what I can bring to your team.
+            <p className="text-lg text-muted-foreground mb-3 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
+              I blend systems thinking with technical versatility to solve
+              infrastructure, automation, and integration challenges.
             </p>
-            <p className="text-lg text-muted-foreground mb-6 border-l-4 border-primary/30 pl-3 py-1 bg-primary/5 rounded-r-sm">
+            <p className="text-xl text-muted-foreground mb-6">
               <span className="font-semibold text-foreground">
-                I blend systems thinking with technical versatility to solve
-                infrastructure, automation, and integration challenges.
+                Explore my skills, experience, and interests through interactive
+                applications designed to showcase what I can bring to your team.
               </span>
             </p>
             <div className="flex items-center gap-3">
