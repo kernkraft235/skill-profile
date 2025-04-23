@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Critical Thinking",
+    "description": "Strong ability to analyze situations objectively and make rational judgments",
+    "categoryId": 14,
+    "proficiencyLevel": 4,
+    "icon": "Brain",
+    "years": 10,
+    "order": 1
+  },
+  {
+    "name": "Systems Thinking",
+    "description": "Approach to understanding how different parts of a system interact and affect each other",
+    "categoryId": 14,
+    "proficiencyLevel": 4,
+    "icon": "Network",
+    "years": 8,
+    "order": 2
+  },
+  {
+    "name": "Lateral Problem Solving",
+    "description": "Creative approach to finding solutions by looking at problems from different angles",
+    "categoryId": 14,
+    "proficiencyLevel": 4,
+    "icon": "Lightbulb",
+    "years": 8,
+    "order": 3
+  },
+  {
+    "name": "Technical Adaptability",
+    "description": "Ability to quickly adapt to new technologies and technical environments",
+    "categoryId": 14,
+    "proficiencyLevel": 4,
+    "icon": "RefreshCw",
+    "years": 10,
+    "order": 4
+  },
+  {
+    "name": "Structured Debugging",
+    "description": "Methodical approach to identifying and resolving technical issues",
+    "categoryId": 14,
+    "proficiencyLevel": 4,
+    "icon": "Microscope",
+    "years": 8,
+    "order": 5
+  }
+]

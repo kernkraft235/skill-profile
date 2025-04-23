@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Reactor Operation Principles",
+    "description": "Knowledge of nuclear reactor operation principles from Navy Nuclear Power training",
+    "categoryId": 11,
+    "proficiencyLevel": 4,
+    "icon": "Atom",
+    "years": 6,
+    "order": 1
+  },
+  {
+    "name": "System Safety Analysis",
+    "description": "Experience with safety system analysis and critical operation protocols",
+    "categoryId": 11,
+    "proficiencyLevel": 4,
+    "icon": "ShieldCheck",
+    "years": 6,
+    "order": 2
+  },
+  {
+    "name": "Process Control",
+    "description": "Understanding of process control systems and instrumentation in nuclear environments",
+    "categoryId": 11,
+    "proficiencyLevel": 4,
+    "icon": "Gauge",
+    "years": 6,
+    "order": 3
+  },
+  {
+    "name": "Technical Documentation",
+    "description": "Expertise in creating and maintaining detailed technical documentation",
+    "categoryId": 11,
+    "proficiencyLevel": 4,
+    "icon": "FileText",
+    "years": 6,
+    "order": 4
+  },
+  {
+    "name": "Equipment Monitoring",
+    "description": "Experience with continuous equipment monitoring and predictive maintenance",
+    "categoryId": 11,
+    "proficiencyLevel": 4,
+    "icon": "Activity",
+    "years": 6,
+    "order": 5
+  }
+]

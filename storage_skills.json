@@ -1,0 +1,47 @@
+[
+  {
+    "name": "ZFS",
+    "description": "Extensive experience setting up and managing ZFS file systems including RAID-Z configurations",
+    "categoryId": 8,
+    "proficiencyLevel": 4,
+    "icon": "Database",
+    "years": 3,
+    "order": 1
+  },
+  {
+    "name": "NAS Setup & Management",
+    "description": "Building and configuring Network Attached Storage solutions with large storage capacities",
+    "categoryId": 8,
+    "proficiencyLevel": 4,
+    "icon": "HardDrive",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "RAID Configurations",
+    "description": "Implementation of various RAID levels for data redundancy and performance",
+    "categoryId": 8, 
+    "proficiencyLevel": 4,
+    "icon": "Disc",
+    "years": 4,
+    "order": 3
+  },
+  {
+    "name": "NVMe Storage",
+    "description": "Experience with high-performance NVMe storage devices including namespace configuration",
+    "categoryId": 8,
+    "proficiencyLevel": 3,
+    "icon": "Zap",
+    "years": 2,
+    "order": 4
+  },
+  {
+    "name": "ButterFS / BTRFS",
+    "description": "Knowledge of the Btrfs file system and its advanced features",
+    "categoryId": 8,
+    "proficiencyLevel": 2,
+    "icon": "FileTree",
+    "years": 1,
+    "order": 5
+  }
+]

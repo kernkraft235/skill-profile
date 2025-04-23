@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Data Transformation",
+    "description": "Experience converting data between different formats and structures",
+    "categoryId": 16,
+    "proficiencyLevel": 3,
+    "icon": "Shuffle",
+    "years": 3,
+    "order": 1
+  },
+  {
+    "name": "JSON Processing",
+    "description": "Proficiency working with JSON data structures in various applications",
+    "categoryId": 16,
+    "proficiencyLevel": 3,
+    "icon": "Braces",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "Data Cleaning",
+    "description": "Skills in identifying and correcting inaccuracies in datasets",
+    "categoryId": 16,
+    "proficiencyLevel": 3,
+    "icon": "Filter",
+    "years": 2,
+    "order": 3
+  },
+  {
+    "name": "ETL Processes",
+    "description": "Experience with Extract, Transform, Load processes for data integration",
+    "categoryId": 16,
+    "proficiencyLevel": 2,
+    "icon": "MoveHorizontal",
+    "years": 2,
+    "order": 4
+  },
+  {
+    "name": "Data Structuring",
+    "description": "Ability to organize unstructured data into meaningful formats",
+    "categoryId": 16,
+    "proficiencyLevel": 3,
+    "icon": "Layers",
+    "years": 3,
+    "order": 5
+  }
+]

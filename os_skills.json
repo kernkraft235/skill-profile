@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Linux Administration",
+    "description": "Proficient in Linux system administration, command line operations, and troubleshooting",
+    "categoryId": 9,
+    "proficiencyLevel": 4,
+    "icon": "Terminal",
+    "years": 5,
+    "order": 1
+  },
+  {
+    "name": "Windows Server",
+    "description": "Experience with Windows Server environments and Active Directory services",
+    "categoryId": 9,
+    "proficiencyLevel": 3,
+    "icon": "WindowsLogo",
+    "years": 3,
+    "order": 2
+  },
+  {
+    "name": "macOS Management",
+    "description": "Knowledge of macOS systems including Apple Silicon platforms and service management",
+    "categoryId": 9,
+    "proficiencyLevel": 3,
+    "icon": "AppleLogo",
+    "years": 2,
+    "order": 3
+  },
+  {
+    "name": "Systemd",
+    "description": "Strong understanding of systemd for service management and system initialization",
+    "categoryId": 9,
+    "proficiencyLevel": 4,
+    "icon": "Power",
+    "years": 4,
+    "order": 4
+  },
+  {
+    "name": "SSH & Remote Management",
+    "description": "Expertise in secure shell protocols and remote system management",
+    "categoryId": 9,
+    "proficiencyLevel": 4,
+    "icon": "KeyRound",
+    "years": 5,
+    "order": 5
+  }
+]

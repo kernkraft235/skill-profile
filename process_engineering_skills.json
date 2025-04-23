@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Process Optimization",
+    "description": "Experience optimizing industrial processes for efficiency and performance",
+    "categoryId": 12,
+    "proficiencyLevel": 4,
+    "icon": "LineChart",
+    "years": 4,
+    "order": 1
+  },
+  {
+    "name": "System Integration",
+    "description": "Skills in integrating different systems and processes to work together seamlessly",
+    "categoryId": 12,
+    "proficiencyLevel": 4,
+    "icon": "GitMerge",
+    "years": 4,
+    "order": 2
+  },
+  {
+    "name": "Workflow Design",
+    "description": "Expertise in designing and implementing efficient workflows and procedures",
+    "categoryId": 12,
+    "proficiencyLevel": 4,
+    "icon": "GitBranch",
+    "years": 4,
+    "order": 3
+  },
+  {
+    "name": "Quality Assurance",
+    "description": "Implementation of quality assurance methods to ensure system reliability",
+    "categoryId": 12,
+    "proficiencyLevel": 3,
+    "icon": "CheckCircle",
+    "years": 4,
+    "order": 4
+  },
+  {
+    "name": "Resource Management",
+    "description": "Strategic allocation and optimization of resources in complex systems",
+    "categoryId": 12,
+    "proficiencyLevel": 3,
+    "icon": "BarChart",
+    "years": 4,
+    "order": 5
+  }
+]

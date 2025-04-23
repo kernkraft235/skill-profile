@@ -1,0 +1,47 @@
+[
+  {
+    "name": "SQL",
+    "description": "Proficiency with SQL for data management and querying across different database systems",
+    "categoryId": 15,
+    "proficiencyLevel": 3,
+    "icon": "Database",
+    "years": 3,
+    "order": 1
+  },
+  {
+    "name": "PostgreSQL",
+    "description": "Experience with PostgreSQL database setup, configuration, and management",
+    "categoryId": 15,
+    "proficiencyLevel": 3,
+    "icon": "Database",
+    "years": 2,
+    "order": 2
+  },
+  {
+    "name": "SQLite",
+    "description": "Knowledge of SQLite for embedded and lightweight database applications",
+    "categoryId": 15,
+    "proficiencyLevel": 3,
+    "icon": "Database",
+    "years": 3,
+    "order": 3
+  },
+  {
+    "name": "Redis",
+    "description": "Experience with Redis for caching and in-memory data structures",
+    "categoryId": 15,
+    "proficiencyLevel": 2,
+    "icon": "Database",
+    "years": 1,
+    "order": 4
+  },
+  {
+    "name": "Microsoft SQL Server",
+    "description": "Familiarity with Microsoft SQL Server in enterprise environments",
+    "categoryId": 15,
+    "proficiencyLevel": 2,
+    "icon": "Database",
+    "years": 1,
+    "order": 5
+  }
+]

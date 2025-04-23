@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Enterprise Server Hardware",
+    "description": "Experience with enterprise server platforms including IPMI, ILO, and DRAC management interfaces",
+    "categoryId": 10,
+    "proficiencyLevel": 3,
+    "icon": "Server",
+    "years": 4,
+    "order": 1
+  },
+  {
+    "name": "Computer Building & Troubleshooting",
+    "description": "Extensive experience building, upgrading, and troubleshooting computer systems",
+    "categoryId": 10,
+    "proficiencyLevel": 5,
+    "icon": "Cpu",
+    "years": 10,
+    "order": 2
+  },
+  {
+    "name": "RAID Controllers",
+    "description": "Knowledge of RAID controller cards and battery backup systems",
+    "categoryId": 10,
+    "proficiencyLevel": 3,
+    "icon": "HardDrive",
+    "years": 3,
+    "order": 3
+  },
+  {
+    "name": "UEFI/BIOS Configuration",
+    "description": "Proficiency with UEFI/BIOS settings and firmware management",
+    "categoryId": 10,
+    "proficiencyLevel": 4,
+    "icon": "Component",
+    "years": 8,
+    "order": 4
+  },
+  {
+    "name": "Hardware Diagnostics",
+    "description": "Skills in diagnosing and resolving hardware issues across various platforms",
+    "categoryId": 10,
+    "proficiencyLevel": 4,
+    "icon": "Wrench",
+    "years": 8,
+    "order": 5
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Root Cause Analysis",
+    "description": "Methodical approach to identifying the underlying causes of system problems",
+    "categoryId": 13,
+    "proficiencyLevel": 4,
+    "icon": "Search",
+    "years": 6,
+    "order": 1
+  },
+  {
+    "name": "Performance Monitoring",
+    "description": "Implementation of tools and methods to monitor system performance",
+    "categoryId": 13,
+    "proficiencyLevel": 3,
+    "icon": "LineChart",
+    "years": 4,
+    "order": 2
+  },
+  {
+    "name": "Complex System Troubleshooting",
+    "description": "Experience diagnosing and resolving issues in complex interconnected systems",
+    "categoryId": 13,
+    "proficiencyLevel": 4,
+    "icon": "Cog",
+    "years": 5,
+    "order": 3
+  },
+  {
+    "name": "System Documentation",
+    "description": "Creation of comprehensive documentation for system architecture and processes",
+    "categoryId": 13,
+    "proficiencyLevel": 3,
+    "icon": "FileText",
+    "years": 5,
+    "order": 4
+  },
+  {
+    "name": "Requirement Analysis",
+    "description": "Skilled at analyzing and defining system requirements for various stakeholders",
+    "categoryId": 13,
+    "proficiencyLevel": 3,
+    "icon": "ClipboardList",
+    "years": 4,
+    "order": 5
+  }
+]
