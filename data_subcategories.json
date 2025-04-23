@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Databases",
+    "description": "Experience with different database technologies and management",
+    "parentId": 3,
+    "level": 1,
+    "icon": "Database",
+    "order": 1
+  },
+  {
+    "name": "Data Processing",
+    "description": "Skills in transforming, cleaning, and processing data",
+    "parentId": 3,
+    "level": 1,
+    "icon": "Workflow",
+    "order": 2
+  },
+  {
+    "name": "APIs & Integration",
+    "description": "Experience with API development and system integration",
+    "parentId": 3,
+    "level": 1,
+    "icon": "Link",
+    "order": 3
+  },
+  {
+    "name": "Visualization",
+    "description": "Skills in visualizing data and presenting insights",
+    "parentId": 3,
+    "level": 1,
+    "icon": "BarChart3",
+    "order": 4
+  }
+]

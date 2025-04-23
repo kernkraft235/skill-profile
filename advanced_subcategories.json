@@ -1,0 +1,34 @@
+[
+  {
+    "name": "AI & Machine Learning",
+    "description": "Experience with artificial intelligence and machine learning technologies",
+    "parentId": 5,
+    "level": 1,
+    "icon": "Brain",
+    "order": 1
+  },
+  {
+    "name": "IoT & Embedded Systems",
+    "description": "Skills with Internet of Things devices and embedded systems",
+    "parentId": 5,
+    "level": 1,
+    "icon": "Chip",
+    "order": 2
+  },
+  {
+    "name": "Cloud Technologies",
+    "description": "Knowledge of cloud platforms and services",
+    "parentId": 5,
+    "level": 1,
+    "icon": "Cloud",
+    "order": 3
+  },
+  {
+    "name": "Security",
+    "description": "Understanding of cybersecurity principles and practices",
+    "parentId": 5,
+    "level": 1,
+    "icon": "Shield",
+    "order": 4
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Shell Scripting",
+    "description": "Experience with shell scripting languages for automation",
+    "parentId": 4,
+    "level": 1,
+    "icon": "Terminal",
+    "order": 1
+  },
+  {
+    "name": "Programming",
+    "description": "Skills in programming languages for automation and tool development",
+    "parentId": 4,
+    "level": 1,
+    "icon": "Code",
+    "order": 2
+  },
+  {
+    "name": "Infrastructure as Code",
+    "description": "Experience with tools for defining and managing infrastructure programmatically",
+    "parentId": 4,
+    "level": 1,
+    "icon": "FileCode",
+    "order": 3
+  },
+  {
+    "name": "CI/CD",
+    "description": "Knowledge of continuous integration and continuous deployment processes",
+    "parentId": 4,
+    "level": 1,
+    "icon": "Repeat",
+    "order": 4
+  }
+]

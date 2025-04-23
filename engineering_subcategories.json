@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Nuclear Operations",
+    "description": "Experience from Navy Nuclear Power training and operations that transfers to technical roles",
+    "parentId": 2,
+    "level": 1,
+    "icon": "Atom",
+    "order": 1
+  },
+  {
+    "name": "Process Engineering",
+    "description": "Skills from civilian process engineering work applicable to technical systems",
+    "parentId": 2,
+    "level": 1,
+    "icon": "FlowChart",
+    "order": 2
+  },
+  {
+    "name": "System Analysis",
+    "description": "Skills in analyzing complex systems, identifying issues, and implementing solutions",
+    "parentId": 2,
+    "level": 1,
+    "icon": "LineChart",
+    "order": 3
+  },
+  {
+    "name": "Problem Solving",
+    "description": "Methodology and approaches to solving complex technical problems",
+    "parentId": 2,
+    "level": 1,
+    "icon": "Puzzle",
+    "order": 4
+  }
+]

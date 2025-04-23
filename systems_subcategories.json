@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Virtualization",
+    "description": "Experience with virtualization technologies and platforms",
+    "parentId": 1,
+    "level": 1,
+    "icon": "Box",
+    "order": 1
+  },
+  {
+    "name": "Networking",
+    "description": "Skills in network configuration, troubleshooting, and optimization",
+    "parentId": 1,
+    "level": 1,
+    "icon": "Network",
+    "order": 2
+  },
+  {
+    "name": "Storage & File Systems",
+    "description": "Experience with storage solutions and file system technologies",
+    "parentId": 1,
+    "level": 1,
+    "icon": "HardDrive",
+    "order": 3
+  },
+  {
+    "name": "Operating Systems",
+    "description": "Proficiency with various operating systems and their administration",
+    "parentId": 1,
+    "level": 1,
+    "icon": "MonitorSmartphone",
+    "order": 4
+  },
+  {
+    "name": "Hardware",
+    "description": "Knowledge of computer hardware components and configurations",
+    "parentId": 1,
+    "level": 1,
+    "icon": "Cpu",
+    "order": 5
+  }
+]
