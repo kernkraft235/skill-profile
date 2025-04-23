@@ -45,6 +45,12 @@ const Home = () => {
     setViewState("skills");
   };
 
+  // Handle subcategory selection - remains in skills view but with new category
+  const handleSubcategorySelect = (categoryId: number) => {
+    setSelectedCategoryId(categoryId);
+    // Stays in skills view, just updates the selected category
+  };
+
   // Handle skill selection
   const handleSkillSelect = (skillId: number) => {
     setSelectedSkillId(skillId);

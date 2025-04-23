@@ -129,7 +129,8 @@ const SkillDetail = ({
               <Card
                 key={subcat.id}
                 className="cursor-pointer hover:border-primary/50 transition-all duration-300"
-                onClick={() => onSkillSelect(subcat.id)}
+                // Don't use onSkillSelect here, we're exploring a category
+                onClick={() => onCategorySelect(subcat.id)}
               >
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg">{subcat.name}</CardTitle>
