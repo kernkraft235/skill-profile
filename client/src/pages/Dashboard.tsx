@@ -394,7 +394,7 @@ const Dashboard = () => {
       {/* Other Features */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-6">Other Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-500/20">
             <CardHeader>
               <div className="flex items-center mb-2">

@@ -17,6 +17,7 @@ import ExperienceExplorer from "@/pages/ExperienceExplorer";
 import InterestsExplorer from "@/pages/InterestsExplorer";
 import Admin from "@/pages/Admin";
 import AuthPage from "@/pages/auth-page";
+import TooltipsDemo from "@/pages/TooltipsDemo";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -35,6 +36,7 @@ function Router() {
           {/* Protected Admin route */}
           <ProtectedRoute path="/admin" component={Admin} />
           {/* Additional routes */}
+          <Route path="/tooltips" component={TooltipsDemo} />
           {/* <Route path="/chat" component={ChatBot} /> */}
           {/* <Route path="/contact" component={Contact} /> */}
           {/* Fallback to 404 */}
