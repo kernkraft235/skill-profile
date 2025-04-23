@@ -190,6 +190,7 @@ const Home = () => {
             <SkillDetail
               categoryId={selectedCategoryId}
               onSkillSelect={handleSkillSelect}
+              onCategorySelect={handleSubcategorySelect}
               onBack={handleBack}
               onFilterToggle={handleFilterToggle}
               selectedSkillIds={selectedSkillIds}

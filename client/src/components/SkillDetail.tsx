@@ -19,6 +19,7 @@ import * as SiIcons from "react-icons/si";
 interface SkillDetailProps {
   categoryId: number;
   onSkillSelect: (skillId: number) => void;
+  onCategorySelect?: (categoryId: number) => void; // Added for subcategory navigation
   onBack: () => void;
   onFilterToggle: (skillId: number) => void;
   selectedSkillIds: number[];
@@ -27,6 +28,7 @@ interface SkillDetailProps {
 const SkillDetail = ({
   categoryId,
   onSkillSelect,
+  onCategorySelect,
   onBack,
   onFilterToggle,
   selectedSkillIds,
@@ -130,7 +132,13 @@ const SkillDetail = ({
                 key={subcat.id}
                 className="cursor-pointer hover:border-primary/50 transition-all duration-300"
                 // Don't use onSkillSelect here, we're exploring a category
-                onClick={() => onCategorySelect(subcat.id)}
+                onClick={() => {
+                  if (onCategorySelect) {
+                    onCategorySelect(subcat.id);
+                  } else {
+                    onSkillSelect(subcat.id);
+                  }
+                }}
               >
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg">{subcat.name}</CardTitle>
