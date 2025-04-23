@@ -118,6 +118,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
         .json({ message: "Failed to retrieve skill category" });
     }
   });
+  
+  // Create skill category (admin only)
+  app.post("/api/skill-categories", requireAdmin, async (req: Request, res: Response) => {
+    try {
+      const categoryData = req.body;
+      // Ensure required fields have default values
+      const dataWithDefaults = {
+        ...categoryData,
+        parentId: categoryData.parentId || null,
+        level: categoryData.level || 0,
+        icon: categoryData.icon || null,
+        order: categoryData.order || 0
+      };
+      
+      const category = await storage.createSkillCategory(dataWithDefaults);
+      return res.status(201).json({ message: "Skill category created successfully", category });
+    } catch (error) {
+      console.error("Create skill category error:", error);
+      return res.status(500).json({ message: "Failed to create skill category" });
+    }
+  });
 
   // === SKILL ROUTES ===
 
