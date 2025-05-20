@@ -1,4 +1,4 @@
-# Graham Colehour's Technical Profile
+# Interactive Technical Profile
 
 A dynamic, interactive technical profile platform showcasing professional skills and expertise through AI-powered insights and career development tools.
 
